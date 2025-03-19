@@ -20,7 +20,6 @@ func _process(delta):
 				if dialogueNumber + 1 < dialogueArray.size():
 					isDisplayingNewLine = true
 					dialogueNumber +=1
-					log(dialogueNumber)
 					$DailogueText.text = dialogueArray[dialogueNumber]
 					progressDailogue()
 				else:
