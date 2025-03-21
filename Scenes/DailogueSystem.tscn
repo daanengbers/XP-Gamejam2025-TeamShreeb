@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkhpor3u80vx8"]
 
-[ext_resource type="Script" path="res://Scenes/DailogueSystem.gd" id="1_tc0vy"]
+[ext_resource type="Script" path="res://Scripts/DailogueSystem.gd" id="1_tc0vy"]
 [ext_resource type="FontFile" uid="uid://cwaxjq81iqfhl" path="res://Fonts/EXEPixelPerfect.ttf" id="2_1n0a2"]
 
 [node name="DailogueSystem" type="Node2D"]
