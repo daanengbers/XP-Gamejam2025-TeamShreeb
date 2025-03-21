@@ -13,3 +13,10 @@ config_version=5
 config/name="Xp-gamejam 2025-team Shreeb"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=960
+window/size/window_height_override=540
