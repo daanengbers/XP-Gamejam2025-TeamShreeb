@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://1i6nhvepba7l"]
+
+[ext_resource type="Script" path="res://Scripts/Slot.gd" id="1_aua1d"]
+[ext_resource type="FontFile" uid="uid://cwaxjq81iqfhl" path="res://Fonts/EXEPixelPerfect.ttf" id="2_i7rxx"]
+[ext_resource type="Texture2D" uid="uid://de7vf5356or2j" path="res://icon.svg" id="2_iv752"]
+
+[node name="Slot" type="Node2D"]
+script = ExtResource("1_aua1d")
+
+[node name="CharSprite" type="Sprite2D" parent="."]
+position = Vector2(54, 21)
+scale = Vector2(0.261719, 0.261719)
+texture = ExtResource("2_iv752")
+
+[node name="NameLabel" type="Label" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_i7rxx")
+text = "Name"
+
+[node name="HPLabel" type="Label" parent="."]
+texture_filter = 1
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_i7rxx")
+text = "HP"
+
+[node name="ATKLabel" type="Label" parent="."]
+texture_filter = 1
+offset_top = 16.0
+offset_right = 40.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("2_i7rxx")
+text = "Attack"
+
+[node name="MGLabel" type="Label" parent="."]
+texture_filter = 1
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("2_i7rxx")
+text = "Magic"

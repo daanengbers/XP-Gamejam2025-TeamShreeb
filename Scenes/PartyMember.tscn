@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvswwebwiaj47"]
+
+[ext_resource type="Script" path="res://Scripts/PartyMember.gd" id="1_lnw50"]
+
+[node name="PartyMember" type="Node2D"]
+script = ExtResource("1_lnw50")

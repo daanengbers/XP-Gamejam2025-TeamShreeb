@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbfsrfaigrxqd"]
+
+[ext_resource type="Script" path="res://Scripts/Party.gd" id="1_cwh2o"]
+[ext_resource type="Script" path="res://Scripts/PartyMember.gd" id="1_oeo1w"]
+[ext_resource type="PackedScene" uid="uid://1i6nhvepba7l" path="res://Scenes/Slot.tscn" id="3_obbkg"]
+
+[node name="Party" type="Node2D"]
+script = ExtResource("1_cwh2o")
+
+[node name="Char1Data" type="Node2D" parent="."]
+script = ExtResource("1_oeo1w")
+ID = "BattleBeast"
+MAX_HP = 5
+HP = 5
+ATK = 6
+MG = 6
+slot = 1
+
+[node name="Slot1" parent="." instance=ExtResource("3_obbkg")]
+
+[node name="Slot2" parent="." instance=ExtResource("3_obbkg")]
+position = Vector2(296, 0)
+
+[node name="Slot3" parent="." instance=ExtResource("3_obbkg")]
+position = Vector2(0, 152)
+
+[node name="Slot4" parent="." instance=ExtResource("3_obbkg")]
+position = Vector2(296, 152)
