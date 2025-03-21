@@ -1,44 +1,80 @@
-[gd_scene load_steps=4 format=3 uid="uid://1i6nhvepba7l"]
+[gd_scene load_steps=7 format=3 uid="uid://1i6nhvepba7l"]
 
 [ext_resource type="Script" path="res://Scripts/Slot.gd" id="1_aua1d"]
-[ext_resource type="FontFile" uid="uid://cwaxjq81iqfhl" path="res://Fonts/EXEPixelPerfect.ttf" id="2_i7rxx"]
-[ext_resource type="Texture2D" uid="uid://de7vf5356or2j" path="res://icon.svg" id="2_iv752"]
+[ext_resource type="Texture2D" uid="uid://dmpju0dg5vlvg" path="res://Sprites/Placeholder/CharportraitPlaceholder1.png" id="2_kqxwf"]
+[ext_resource type="FontFile" uid="uid://r5jnl80m8gja" path="res://Fonts/Sigmar-Regular.ttf" id="3_yfu8b"]
+[ext_resource type="Texture2D" uid="uid://boftkiemx80jl" path="res://Sprites/Placeholder/UIElement_Placeholders_Attack.png" id="4_t54hl"]
+[ext_resource type="Texture2D" uid="uid://cgmp2h2cn8axf" path="res://Sprites/Placeholder/UIElement_Placeholders_Health.png" id="5_on5wk"]
+[ext_resource type="Texture2D" uid="uid://1det1o435cmq" path="res://Sprites/Placeholder/UIElement_Placeholders_Magic.png" id="6_rbeet"]
 
 [node name="Slot" type="Node2D"]
 script = ExtResource("1_aua1d")
 
 [node name="CharSprite" type="Sprite2D" parent="."]
-position = Vector2(54, 21)
-scale = Vector2(0.261719, 0.261719)
-texture = ExtResource("2_iv752")
+position = Vector2(128, 128)
+texture = ExtResource("2_kqxwf")
 
 [node name="NameLabel" type="Label" parent="."]
 texture_filter = 1
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("2_i7rxx")
+offset_top = 192.0
+offset_right = 254.0
+offset_bottom = 252.0
+theme_override_fonts/font = ExtResource("3_yfu8b")
+theme_override_font_sizes/font_size = 36
 text = "Name"
+horizontal_alignment = 1
 
 [node name="HPLabel" type="Label" parent="."]
 texture_filter = 1
-offset_top = 8.0
-offset_right = 40.0
-offset_bottom = 31.0
-theme_override_fonts/font = ExtResource("2_i7rxx")
-text = "HP"
+offset_left = 43.0
+offset_top = 236.0
+offset_right = 89.0
+offset_bottom = 286.0
+theme_override_fonts/font = ExtResource("3_yfu8b")
+theme_override_font_sizes/font_size = 30
+text = "00"
+horizontal_alignment = 1
 
 [node name="ATKLabel" type="Label" parent="."]
 texture_filter = 1
-offset_top = 16.0
-offset_right = 40.0
-offset_bottom = 39.0
-theme_override_fonts/font = ExtResource("2_i7rxx")
-text = "Attack"
+offset_left = 122.0
+offset_top = 237.0
+offset_right = 168.0
+offset_bottom = 287.0
+theme_override_fonts/font = ExtResource("3_yfu8b")
+theme_override_font_sizes/font_size = 30
+text = "00"
+horizontal_alignment = 1
 
 [node name="MGLabel" type="Label" parent="."]
 texture_filter = 1
-offset_top = 24.0
-offset_right = 40.0
-offset_bottom = 47.0
-theme_override_fonts/font = ExtResource("2_i7rxx")
-text = "Magic"
+offset_left = 206.0
+offset_top = 238.0
+offset_right = 252.0
+offset_bottom = 288.0
+theme_override_fonts/font = ExtResource("3_yfu8b")
+theme_override_font_sizes/font_size = 30
+text = "00"
+horizontal_alignment = 1
+
+[node name="GrayBG" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 254.0
+offset_bottom = 290.0
+color = Color(0, 0, 0, 0.27451)
+metadata/_edit_lock_ = true
+
+[node name="UiElementPlaceholdersAttack" type="Sprite2D" parent="."]
+position = Vector2(107, 263)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_t54hl")
+
+[node name="UiElementPlaceholdersHealth" type="Sprite2D" parent="."]
+position = Vector2(24, 263)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_on5wk")
+
+[node name="UiElementPlaceholdersMagic" type="Sprite2D" parent="."]
+position = Vector2(189, 263)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_rbeet")

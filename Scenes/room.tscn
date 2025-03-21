@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhosqviutvr2s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kgtub"]
+
+[node name="Room" type="Node"]
+
+[node name="2D_View" type="CanvasLayer" parent="."]
+
+[node name="2D" type="Node2D" parent="2D_View"]
+
+[node name="ColorRect" type="ColorRect" parent="2D_View/2D"]
+offset_right = 353.0
+offset_bottom = 431.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="ColorRect2" type="ColorRect" parent="2D_View/2D"]
+offset_top = 649.0
+offset_right = 353.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="ColorRect3" type="ColorRect" parent="2D_View/2D"]
+offset_left = 1567.0
+offset_right = 1920.0
+offset_bottom = 431.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="ColorRect4" type="ColorRect" parent="2D_View/2D"]
+offset_left = 1567.0
+offset_top = 649.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="ColorRect5" type="ColorRect" parent="2D_View/2D"]
+offset_left = 46.0
+offset_top = 34.0
+offset_right = 303.0
+offset_bottom = 209.0
+
+[node name="3D_View" type="CanvasLayer" parent="."]
+
+[node name="3D" type="Node3D" parent="3D_View"]
+
+[node name="Camera3D" type="Camera3D" parent="3D_View/3D"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3D_View/3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+mesh = SubResource("BoxMesh_kgtub")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3D_View/3D"]
+transform = Transform3D(0.959018, -0.21948, -0.179202, 0.283346, 0.742858, 0.606529, 0, -0.632448, 0.774602, 0, 0, 0)
