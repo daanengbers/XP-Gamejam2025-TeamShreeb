@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://braf6ooyhvjym"]
+[gd_scene load_steps=6 format=3 uid="uid://braf6ooyhvjym"]
 
 [ext_resource type="PackedScene" uid="uid://b5nir8ul11jk4" path="res://Scenes/EnemyBase.tscn" id="1_g0qqh"]
 [ext_resource type="Script" path="res://Scripts/BattleEnemy.gd" id="1_ua17p"]
 [ext_resource type="Texture2D" uid="uid://ditm7s4oucuir" path="res://Sprites/Enemies/Enemy_Bug.png" id="3_gr1hv"]
+[ext_resource type="Texture2D" uid="uid://1dtgtdhm8f3d" path="res://Sprites/Enemies/Enemy_Cat.png" id="3_nbymq"]
 [ext_resource type="Texture2D" uid="uid://ogo3j76xg426" path="res://Sprites/Enemies/Enemy_Ruins.png" id="4_wsl8u"]
 
 [node name="BattleEnemy" type="Node2D"]
@@ -14,13 +15,23 @@ EnemySprite = ExtResource("3_gr1hv")
 possibleAttacks = ["Attack"]
 MAXHP = 7
 HP = 7
-ATK = 3
+ATK = 1
 DEF = 5
 SPDEF = 5
 
 [node name="RuinWalker" parent="." groups=["Enemies"] instance=ExtResource("1_g0qqh")]
 EnemyName = "Ruin Walker"
 EnemySprite = ExtResource("4_wsl8u")
+possibleAttacks = ["SmallAttack", "Fireball"]
+MAXHP = 10
+HP = 2
+ATK = 2
+DEF = 2
+SPDEF = 2
+
+[node name="Cosmeow" parent="." groups=["Enemies"] instance=ExtResource("1_g0qqh")]
+EnemyName = "Cosmeow"
+EnemySprite = ExtResource("3_nbymq")
 possibleAttacks = ["SmallAttack", "Fireball"]
 MAXHP = 10
 HP = 2

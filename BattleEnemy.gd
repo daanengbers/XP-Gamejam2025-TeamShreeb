@@ -32,4 +32,5 @@ func checkDeath():
 	if HP <= 0:
 		queue_free()
 		Global.global_isInBattle = false
+		Global.global_enemiesDefeated += 1
 		party.triggerVicory()
