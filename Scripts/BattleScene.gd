@@ -17,9 +17,9 @@ func doFriendlyAction(actionID, caster, target):
 		"smallAttack":
 			smallAttack(target, caster)
 		"Attack":
-			print(actionID)
+			print("attack")
 		"Heal":
-			print(actionID)
+			heal(target,caster)
 	pass
 
 func smallAttack(target, caster):
@@ -43,3 +43,24 @@ func smallAttack(target, caster):
 	targetForAction.HP -= damageDealt
 	targetForAction.updateUI() 
 	
+func heal(target, caster):
+	var targetForAction
+	var casterOfAction
+	match caster:
+		1:
+			casterOfAction = get_node("Party/Slot1")
+		2:
+			casterOfAction = get_node("Party/Slot2")
+		3:
+			casterOfAction = get_node("Party/Slot3")
+		4: 
+			casterOfAction = get_node("Party/Slot4")
+	match target:
+		"Enemy":
+			targetForAction = get_node("BattleEnemy/EnemyInstance")
+		"self":
+			targetForAction = casterOfAction
+	var healthHealed = casterOfAction.MG * 1
+	targetForAction.HP += healthHealed
+	targetForAction.updateUI() 
+	pass

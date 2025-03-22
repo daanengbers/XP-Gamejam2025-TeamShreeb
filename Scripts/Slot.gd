@@ -17,3 +17,6 @@ func InitUI():
 	$ATKLabel.set_text(str(ATK))
 	$MGLabel.set_text(str(MG))
 	$CharSprite.texture = charSprite
+
+func updateUI():
+	$HPLabel.set_text(str(HP))

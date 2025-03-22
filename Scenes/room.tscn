@@ -43,6 +43,34 @@ tracks/2/keys = {
 "values": [75.0]
 }
 
+[sub_resource type="Animation" id="Animation_uhaas"]
+resource_name = "fireball_throw"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1.1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.5, 10.5), Vector3(0.167073, 2.65069, 10.5888), Vector3(0.209693, 2.68692, 10.6451), Vector3(0.219009, 2.65791, 10.6451), Vector3(-0.216007, 2.54554, 10.2602), Vector3(-0.216007, 2.54554, 10.2602), Vector3(0, 2.5, 10.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1.1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.102974, -0.158825, -0.0174533), Vector3(0.106465, -0.18326, -0.020944), Vector3(0.106465, -0.18326, -0.020944), Vector3(-0.26735, 0.134582, 0.100391), Vector3(-0.22801, 0.0853802, 0.0537951), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_eccle"]
 resource_name = "shake"
 length = 0.7
@@ -125,77 +153,6 @@ tracks/3/keys = {
 "args": [],
 "method": &"spawnImpactEffect1"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_gtrau"]
-resource_name = "zoom_out_and_attack"
-length = 2.0
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4, 0.6, 0.8, 0.85, 1, 1.3, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 2.5, 10.5), Vector3(0, 2.5, 11.3), Vector3(0, 2.5, 11.4), Vector3(0, 2.5, 11.4), Vector3(0, 2.5, 7), Vector3(0, 2.5, 6.8), Vector3(0, 2.5, 6.8), Vector3(0, 2.5, 9), Vector3(0, 2.5, 10.5)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"spawnImpactEffect2"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, -0.0523599), Vector3(0, 0, 0.0523599), Vector3(0, 0, -0.0349066), Vector3(0, 0, 0.0349066), Vector3(0, 0, -0.0174533), Vector3(0, 0, 0.0174533), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_uhaas"]
-resource_name = "fireball_throw"
-length = 1.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1.1, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 2.5, 10.5), Vector3(0.167073, 2.65069, 10.5888), Vector3(0.209693, 2.68692, 10.6451), Vector3(0.219009, 2.65791, 10.6451), Vector3(-0.216007, 2.54554, 10.2602), Vector3(-0.216007, 2.54554, 10.2602), Vector3(0, 2.5, 10.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1.1, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.102974, -0.158825, -0.0174533), Vector3(0.106465, -0.18326, -0.020944), Vector3(0.106465, -0.18326, -0.020944), Vector3(-0.26735, 0.134582, 0.100391), Vector3(-0.22801, 0.0853802, 0.0537951), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_gtrau"]
