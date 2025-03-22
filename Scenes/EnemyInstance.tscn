@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://vlymleq4fxlj"]
+
+[ext_resource type="Script" path="res://BattleEnemy.gd" id="1_ogg21"]
+[ext_resource type="FontFile" uid="uid://r5jnl80m8gja" path="res://Fonts/Sigmar-Regular.ttf" id="2_mwau1"]
+[ext_resource type="Texture2D" uid="uid://bvv6tl3rpf6av" path="res://Sprites/Placeholder/CharportraitPlaceholder4.png" id="3_oaf5j"]
+[ext_resource type="Texture2D" uid="uid://cgmp2h2cn8axf" path="res://Sprites/Placeholder/UIElement_Placeholders_Health.png" id="4_sp1d5"]
+
+[node name="EnemyInstance" type="Node2D"]
+script = ExtResource("1_ogg21")
+
+[node name="NameLabel" type="Label" parent="."]
+texture_filter = 1
+offset_left = 79.0
+offset_top = 173.0
+offset_right = 188.0
+offset_bottom = 233.0
+theme_override_fonts/font = ExtResource("2_mwau1")
+theme_override_font_sizes/font_size = 36
+text = "Name"
+
+[node name="HPLabel" type="Label" parent="."]
+texture_filter = 1
+offset_left = 102.0
+offset_top = 215.0
+offset_right = 162.0
+offset_bottom = 275.0
+theme_override_fonts/font = ExtResource("2_mwau1")
+theme_override_font_sizes/font_size = 36
+text = "HP"
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+position = Vector2(128, 117)
+texture = ExtResource("3_oaf5j")
+
+[node name="GrayBG" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 254.0
+offset_bottom = 290.0
+color = Color(0, 0, 0, 0.27451)
+metadata/_edit_lock_ = true
+
+[node name="HealthIcon" type="Sprite2D" parent="."]
+position = Vector2(73, 246)
+scale = Vector2(0.3125, 0.3125)
+texture = ExtResource("4_sp1d5")

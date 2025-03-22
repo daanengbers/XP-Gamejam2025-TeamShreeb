@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://braf6ooyhvjym"]
+
+[ext_resource type="PackedScene" uid="uid://b5nir8ul11jk4" path="res://Scenes/EnemyBase.tscn" id="1_g0qqh"]
+[ext_resource type="Script" path="res://Scripts/BattleEnemy.gd" id="1_ua17p"]
+[ext_resource type="PackedScene" uid="uid://vlymleq4fxlj" path="res://Scenes/EnemyInstance.tscn" id="2_q7m0t"]
+[ext_resource type="Texture2D" uid="uid://04jd7ynvp10u" path="res://Sprites/Placeholder/CharportraitPlaceholder3.png" id="3_6xs5t"]
+[ext_resource type="Texture2D" uid="uid://bvv6tl3rpf6av" path="res://Sprites/Placeholder/CharportraitPlaceholder4.png" id="4_nvi7o"]
+
+[node name="BattleEnemy" type="Node2D"]
+script = ExtResource("1_ua17p")
+
+[node name="Skeletor" parent="." groups=["Enemies"] instance=ExtResource("1_g0qqh")]
+EnemyName = "Skeletor"
+EnemySprite = ExtResource("3_6xs5t")
+MAX_HP = 2
+HP = 4
+ATK = 3
+DEF = 5
+SPDEF = 6
+
+[node name="ArieBonBarie" parent="." groups=["Enemies"] instance=ExtResource("1_g0qqh")]
+EnemyName = "Arie"
+EnemySprite = ExtResource("4_nvi7o")
+MAX_HP = 2
+HP = 2
+ATK = 2
+DEF = 2
+SPDEF = 2
+
+[node name="EnemyInstance" parent="." instance=ExtResource("2_q7m0t")]

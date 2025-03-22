@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var ID = ""
+@export var charName = ""
 
 @export var passive = ""
 
