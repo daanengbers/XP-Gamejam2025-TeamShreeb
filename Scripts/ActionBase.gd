@@ -21,5 +21,5 @@ func Attack():
 	pass
 
 func _on_texture_button_pressed():
-	get_parent().get_parent().get_parent().get_parent().doFriendlyAction(ActionID, get_parent().slotAssigned, Target)
-	pass # Replace with function body.
+	if Global.global_isPlayerTurn == true:
+		get_parent().get_parent().get_parent().get_parent().doFriendlyAction(ActionID, get_parent().slotAssigned, Target)

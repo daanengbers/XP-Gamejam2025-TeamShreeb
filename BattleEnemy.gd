@@ -2,6 +2,7 @@ extends Node2D
 
 var EnemyName = ""
 var EnemySprite = Texture
+var possibleAttacks = ["",""]
 var HP = 0
 var ATK = 0
 var DEF = 0

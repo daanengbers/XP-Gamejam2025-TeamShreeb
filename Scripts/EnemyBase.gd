@@ -6,6 +6,8 @@ extends Node2D
 
 @export var EnemySprite = Texture
 
+@export var possibleAttacks = ["", ""]
+
 @export var MAX_HP = 0
 @export var HP = 0
 @export var ATK = 0

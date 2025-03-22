@@ -12,6 +12,7 @@ script = ExtResource("1_ua17p")
 [node name="Skeletor" parent="." groups=["Enemies"] instance=ExtResource("1_g0qqh")]
 EnemyName = "Skeletor"
 EnemySprite = ExtResource("3_6xs5t")
+possibleAttacks = ["Attack", "Heal"]
 MAX_HP = 2
 HP = 4
 ATK = 3
@@ -21,6 +22,7 @@ SPDEF = 6
 [node name="ArieBonBarie" parent="." groups=["Enemies"] instance=ExtResource("1_g0qqh")]
 EnemyName = "Arie"
 EnemySprite = ExtResource("4_nvi7o")
+possibleAttacks = ["SmallAttack", "Fireball"]
 MAX_HP = 2
 HP = 2
 ATK = 2

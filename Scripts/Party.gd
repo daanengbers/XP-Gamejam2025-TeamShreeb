@@ -39,6 +39,7 @@ func _process(delta):
 	
 func InitParty():
 	for i in range(4):
+		charSlots[i].maxHP = chars[i].MAX_HP
 		charSlots[i].HP = chars[i].HP
 		charSlots[i].ATK = chars[i].ATK
 		charSlots[i].MG = chars[i].MG

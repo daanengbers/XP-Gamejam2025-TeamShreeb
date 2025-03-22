@@ -18,6 +18,7 @@ func _process(delta):
 func Init():
 	enemyInstance.EnemyName = enemies[enemyChosen].EnemyName
 	enemyInstance.EnemySprite = enemies[enemyChosen].EnemySprite
+	enemyInstance.possibleAttacks = enemies[enemyChosen].possibleAttacks
 	enemyInstance.HP = enemies[enemyChosen].HP
 	enemyInstance.ATK = enemies[enemyChosen].ATK
 	enemyInstance.DEF = enemies[enemyChosen].DEF
