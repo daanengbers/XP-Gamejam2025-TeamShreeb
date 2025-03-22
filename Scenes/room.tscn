@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhosqviutvr2s"]
+[gd_scene load_steps=14 format=3 uid="uid://dhosqviutvr2s"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_7wc8e"]
+[ext_resource type="PackedScene" uid="uid://dlalrswgjsy8v" path="res://Scenes/fireball.tscn" id="2_6vnvk"]
+[ext_resource type="Texture2D" uid="uid://d1d35b6t5guv7" path="res://Sprites/UI/IMG_1106.png" id="2_846er"]
 [ext_resource type="PackedScene" uid="uid://c4afdydgkgkov" path="res://Models/Placeholder_Models/OOP_Level_BO.gltf" id="2_q84lf"]
-[ext_resource type="PackedScene" uid="uid://bhw7qjp7nw65v" path="res://Scenes/Effects/impact_effect_1.tscn" id="3_g38tu"]
+[ext_resource type="PackedScene" uid="uid://bejm768vlgs7x" path="res://Scenes/frostball.tscn" id="4_sbord"]
+[ext_resource type="Texture2D" uid="uid://ditm7s4oucuir" path="res://Sprites/Enemies/Enemy_Bug.png" id="5_521rd"]
 
 [sub_resource type="Animation" id="Animation_s8vtl"]
 length = 0.001
@@ -42,6 +45,109 @@ tracks/2/keys = {
 "update": 0,
 "values": [75.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Effects_Nodes/Fireball:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.85, 2.5, 11)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Effects_Nodes/Fireball:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Effects_Nodes/FrostBall:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Effects_Nodes/FrostBall:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.39801, -3.04734, -3.0264)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Effects_Nodes/FrostBall:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.296, 1.706, 11)]
+}
+
+[sub_resource type="Animation" id="Animation_gtrau"]
+resource_name = "attack_tackle"
+length = 1.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.6, 0.8, 0.85, 1, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.5, 10.5), Vector3(0, 2.5, 11.3), Vector3(0, 2.5, 11.4), Vector3(0, 2.5, 11.4), Vector3(0, 2.5, 7), Vector3(0, 2.5, 6.8), Vector3(0, 2.5, 7), Vector3(0, 2.5, 9), Vector3(0, 2.5, 10.5)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.85),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawnImpactEffect2"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.85, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0.0698132), Vector3(0, 0, -0.0698132), Vector3(0, 0, 0.0349066), Vector3(0, 0, -0.0349066), Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_uhaas"]
 resource_name = "fireball_throw"
@@ -69,6 +175,44 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0.102974, -0.158825, -0.0174533), Vector3(0.106465, -0.18326, -0.020944), Vector3(0.106465, -0.18326, -0.020944), Vector3(-0.26735, 0.134582, 0.100391), Vector3(-0.22801, 0.0853802, 0.0537951), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Effects_Nodes/Fireball:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(2.2, 3.4, 11), Vector3(2.2, 3.4, 11), Vector3(0.295991, 1.70552, 1.14328)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawnImpactEffect1"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Effects_Nodes/Fireball:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_eccle"]
@@ -155,10 +299,9 @@ tracks/3/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_gtrau"]
-resource_name = "zoom_out_and_attack"
-length = 2.0
-step = 0.05
+[sub_resource type="Animation" id="Animation_rxitq"]
+resource_name = "frostball_throw"
+length = 1.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -166,19 +309,82 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4, 0.6, 0.8, 0.85, 1, 1.3, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1.1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 2.5, 10.5), Vector3(0, 2.5, 11.3), Vector3(0, 2.5, 11.4), Vector3(0, 2.5, 11.4), Vector3(0, 2.5, 9), Vector3(0, 2.5, 8.8), Vector3(0, 2.5, 9), Vector3(0, 2.5, 9), Vector3(0, 2.5, 10.5)]
+"values": [Vector3(0, 2.5, 10.5), Vector3(0.167073, 2.65069, 10.5888), Vector3(0.209693, 2.68692, 10.6451), Vector3(0.219009, 2.65791, 10.6451), Vector3(-0.216007, 2.54554, 10.2602), Vector3(-0.216007, 2.54554, 10.2602), Vector3(0, 2.5, 10.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1.1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.102974, -0.158825, -0.0174533), Vector3(0.106465, -0.18326, -0.020944), Vector3(0.106465, -0.18326, -0.020944), Vector3(-0.26735, 0.134582, 0.100391), Vector3(-0.22801, 0.0853802, 0.0537951), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawnImpactEffectFrost"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Effects_Nodes/FrostBall:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Effects_Nodes/FrostBall:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.39801, -3.04734, -3.0264)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Effects_Nodes/FrostBall:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.7, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.2, 3.4, 11), Vector3(0.3, 1.7, 1.15)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r6ldc"]
 _data = {
 "RESET": SubResource("Animation_s8vtl"),
+"attack_tackle": SubResource("Animation_gtrau"),
 "fireball_throw": SubResource("Animation_uhaas"),
+"frostball_throw": SubResource("Animation_rxitq"),
 "shake": SubResource("Animation_eccle"),
-"ultra_physical_attack": SubResource("Animation_d6pf6"),
-"zoom_out_and_attack": SubResource("Animation_gtrau")
+"ultra_physical_attack": SubResource("Animation_d6pf6")
 }
 
 [node name="Room" type="Node"]
@@ -189,23 +395,27 @@ script = ExtResource("1_7wc8e")
 [node name="TwoD" type="Node2D" parent="TwoD_View"]
 
 [node name="ColorRect" type="ColorRect" parent="TwoD_View/TwoD"]
+visible = false
 offset_right = 353.0
 offset_bottom = 431.0
 color = Color(0, 0, 0, 0.392157)
 
 [node name="ColorRect2" type="ColorRect" parent="TwoD_View/TwoD"]
+visible = false
 offset_top = 649.0
 offset_right = 353.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.392157)
 
 [node name="ColorRect3" type="ColorRect" parent="TwoD_View/TwoD"]
+visible = false
 offset_left = 1567.0
 offset_right = 1920.0
 offset_bottom = 431.0
 color = Color(0, 0, 0, 0.392157)
 
 [node name="ColorRect4" type="ColorRect" parent="TwoD_View/TwoD"]
+visible = false
 offset_left = 1567.0
 offset_top = 649.0
 offset_right = 1920.0
@@ -213,10 +423,16 @@ offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.392157)
 
 [node name="ColorRect5" type="ColorRect" parent="TwoD_View/TwoD"]
+visible = false
 offset_left = 46.0
 offset_top = 34.0
 offset_right = 303.0
 offset_bottom = 209.0
+
+[node name="Img1106" type="Sprite2D" parent="TwoD_View/TwoD"]
+modulate = Color(1, 1, 1, 0.372549)
+texture = ExtResource("2_846er")
+centered = false
 
 [node name="ThreeD_View" type="CanvasLayer" parent="."]
 
@@ -225,16 +441,37 @@ offset_bottom = 209.0
 [node name="Main_Camera" type="Camera3D" parent="ThreeD_View/ThreeD"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 10.5)
 
-[node name="CamAnim" type="AnimationPlayer" parent="ThreeD_View/ThreeD/Main_Camera"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="ThreeD_View/ThreeD"]
+transform = Transform3D(0.959018, -0.21948, -0.179202, 0.283346, 0.742858, 0.606529, 0, -0.632448, 0.774602, 0, 0, 0)
+light_energy = 0.2
+
+[node name="Effects_Nodes" type="Node3D" parent="ThreeD_View/ThreeD"]
+
+[node name="Fireball" parent="ThreeD_View/ThreeD/Effects_Nodes" instance=ExtResource("2_6vnvk")]
+transform = Transform3D(0.684769, -0.144781, -0.0113818, -0.0138059, -0.119509, 0.689585, -0.14457, -0.674356, -0.119764, 3.85, 2.5, 11)
+visible = false
+
+[node name="FrostBall" parent="ThreeD_View/ThreeD/Effects_Nodes" instance=ExtResource("4_sbord")]
+transform = Transform3D(0.684816, -0.144564, -0.011326, -0.0138327, -0.119553, 0.689577, -0.144345, -0.674395, -0.119816, 0.296, 1.706, 11)
+visible = false
+
+[node name="EffectAnimations" type="AnimationPlayer" parent="ThreeD_View/ThreeD"]
+root_node = NodePath("../Main_Camera")
 libraries = {
 "": SubResource("AnimationLibrary_r6ldc")
 }
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="ThreeD_View/ThreeD"]
-transform = Transform3D(0.959018, -0.21948, -0.179202, 0.283346, 0.742858, 0.606529, 0, -0.632448, 0.774602, 0, 0, 0)
+[node name="EnemySprite" type="Sprite3D" parent="ThreeD_View/ThreeD"]
+visible = false
+texture = ExtResource("5_521rd")
 
 [node name="OOP_Level_BO" parent="." instance=ExtResource("2_q84lf")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="ImpactEffect1" parent="." instance=ExtResource("3_g38tu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58416, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="OOP_Level_BO"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07076, 0.877041, -3.52407)
+light_color = Color(0.85098, 0.611765, 1, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="OOP_Level_BO"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67002, 5.2878, 2.42914)
+light_color = Color(0.85098, 0.611765, 1, 1)

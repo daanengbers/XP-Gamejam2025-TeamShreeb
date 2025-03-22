@@ -1,38 +1,46 @@
 extends Node
 
+@onready var effectanim = $ThreeD_View/ThreeD/EffectAnimations
+
 var IMPACT_1 = preload("res://Scenes/Effects/impact_effect_1.tscn")
 var IMPACT_2 = preload("res://Scenes/Effects/impact_effect_2.tscn")
-
+var IMPACT_FROST = preload("res://Scenes/Effects/impact_effect_frost.tscn")
 
 var roomnumber = 0
 
 var room_finished = false
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("test1"):
-		screenShakeMild()
+		getHit()
 	if Input.is_action_just_pressed("test2"):
-		screenZoomAttack()
+		attackTackle()
 	if Input.is_action_just_pressed("test3"):
-		screenSuperAttack()
+		attackLargeSlam()
 	if Input.is_action_just_pressed("test4"):
-		spawnImpactEffect1()
+		attackShootFireball()
+	if Input.is_action_just_pressed("test5"):
+		attackShootFrostball()
 
-func screenShakeMild():
-	$ThreeD_View/ThreeD/Main_Camera/CamAnim.play("RESET")
-	$ThreeD_View/ThreeD/Main_Camera/CamAnim.play("shake")
+func getHit():
+	effectanim.play("RESET")
+	effectanim.play("shake")
 
-func screenZoomAttack():
-	$ThreeD_View/ThreeD/Main_Camera/CamAnim.play("RESET")
-	$ThreeD_View/ThreeD/Main_Camera/CamAnim.play("zoom_out_and_attack")
+func attackTackle():
+	effectanim.play("RESET")
+	effectanim.play("attack_tackle")
 
-func screenSuperAttack():
-	$ThreeD_View/ThreeD/Main_Camera/CamAnim.play("RESET")
-	$ThreeD_View/ThreeD/Main_Camera/CamAnim.play("ultra_physical_attack")
+func attackLargeSlam():
+	effectanim.play("RESET")
+	effectanim.play("ultra_physical_attack")
 
-func screenShootFireball():
-	$ThreeD_View/ThreeD/Main_Camera/CamAnim.play("RESET")
-	$ThreeD_View/ThreeD/Main_Camera/CamAnim.play("fireball_throw")
+func attackShootFireball():
+	effectanim.play("RESET")
+	effectanim.play("fireball_throw")
+
+func attackShootFrostball():
+	effectanim.play("RESET")
+	effectanim.play("frostball_throw")
 
 func goToNextScene():
 	pass
@@ -47,4 +55,8 @@ func spawnImpactEffect1():
 
 func spawnImpactEffect2():
 	var eff = IMPACT_2.instantiate()
+	get_parent().add_child.call_deferred(eff)
+
+func spawnImpactEffectFrost():
+	var eff = IMPACT_FROST.instantiate()
 	get_parent().add_child.call_deferred(eff)

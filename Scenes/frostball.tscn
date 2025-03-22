@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=3 uid="uid://bejm768vlgs7x"]
+
+[ext_resource type="ArrayMesh" uid="uid://cmrk2vvr46svg" path="res://Models/Effect_Models/Half_SPhere.obj" id="1_4ha50"]
+[ext_resource type="Texture2D" uid="uid://cy30u7t8duwox" path="res://Sprites/Hiteffects/Frostball_Texture.png" id="2_4vue0"]
+[ext_resource type="Texture2D" uid="uid://bso2sl1s40q0w" path="res://Sprites/Hiteffects/Fireball_Texture_Gray.png" id="3_eg4ox"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wjcr"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_4vue0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfwk8"]
+render_priority = -1
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_4vue0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0lpl"]
+render_priority = -2
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.882353, 0.882353, 1, 1)
+albedo_texture = ExtResource("3_eg4ox")
+
+[sub_resource type="Animation" id="Animation_slpik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopFire:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LowFire:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hiw8i"]
+resource_name = "play"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopFire:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0), Vector3(0, 4.71239, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LowFire:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -6.28319, 0), Vector3(0, -12.5664, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tjhdk"]
+_data = {
+"RESET": SubResource("Animation_slpik"),
+"play": SubResource("Animation_hiw8i")
+}
+
+[node name="Frostball" type="Node3D"]
+
+[node name="TopFire" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.65, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("1_4ha50")
+surface_material_override/0 = SubResource("StandardMaterial3D_6wjcr")
+
+[node name="LowFire" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9, 0, 0, 0, 3, 0, 0, 0, 0.9, 0, -1.35, 0)
+mesh = ExtResource("1_4ha50")
+surface_material_override/0 = SubResource("StandardMaterial3D_dfwk8")
+
+[node name="LowSmoke" type="MeshInstance3D" parent="LowFire"]
+transform = Transform3D(0.888889, 0, 0, 0, 1.5, 0, 0, 0, 0.888889, 0, -0.55, 0)
+mesh = ExtResource("1_4ha50")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_c0lpl")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tjhdk")
+}

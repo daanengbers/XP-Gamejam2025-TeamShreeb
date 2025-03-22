@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmrk2vvr46svg"
+path="res://.godot/imported/Half_SPhere.obj-12bfe4291bc1d036bc6ef2888c3e4f16.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Half_SPhere.obj-12bfe4291bc1d036bc6ef2888c3e4f16.mesh"]
+
+source_file="res://Models/Effect_Models/Half_SPhere.obj"
+dest_files=["res://.godot/imported/Half_SPhere.obj-12bfe4291bc1d036bc6ef2888c3e4f16.mesh", "res://.godot/imported/Half_SPhere.obj-12bfe4291bc1d036bc6ef2888c3e4f16.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
