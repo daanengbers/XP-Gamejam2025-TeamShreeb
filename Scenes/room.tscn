@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhosqviutvr2s"]
+[gd_scene load_steps=16 format=3 uid="uid://dhosqviutvr2s"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_7wc8e"]
 [ext_resource type="PackedScene" uid="uid://dlalrswgjsy8v" path="res://Scenes/fireball.tscn" id="2_6vnvk"]
 [ext_resource type="Texture2D" uid="uid://d1d35b6t5guv7" path="res://Sprites/UI/IMG_1106.png" id="2_846er"]
 [ext_resource type="PackedScene" uid="uid://c4afdydgkgkov" path="res://Models/Placeholder_Models/OOP_Level_BO.gltf" id="2_q84lf"]
-[ext_resource type="Texture2D" uid="uid://ogo3j76xg426" path="res://Sprites/Enemies/Enemy_Ruins.png" id="3_akiwq"]
+[ext_resource type="Texture2D" uid="uid://ditm7s4oucuir" path="res://Sprites/Enemies/Enemy_Bug.png" id="4_g0gsi"]
 [ext_resource type="PackedScene" uid="uid://bejm768vlgs7x" path="res://Scenes/frostball.tscn" id="4_sbord"]
+[ext_resource type="PackedScene" uid="uid://bv6c1imgxkb5i" path="res://Scenes/BattleScene.tscn" id="7_sycas"]
 
 [sub_resource type="Animation" id="Animation_s8vtl"]
 length = 0.001
@@ -219,6 +220,71 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.45, 0.45, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yy5d4"]
+resource_name = "enemy_basic_attack"
+length = 3.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../EnemySprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.35, 1.5, 1.65, 1.8, 1.85, 2, 2.2, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.15, -0.5), Vector3(0, 1.9, -0.5), Vector3(0, 1.7, -0.5), Vector3(0, 1.9, -0.5), Vector3(0, 1.7, -0.5), Vector3(0, 1.9, -0.5), Vector3(0, 1.7, -0.5), Vector3(0, 1.9, -0.5), Vector3(0, 1.66754, -0.5), Vector3(0, 2.86208, 1.78705), Vector3(0, 3.26791, 4.19098), Vector3(0, 2.94126, 6.19514), Vector3(0, 2.15, 7.686), Vector3(0, 1.66015, 7.686), Vector3(0, 2.15, 7.686), Vector3(0, 2.15, 7.686), Vector3(0, 2.15, -0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../EnemySprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.25, 1.8, 1.85, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.45, 0.45, 1), Vector3(0.5, 0.4, 1), Vector3(0.53, 0.37, 1), Vector3(0.5, 0.4, 1), Vector3(0.53, 0.37, 1), Vector3(0.5, 0.4, 1), Vector3(0.53, 0.37, 1), Vector3(0.5, 0.4, 1), Vector3(0.544695, 0.34319, 1), Vector3(0.45, 0.45, 1), Vector3(0.45, 0.45, 1), Vector3(0.525865, 0.344401, 1), Vector3(0.45, 0.45, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.5, 10.5), Vector3(0, 2.5, 10.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.8, 1.9, 2, 2.1, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.347912, 0.028954, 0.0847453), Vector3(0.188708, -0.0590385, -0.249897), Vector3(0.075456, 0.00342165, 0.163513), Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../EnemySprite:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_uhaas"]
@@ -485,71 +551,6 @@ tracks/6/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_yy5d4"]
-resource_name = "enemy_basic_attack"
-length = 3.6
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../EnemySprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.35, 1.5, 1.65, 1.8, 1.85, 2, 2.2, 3.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 2.15, -0.5), Vector3(0, 1.9, -0.5), Vector3(0, 1.7, -0.5), Vector3(0, 1.9, -0.5), Vector3(0, 1.7, -0.5), Vector3(0, 1.9, -0.5), Vector3(0, 1.7, -0.5), Vector3(0, 1.9, -0.5), Vector3(0, 1.66754, -0.5), Vector3(0, 2.86208, 1.78705), Vector3(0, 3.26791, 4.19098), Vector3(0, 2.94126, 6.19514), Vector3(0, 2.15, 7.686), Vector3(0, 1.66015, 7.686), Vector3(0, 2.15, 7.686), Vector3(0, 2.15, 7.686), Vector3(0, 2.15, -0.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../EnemySprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.25, 1.8, 1.85, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.45, 0.45, 1), Vector3(0.5, 0.4, 1), Vector3(0.53, 0.37, 1), Vector3(0.5, 0.4, 1), Vector3(0.53, 0.37, 1), Vector3(0.5, 0.4, 1), Vector3(0.53, 0.37, 1), Vector3(0.5, 0.4, 1), Vector3(0.544695, 0.34319, 1), Vector3(0.45, 0.45, 1), Vector3(0.45, 0.45, 1), Vector3(0.525865, 0.344401, 1), Vector3(0.45, 0.45, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 2.5, 10.5), Vector3(0, 2.5, 10.5)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.8, 1.9, 2, 2.1, 2.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.347912, 0.028954, 0.0847453), Vector3(0.188708, -0.0590385, -0.249897), Vector3(0.075456, 0.00342165, 0.163513), Vector3(0, 0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../EnemySprite:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r6ldc"]
 _data = {
 "RESET": SubResource("Animation_s8vtl"),
@@ -566,45 +567,13 @@ script = ExtResource("1_7wc8e")
 
 [node name="TwoD_View" type="CanvasLayer" parent="."]
 
+[node name="BattleScene" parent="TwoD_View" instance=ExtResource("7_sycas")]
+
 [node name="TwoD" type="Node2D" parent="TwoD_View"]
-
-[node name="ColorRect" type="ColorRect" parent="TwoD_View/TwoD"]
-visible = false
-offset_right = 353.0
-offset_bottom = 431.0
-color = Color(0, 0, 0, 0.392157)
-
-[node name="ColorRect2" type="ColorRect" parent="TwoD_View/TwoD"]
-visible = false
-offset_top = 649.0
-offset_right = 353.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.392157)
-
-[node name="ColorRect3" type="ColorRect" parent="TwoD_View/TwoD"]
-visible = false
-offset_left = 1567.0
-offset_right = 1920.0
-offset_bottom = 431.0
-color = Color(0, 0, 0, 0.392157)
-
-[node name="ColorRect4" type="ColorRect" parent="TwoD_View/TwoD"]
-visible = false
-offset_left = 1567.0
-offset_top = 649.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.392157)
-
-[node name="ColorRect5" type="ColorRect" parent="TwoD_View/TwoD"]
-visible = false
-offset_left = 46.0
-offset_top = 34.0
-offset_right = 303.0
-offset_bottom = 209.0
 
 [node name="Img1106" type="Sprite2D" parent="TwoD_View/TwoD"]
 modulate = Color(1, 1, 1, 0.372549)
+z_index = -1
 texture = ExtResource("2_846er")
 centered = false
 
@@ -617,7 +586,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 10.5)
 
 [node name="EnemySprite" type="Sprite3D" parent="ThreeD_View/ThreeD"]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 1, 0, 2.15, -0.5)
-texture = ExtResource("3_akiwq")
+texture = ExtResource("4_g0gsi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="ThreeD_View/ThreeD"]
 transform = Transform3D(0.959018, -0.21948, -0.179202, 0.283346, 0.742858, 0.606529, 0, -0.632448, 0.774602, 0, 0, 0)

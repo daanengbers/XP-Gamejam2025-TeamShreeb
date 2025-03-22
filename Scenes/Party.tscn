@@ -17,13 +17,13 @@ beginingCardsIDs = ["Card1", "Card3", "Card2", "Card1"]
 [node name="Slot1" parent="." instance=ExtResource("3_obbkg")]
 
 [node name="Slot2" parent="." instance=ExtResource("3_obbkg")]
-position = Vector2(1662, 0)
+position = Vector2(1520, 0)
 
 [node name="Slot3" parent="." instance=ExtResource("3_obbkg")]
-position = Vector2(0, 600)
+position = Vector2(0, 580)
 
 [node name="Slot4" parent="." instance=ExtResource("3_obbkg")]
-position = Vector2(1664, 584)
+position = Vector2(1520, 581)
 
 [node name="PartyMember1" parent="." groups=["PartyMembers"] instance=ExtResource("3_5d14w")]
 charName = "Mage"

@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var party = await get_node("Party")
 @onready var BattleEnemy = await get_node("BattleEnemy")
+@onready var Room = get_parent().get_parent()
 
 var enemyChosenTarget
 
@@ -19,12 +20,15 @@ func _process(delta):
 
 func doEnemyAction():
 	var hasDoneAction = false
+	var animWait = 0.0
 	randomize()
 	var enemyInstance = get_node("BattleEnemy/EnemyInstance")
 	var randomAbillity = enemyInstance.possibleAttacks.pick_random()
 	match randomAbillity:
 		"Attack":
 			enemyAttack("Random")
+			animWait = 3.6
+			Room.enemyBasicAttack()
 			hasDoneAction = true
 		"Heal":
 			print(randomAbillity)
@@ -35,6 +39,7 @@ func doEnemyAction():
 		"Fireball":
 			print(randomAbillity)
 			hasDoneAction = true
+	await get_tree().create_timer(animWait).timeout
 	if hasDoneAction:
 		endEnemyTurn()
 
@@ -68,9 +73,12 @@ func enemyHeal():
 
 func doFriendlyAction(actionID, caster, target):
 	var hasDoneAction = false
+	var animWait = 0.0
 	match actionID:
 		"smallAttack":
 			smallAttack(target, caster)
+			animWait = 2.0
+			Room.attackSmall()
 			hasDoneAction = true
 		"Attack":
 			print("attack")
@@ -78,6 +86,8 @@ func doFriendlyAction(actionID, caster, target):
 		"Heal":
 			heal(target,caster)
 			hasDoneAction = true
+	Global.global_isPlayerTurn = false
+	await get_tree().create_timer(animWait).timeout
 	if hasDoneAction:
 		endPlayerTurn()
 	else:

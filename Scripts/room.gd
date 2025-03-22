@@ -14,7 +14,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("test1"):
 		getHit()
 	if Input.is_action_just_pressed("test2"):
-		attackTackle()
+		attackSmall()
 	if Input.is_action_just_pressed("test3"):
 		attackLargeSlam()
 	if Input.is_action_just_pressed("test4"):
@@ -28,7 +28,7 @@ func getHit():
 	effectanim.play("RESET")
 	effectanim.play("shake")
 
-func attackTackle():
+func attackSmall():
 	effectanim.play("RESET")
 	effectanim.play("attack_tackle")
 

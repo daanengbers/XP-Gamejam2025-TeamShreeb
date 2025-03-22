@@ -16,9 +16,9 @@ texture = ExtResource("2_kqxwf")
 
 [node name="NameLabel" type="Label" parent="."]
 texture_filter = 1
-offset_top = 192.0
-offset_right = 254.0
-offset_bottom = 252.0
+offset_left = 146.0
+offset_right = 400.0
+offset_bottom = 60.0
 theme_override_fonts/font = ExtResource("3_yfu8b")
 theme_override_font_sizes/font_size = 36
 text = "Name"
@@ -26,10 +26,10 @@ horizontal_alignment = 1
 
 [node name="HPLabel" type="Label" parent="."]
 texture_filter = 1
-offset_left = 43.0
-offset_top = 236.0
-offset_right = 89.0
-offset_bottom = 286.0
+offset_left = 316.0
+offset_top = 51.0
+offset_right = 362.0
+offset_bottom = 101.0
 theme_override_fonts/font = ExtResource("3_yfu8b")
 theme_override_font_sizes/font_size = 30
 text = "00"
@@ -37,10 +37,10 @@ horizontal_alignment = 1
 
 [node name="ATKLabel" type="Label" parent="."]
 texture_filter = 1
-offset_left = 122.0
-offset_top = 237.0
-offset_right = 168.0
-offset_bottom = 287.0
+offset_left = 316.0
+offset_top = 102.0
+offset_right = 362.0
+offset_bottom = 152.0
 theme_override_fonts/font = ExtResource("3_yfu8b")
 theme_override_font_sizes/font_size = 30
 text = "00"
@@ -48,33 +48,34 @@ horizontal_alignment = 1
 
 [node name="MGLabel" type="Label" parent="."]
 texture_filter = 1
-offset_left = 206.0
-offset_top = 238.0
-offset_right = 252.0
-offset_bottom = 288.0
+offset_left = 314.0
+offset_top = 148.0
+offset_right = 360.0
+offset_bottom = 198.0
 theme_override_fonts/font = ExtResource("3_yfu8b")
 theme_override_font_sizes/font_size = 30
 text = "00"
 horizontal_alignment = 1
 
 [node name="GrayBG" type="ColorRect" parent="."]
+visible = false
 z_index = -1
-offset_right = 254.0
-offset_bottom = 290.0
+offset_right = 400.0
+offset_bottom = 500.0
 color = Color(0, 0, 0, 0.27451)
 metadata/_edit_lock_ = true
 
 [node name="UiElementPlaceholdersAttack" type="Sprite2D" parent="."]
-position = Vector2(107, 263)
+position = Vector2(276, 124)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_t54hl")
 
 [node name="UiElementPlaceholdersHealth" type="Sprite2D" parent="."]
-position = Vector2(24, 263)
+position = Vector2(277, 78)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_on5wk")
 
 [node name="UiElementPlaceholdersMagic" type="Sprite2D" parent="."]
-position = Vector2(189, 263)
+position = Vector2(275.2, 175.2)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_rbeet")
