@@ -17,3 +17,8 @@ func updateUI():
 	$NameLabel.set_text(str(EnemyName))
 	$HPLabel.set_text(str(HP))
 	$EnemySprite.texture = EnemySprite
+	
+func checkDeath():
+	if HP <= 0:
+		queue_free()
+		Global.global_isInBattle = false

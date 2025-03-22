@@ -21,5 +21,5 @@ func Attack():
 	pass
 
 func _on_texture_button_pressed():
-	if Global.global_isPlayerTurn == true:
+	if Global.global_isPlayerTurn && Global.global_isInBattle:
 		get_parent().get_parent().get_parent().get_parent().doFriendlyAction(ActionID, get_parent().slotAssigned, Target)

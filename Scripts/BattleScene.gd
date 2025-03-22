@@ -6,13 +6,10 @@ extends Node2D
 
 var enemyChosenTarget
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_key_pressed(KEY_1):
 		doEnemyAction()
@@ -113,6 +110,7 @@ func smallAttack(target, caster):
 	var damageDealt = casterOfAction.ATK * 1
 	targetForAction.HP -= damageDealt
 	targetForAction.updateUI() 
+	targetForAction.checkDeath()
 	
 func heal(target, caster):
 	var targetForAction
@@ -139,8 +137,10 @@ func heal(target, caster):
 	pass
 
 func endPlayerTurn():
-	Global.global_isPlayerTurn = false
-	doEnemyAction()
+	if Global.global_isInBattle == true:
+		Global.global_isPlayerTurn = false
+		doEnemyAction()
 
 func endEnemyTurn():
-	Global.global_isPlayerTurn = true
+	if Global.global_isInBattle == true:
+		Global.global_isPlayerTurn = true

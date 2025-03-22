@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://dhosqviutvr2s"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_7wc8e"]
-[ext_resource type="PackedScene" uid="uid://dlalrswgjsy8v" path="res://Scenes/fireball.tscn" id="2_6vnvk"]
+[ext_resource type="PackedScene" path="res://Scenes/fireball.tscn" id="2_6vnvk"]
 [ext_resource type="Texture2D" uid="uid://d1d35b6t5guv7" path="res://Sprites/UI/IMG_1106.png" id="2_846er"]
 [ext_resource type="PackedScene" uid="uid://c4afdydgkgkov" path="res://Models/Placeholder_Models/OOP_Level_BO.gltf" id="2_q84lf"]
 [ext_resource type="Texture2D" uid="uid://ditm7s4oucuir" path="res://Sprites/Enemies/Enemy_Bug.png" id="4_g0gsi"]
-[ext_resource type="PackedScene" uid="uid://bejm768vlgs7x" path="res://Scenes/frostball.tscn" id="4_sbord"]
+[ext_resource type="PackedScene" path="res://Scenes/frostball.tscn" id="4_sbord"]
 [ext_resource type="PackedScene" uid="uid://bv6c1imgxkb5i" path="res://Scenes/BattleScene.tscn" id="7_sycas"]
 
 [sub_resource type="Animation" id="Animation_s8vtl"]
