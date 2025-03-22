@@ -5,11 +5,10 @@
 [node name="CardBase" type="Node2D" groups=["Cards"]]
 script = ExtResource("1_41qti")
 Actions = ["Attack", "smallAttack", "Heal"]
-ActionsUILocations = [Vector2(0, 0), Vector2(0, 114), Vector2(0, 214)]
+ActionsUILocations = [Vector2(10, 10), Vector2(10, 90), Vector2(10, 170)]
 
 [node name="GrayBG" type="ColorRect" parent="."]
 z_index = -1
-offset_right = 254.0
-offset_bottom = 290.0
+offset_right = 400.0
+offset_bottom = 240.0
 color = Color(0, 0, 0, 0.27451)
-metadata/_edit_lock_ = true

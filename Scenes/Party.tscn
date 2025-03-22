@@ -62,12 +62,13 @@ MG = 69
 slot = 3
 
 [node name="CardSlot1" parent="." instance=ExtResource("8_21xib")]
+position = Vector2(8, 0)
 
 [node name="CardSlot2" parent="." instance=ExtResource("8_21xib")]
-position = Vector2(1664, 0)
+position = Vector2(1510, 0)
 
 [node name="CardSlot3" parent="." instance=ExtResource("8_21xib")]
-position = Vector2(0, 600)
+position = Vector2(8, 558)
 
 [node name="CardSlot4" parent="." instance=ExtResource("8_21xib")]
-position = Vector2(1664, 584)
+position = Vector2(1510, 558)
