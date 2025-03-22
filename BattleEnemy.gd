@@ -8,6 +8,8 @@ var ATK = 0
 var DEF = 0
 var SPDEF = 0
 
+@onready var party = await get_parent().get_parent().get_child(0)
+
 func initUI():
 	$NameLabel.set_text(str(EnemyName))
 	$HPLabel.set_text(str(HP))
@@ -22,3 +24,4 @@ func checkDeath():
 	if HP <= 0:
 		queue_free()
 		Global.global_isInBattle = false
+		party.triggerVicory()

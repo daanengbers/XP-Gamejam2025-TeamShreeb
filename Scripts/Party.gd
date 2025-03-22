@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var victoryScreen = preload("res://Scenes/VictoryScreen.tscn")
+
 @onready var charSlot1 = await get_node("Slot1")
 @onready var charSlot2 = await get_node("Slot2")
 @onready var charSlot3 = await get_node("Slot3")
@@ -69,6 +71,9 @@ func InitCards():
 				cardSlots[i].add_child(card3)
 				card3.position = Vector2(0,cardOffset)
 				card3.initUI()
-		
 
+func triggerVicory():
+	var triggervictory = victoryScreen.instantiate()
+	self.add_child(triggervictory)
+	pass
 	
