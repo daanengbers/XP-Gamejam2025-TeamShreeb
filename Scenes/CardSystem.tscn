@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://dg2yply05fmdv"]
+[gd_scene load_steps=2 format=3 uid="uid://dg2yply05fmdv"]
+
+[ext_resource type="PackedScene" uid="uid://b1kdv3hflrup" path="res://Scenes/CardSlot.tscn" id="1_3byfj"]
 
 [node name="CardSystem" type="Node2D"]
+
+[node name="CardSlot" parent="." instance=ExtResource("1_3byfj")]
+
+[node name="CardSlot2" parent="." instance=ExtResource("1_3byfj")]
+
+[node name="CardSlot3" parent="." instance=ExtResource("1_3byfj")]
+
+[node name="CardSlot4" parent="." instance=ExtResource("1_3byfj")]
