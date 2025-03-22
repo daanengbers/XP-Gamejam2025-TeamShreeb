@@ -25,6 +25,7 @@ func Init():
 	enemyinstance.EnemyName = enemies[enemyChosen].EnemyName
 	enemyinstance.EnemySprite = enemies[enemyChosen].EnemySprite
 	enemyinstance.possibleAttacks = enemies[enemyChosen].possibleAttacks
+	enemyinstance.MAXHP = enemies[enemyChosen].MAXHP
 	enemyinstance.HP = enemies[enemyChosen].HP
 	enemyinstance.ATK = enemies[enemyChosen].ATK
 	enemyinstance.DEF = enemies[enemyChosen].DEF

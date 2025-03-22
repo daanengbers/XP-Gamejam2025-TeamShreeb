@@ -8,7 +8,7 @@ extends Node2D
 
 @export var possibleAttacks = ["", ""]
 
-@export var MAX_HP = 0
+@export var MAXHP = 0
 @export var HP = 0
 @export var ATK = 0
 @export var DEF = 0

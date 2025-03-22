@@ -4,6 +4,7 @@ var EnemyName = ""
 var EnemySprite = Texture
 var possibleAttacks = ["",""]
 var HP = 0
+var MAXHP = 0
 var ATK = 0
 var DEF = 0
 var SPDEF = 0
