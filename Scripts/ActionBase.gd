@@ -1,5 +1,6 @@
 extends Node2D
 @export var ActionID = ""
+@export var Target = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,7 +12,7 @@ func _ready():
 func _process(delta):
 	pass
 	
-	
+
 func Attack():
 	##get casters attack - we can do this by getting the slot this is assigned to 
 	##calculate damage to deal
@@ -19,3 +20,6 @@ func Attack():
 	##deal damgage
 	pass
 
+func _on_texture_button_pressed():
+	get_parent().get_parent().get_parent().get_parent().doFriendlyAction(ActionID, get_parent().slotAssigned, Target)
+	pass # Replace with function body.

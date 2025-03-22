@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dybdtt1emh3nh"]
+
+[ext_resource type="PackedScene" uid="uid://cstsdc7tcx8yu" path="res://Scenes/ActionBase.tscn" id="1_cot14"]
+
+[node name="HealAction" instance=ExtResource("1_cot14")]
+ActionID = "Heal"
+Target = "Self"

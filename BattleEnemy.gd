@@ -11,3 +11,8 @@ func initUI():
 	$NameLabel.set_text(str(EnemyName))
 	$HPLabel.set_text(str(HP))
 	$EnemySprite.texture = EnemySprite
+
+func updateUI():
+	$NameLabel.set_text(str(EnemyName))
+	$HPLabel.set_text(str(HP))
+	$EnemySprite.texture = EnemySprite

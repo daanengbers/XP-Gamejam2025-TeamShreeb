@@ -23,7 +23,7 @@ func Init():
 	enemyInstance.DEF = enemies[enemyChosen].DEF
 	enemyInstance.SPDEF = enemies[enemyChosen].SPDEF
 	enemyInstance.initUI()
-
+	
 	
 	
 	

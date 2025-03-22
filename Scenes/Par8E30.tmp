@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbfsrfaigrxqd"]
+[gd_scene load_steps=10 format=3 uid="uid://bbfsrfaigrxqd"]
 
 [ext_resource type="Script" path="res://Scripts/Party.gd" id="1_cwh2o"]
 [ext_resource type="PackedScene" uid="uid://bvswwebwiaj47" path="res://Scenes/PartyMember.tscn" id="3_5d14w"]
@@ -8,11 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://04jd7ynvp10u" path="res://Sprites/Placeholder/CharportraitPlaceholder3.png" id="6_cq04e"]
 [ext_resource type="Texture2D" uid="uid://bvv6tl3rpf6av" path="res://Sprites/Placeholder/CharportraitPlaceholder4.png" id="7_glmmj"]
 [ext_resource type="PackedScene" uid="uid://b1kdv3hflrup" path="res://Scenes/CardSlot.tscn" id="8_21xib"]
+[ext_resource type="PackedScene" uid="uid://bhyyuyamd57aj" path="res://Scenes/CardBase.tscn" id="9_rf6ym"]
 
 [node name="Party" type="Node2D"]
 script = ExtResource("1_cwh2o")
 cardOffset = 260
-beginingCardsIDs = ["Card1", "Card3", "Card2", "Card1"]
 
 [node name="Slot1" parent="." instance=ExtResource("3_obbkg")]
 
@@ -70,3 +70,16 @@ position = Vector2(0, 600)
 
 [node name="CardSlot4" parent="." instance=ExtResource("8_21xib")]
 position = Vector2(1664, 584)
+
+[node name="CardBase" parent="." groups=["Cards"] instance=ExtResource("9_rf6ym")]
+Actions = ["Attack", "Heal", "Heal"]
+ActionsUILocations = [Vector2(0, 200), Vector2(0, 400), Vector2(0, 600)]
+
+[node name="CardBase2" parent="." groups=["Cards"] instance=ExtResource("9_rf6ym")]
+Actions = ["smallAttack", "smallAttack", "smallAttack"]
+
+[node name="CardBase3" parent="." groups=["Cards"] instance=ExtResource("9_rf6ym")]
+Actions = ["Attack", "Heal", "smallAttack"]
+
+[node name="CardBase4" parent="." groups=["Cards"] instance=ExtResource("9_rf6ym")]
+Actions = ["Heal", "smallAttack", "smallAttack"]
