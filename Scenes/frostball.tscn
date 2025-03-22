@@ -102,6 +102,9 @@ mesh = ExtResource("1_4ha50")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_c0lpl")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.6, 0.835294, 1, 1)
+
 [node name="Anim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tjhdk")
