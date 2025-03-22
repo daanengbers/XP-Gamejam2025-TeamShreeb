@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhosqviutvr2s"]
+[gd_scene load_steps=10 format=3 uid="uid://dhosqviutvr2s"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_7wc8e"]
 [ext_resource type="PackedScene" uid="uid://c4afdydgkgkov" path="res://Models/Placeholder_Models/OOP_Level_BO.gltf" id="2_q84lf"]
+[ext_resource type="PackedScene" uid="uid://bhw7qjp7nw65v" path="res://Scenes/Effects/impact_effect_1.tscn" id="3_g38tu"]
 
 [sub_resource type="Animation" id="Animation_s8vtl"]
 length = 0.001
@@ -111,6 +112,91 @@ tracks/2/keys = {
 "update": 0,
 "values": [75.0, 75.0, 77.0, 75.0]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawnImpactEffect1"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gtrau"]
+resource_name = "zoom_out_and_attack"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.6, 0.8, 0.85, 1, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.5, 10.5), Vector3(0, 2.5, 11.3), Vector3(0, 2.5, 11.4), Vector3(0, 2.5, 11.4), Vector3(0, 2.5, 7), Vector3(0, 2.5, 6.8), Vector3(0, 2.5, 6.8), Vector3(0, 2.5, 9), Vector3(0, 2.5, 10.5)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawnImpactEffect2"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, -0.0523599), Vector3(0, 0, 0.0523599), Vector3(0, 0, -0.0349066), Vector3(0, 0, 0.0349066), Vector3(0, 0, -0.0174533), Vector3(0, 0, 0.0174533), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uhaas"]
+resource_name = "fireball_throw"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1.1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.5, 10.5), Vector3(0.167073, 2.65069, 10.5888), Vector3(0.209693, 2.68692, 10.6451), Vector3(0.219009, 2.65791, 10.6451), Vector3(-0.216007, 2.54554, 10.2602), Vector3(-0.216007, 2.54554, 10.2602), Vector3(0, 2.5, 10.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1.1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.102974, -0.158825, -0.0174533), Vector3(0.106465, -0.18326, -0.020944), Vector3(0.106465, -0.18326, -0.020944), Vector3(-0.26735, 0.134582, 0.100391), Vector3(-0.22801, 0.0853802, 0.0537951), Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_gtrau"]
 resource_name = "zoom_out_and_attack"
@@ -132,6 +218,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r6ldc"]
 _data = {
 "RESET": SubResource("Animation_s8vtl"),
+"fireball_throw": SubResource("Animation_uhaas"),
 "shake": SubResource("Animation_eccle"),
 "ultra_physical_attack": SubResource("Animation_d6pf6"),
 "zoom_out_and_attack": SubResource("Animation_gtrau")
@@ -191,3 +278,6 @@ transform = Transform3D(0.959018, -0.21948, -0.179202, 0.283346, 0.742858, 0.606
 
 [node name="OOP_Level_BO" parent="." instance=ExtResource("2_q84lf")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="ImpactEffect1" parent="." instance=ExtResource("3_g38tu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58416, 0)
