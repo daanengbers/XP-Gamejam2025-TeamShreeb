@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Party.gd" id="1_cwh2o"]
 [ext_resource type="PackedScene" uid="uid://bvswwebwiaj47" path="res://Scenes/PartyMember.tscn" id="3_5d14w"]
-[ext_resource type="PackedScene" uid="uid://bc6gye4wch2y5" path="res://Scenes/Slot.tscn" id="3_obbkg"]
+[ext_resource type="PackedScene" uid="uid://1i6nhvepba7l" path="res://Scenes/Slot.tscn" id="3_obbkg"]
 [ext_resource type="Texture2D" uid="uid://dmpju0dg5vlvg" path="res://Sprites/Placeholder/CharportraitPlaceholder1.png" id="4_e4ml2"]
 [ext_resource type="Texture2D" uid="uid://c0vj4uaeyix4" path="res://Sprites/Placeholder/CharportraitPlaceholder2.png" id="5_uaywt"]
 [ext_resource type="Texture2D" uid="uid://04jd7ynvp10u" path="res://Sprites/Placeholder/CharportraitPlaceholder3.png" id="6_cq04e"]
@@ -23,7 +23,6 @@ position = Vector2(0, 528)
 position = Vector2(768, 528)
 
 [node name="PartyMember1" parent="." instance=ExtResource("3_5d14w")]
-charName = "Mage"
 charSprite = ExtResource("4_e4ml2")
 MAX_HP = 2
 HP = 2
@@ -32,7 +31,6 @@ MG = 30
 slot = 3
 
 [node name="PartyMember2" parent="." instance=ExtResource("3_5d14w")]
-charName = "SwordFellar"
 charSprite = ExtResource("5_uaywt")
 MAX_HP = 3
 HP = 3
@@ -40,7 +38,6 @@ ATK = 30
 MG = 3
 
 [node name="PartyMember3" parent="." instance=ExtResource("3_5d14w")]
-charName = "OnionFellar"
 charSprite = ExtResource("6_cq04e")
 MAX_HP = 3
 HP = 30
@@ -49,7 +46,6 @@ MG = 3
 slot = 3
 
 [node name="PartyMember4" parent="." instance=ExtResource("3_5d14w")]
-charName = "Shiz Doggoe"
 charSprite = ExtResource("7_glmmj")
 MAX_HP = 300
 HP = 3000
