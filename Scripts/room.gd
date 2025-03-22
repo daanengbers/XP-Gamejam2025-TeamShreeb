@@ -20,7 +20,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("test4"):
 		attackShootFireball()
 	if Input.is_action_just_pressed("test5"):
-		attackShootFrostball()
+		enemyHeal()
 	if Input.is_action_just_pressed("test6"):
 		enemyBasicAttack()
 
@@ -48,6 +48,10 @@ func attackShootFrostball():
 func enemyBasicAttack():
 	effectanim.play("RESET")
 	effectanim.play("enemy_basic_attack")
+
+func enemyHeal():
+	effectanim.play("RESET")
+	effectanim.play("enemy_heal")
 
 func goToNextScene():
 	pass
