@@ -11,15 +11,22 @@ var SPDEF = 0
 
 @onready var party = await get_parent().get_parent().get_child(0)
 
+@onready var Room = await get_parent().get_parent().get_parent().get_parent()
+
 func initUI():
-	$NameLabel.set_text(str(EnemyName))
-	$HPLabel.set_text(str(HP))
-	$EnemySprite.texture = EnemySprite
+	print(str(Room))
+	Room.updateEnemy(EnemySprite, EnemyName, MAXHP)
+	pass
+	#$NameLabel.set_text(str(EnemyName))
+	#$HPLabel.set_text(str(HP))
+	#$EnemySprite.texture = EnemySprite
 
 func updateUI():
-	$NameLabel.set_text(str(EnemyName))
-	$HPLabel.set_text(str(HP))
-	$EnemySprite.texture = EnemySprite
+	Room.updateEnemyDuringBattle(HP)
+	pass
+	#$NameLabel.set_text(str(EnemyName))
+	#$HPLabel.set_text(str(HP))
+	#$EnemySprite.texture = EnemySprite
 	
 func checkDeath():
 	if HP <= 0:

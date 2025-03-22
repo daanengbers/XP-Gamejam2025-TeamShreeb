@@ -1,15 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhosqviutvr2s"]
+[gd_scene load_steps=25 format=3 uid="uid://dhosqviutvr2s"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_7wc8e"]
 [ext_resource type="PackedScene" uid="uid://dlalrswgjsy8v" path="res://Scenes/fireball.tscn" id="2_6vnvk"]
 [ext_resource type="Texture2D" uid="uid://d1d35b6t5guv7" path="res://Sprites/UI/IMG_1106.png" id="2_846er"]
 [ext_resource type="PackedScene" uid="uid://c4afdydgkgkov" path="res://Models/Placeholder_Models/OOP_Level_BO.gltf" id="2_q84lf"]
 [ext_resource type="Texture2D" uid="uid://vqt1avclgbre" path="res://Sprites/UI/HealthbarEmpty.png" id="4_07yyj"]
-[ext_resource type="Texture2D" uid="uid://ditm7s4oucuir" path="res://Sprites/Enemies/Enemy_Bug.png" id="4_g0gsi"]
+[ext_resource type="Texture2D" uid="uid://cxfbvqfsff2qp" path="res://Sprites/UI/HealthbarSurround.png" id="4_8jwo2"]
 [ext_resource type="PackedScene" uid="uid://bejm768vlgs7x" path="res://Scenes/frostball.tscn" id="4_sbord"]
 [ext_resource type="Texture2D" uid="uid://b7w6aomt6uv25" path="res://Sprites/UI/HealthbarFull.png" id="5_d3pc0"]
 [ext_resource type="FontFile" uid="uid://r5jnl80m8gja" path="res://Fonts/Sigmar-Regular.ttf" id="6_v48hc"]
 [ext_resource type="PackedScene" uid="uid://bv6c1imgxkb5i" path="res://Scenes/BattleScene.tscn" id="7_sycas"]
+[ext_resource type="Texture2D" uid="uid://1dtgtdhm8f3d" path="res://Sprites/Enemies/Enemy_Cat.png" id="8_fpj4p"]
+[ext_resource type="Shader" path="res://Shaders/watershader2.gdshader" id="10_mws55"]
+[ext_resource type="PackedScene" uid="uid://bw66m01jsyn17" path="res://Models/Placeholder_Models/OOP_Swamp_Level_BO.gltf" id="12_ocnnw"]
 
 [sub_resource type="Animation" id="Animation_s8vtl"]
 length = 0.001
@@ -631,6 +634,44 @@ _data = {
 "ultra_physical_attack": SubResource("Animation_d6pf6")
 }
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_bbyfy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hcjre"]
+render_priority = 0
+shader = ExtResource("10_mws55")
+shader_parameter/absorption_color = Color(1, 0.35, 0, 1)
+shader_parameter/fresnel_radius = 2.0
+shader_parameter/fresnel_color = Color(0, 0.57, 0.72, 1)
+shader_parameter/roughness = 0.9
+shader_parameter/specular = 0.25
+shader_parameter/depth_distance = 25.0
+shader_parameter/beers_law = 4.5
+shader_parameter/displacement_strength = 0.3
+shader_parameter/displacement_scroll_speed = 0.1
+shader_parameter/displacement_scroll_offset = Vector2(-0.2, 0.3)
+shader_parameter/displacement_scale_offset = 0.5
+shader_parameter/displacement_scale = Vector2(0.04, 0.04)
+shader_parameter/edge_thickness = 0.3
+shader_parameter/edge_speed = 0.35
+shader_parameter/edge_noise_scale = Vector2(0.8, 0.8)
+shader_parameter/influence_size = 1.0
+shader_parameter/player_wave_frequenzy = 10.0
+shader_parameter/player_wave_speed = 5.0
+shader_parameter/caustic_size = 2.0
+shader_parameter/caustic_range = 40.0
+shader_parameter/caustic_strength = 0.18
+shader_parameter/ssr_mix_strength = 0.65
+shader_parameter/ssr_travel = 100.0
+shader_parameter/ssr_resolution_near = 1.0
+shader_parameter/ssr_resolution_far = 5.0
+shader_parameter/ssr_tolerance = 1.0
+shader_parameter/refraction_strength = 1.25
+shader_parameter/normal_map_strength = 1.0
+shader_parameter/scroll_speed = 0.3
+shader_parameter/scroll_offset = Vector2(0.1, -0.3)
+shader_parameter/scale_offset = 0.5
+shader_parameter/normal_map_scale = Vector2(0.1, 0.1)
+
 [node name="Room" type="Node"]
 script = ExtResource("1_7wc8e")
 
@@ -646,6 +687,11 @@ z_index = -1
 texture = ExtResource("2_846er")
 centered = false
 
+[node name="HealthbarSurround" type="Sprite2D" parent="TwoD_View"]
+z_index = 1
+position = Vector2(960, -228)
+texture = ExtResource("4_8jwo2")
+
 [node name="EnemyHealthBar" type="TextureProgressBar" parent="TwoD_View"]
 offset_left = 735.0
 offset_top = 61.0
@@ -655,7 +701,7 @@ value = 100.0
 texture_under = ExtResource("4_07yyj")
 texture_progress = ExtResource("5_d3pc0")
 
-[node name="Label" type="Label" parent="TwoD_View"]
+[node name="EnemyHB_Name" type="Label" parent="TwoD_View"]
 offset_left = 736.0
 offset_top = 3.0
 offset_right = 1187.0
@@ -675,7 +721,7 @@ current = true
 
 [node name="EnemySprite" type="Sprite3D" parent="ThreeD_View/ThreeD"]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 1, 0, 2.15, -0.5)
-texture = ExtResource("4_g0gsi")
+texture = ExtResource("8_fpj4p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="ThreeD_View/ThreeD"]
 transform = Transform3D(0.959018, -0.21948, -0.179202, 0.283346, 0.742858, 0.606529, 0, -0.632448, 0.774602, 0, 0, 0)
@@ -707,3 +753,26 @@ light_color = Color(0.85098, 0.611765, 1, 1)
 [node name="OmniLight3D2" type="OmniLight3D" parent="OOP_Level_BO"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67002, 5.2878, 2.42914)
 light_color = Color(0.85098, 0.611765, 1, 1)
+
+[node name="OOP_Swamp_Level_BO" parent="." instance=ExtResource("12_ocnnw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.418657, -1)
+visible = false
+
+[node name="Water" type="MeshInstance3D" parent="OOP_Swamp_Level_BO"]
+transform = Transform3D(-2.67514e-07, 0, 23.375, 0, 2, 0, -6.12, 0, -1.02175e-06, -9.56756, 1.51916, -0.27201)
+mesh = SubResource("PlaneMesh_bbyfy")
+skeleton = NodePath("../../ThreeD_View/ThreeD")
+surface_material_override/0 = SubResource("ShaderMaterial_hcjre")
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="OOP_Swamp_Level_BO"]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0.961331, 2.41639, 4.45023)
+light_color = Color(0.85098, 0.611765, 1, 1)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="OOP_Swamp_Level_BO"]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 3.28021, 3.50942, -7.09713)
+light_color = Color(0.85098, 0.611765, 1, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="OOP_Swamp_Level_BO"]
+transform = Transform3D(1, -4.30615e-08, -3.62021e-08, 4.30615e-08, 0.171792, 0.985133, -3.62021e-08, -0.985133, 0.171792, 14.1544, 0, -6.18709e-07)
+visible = false
+light_energy = 0.4

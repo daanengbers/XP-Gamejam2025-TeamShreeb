@@ -24,6 +24,15 @@ func _process(_delta):
 	if Input.is_action_just_pressed("test6"):
 		enemyBasicAttack()
 
+func updateEnemy(SpriteTex, EnemName, EnemMaxHP):
+	$ThreeD_View/ThreeD/EnemySprite.texture = SpriteTex
+	$TwoD_View/EnemyHB_Name.set_text(str(EnemName))
+	$TwoD_View/EnemyHealthBar.max_value = EnemMaxHP
+	$TwoD_View/EnemyHealthBar.value = EnemMaxHP
+
+func updateEnemyDuringBattle(HP_left):
+	$TwoD_View/EnemyHealthBar.value = HP_left
+
 func getHit():
 	effectanim.play("RESET")
 	effectanim.play("shake")
