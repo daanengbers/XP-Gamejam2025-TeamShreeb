@@ -1,11 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://dhosqviutvr2s"]
+[gd_scene load_steps=20 format=3 uid="uid://dhosqviutvr2s"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_7wc8e"]
-[ext_resource type="PackedScene" path="res://Scenes/fireball.tscn" id="2_6vnvk"]
+[ext_resource type="PackedScene" uid="uid://dlalrswgjsy8v" path="res://Scenes/fireball.tscn" id="2_6vnvk"]
 [ext_resource type="Texture2D" uid="uid://d1d35b6t5guv7" path="res://Sprites/UI/IMG_1106.png" id="2_846er"]
 [ext_resource type="PackedScene" uid="uid://c4afdydgkgkov" path="res://Models/Placeholder_Models/OOP_Level_BO.gltf" id="2_q84lf"]
+[ext_resource type="Texture2D" uid="uid://vqt1avclgbre" path="res://Sprites/UI/HealthbarEmpty.png" id="4_07yyj"]
 [ext_resource type="Texture2D" uid="uid://ditm7s4oucuir" path="res://Sprites/Enemies/Enemy_Bug.png" id="4_g0gsi"]
-[ext_resource type="PackedScene" path="res://Scenes/frostball.tscn" id="4_sbord"]
+[ext_resource type="PackedScene" uid="uid://bejm768vlgs7x" path="res://Scenes/frostball.tscn" id="4_sbord"]
+[ext_resource type="Texture2D" uid="uid://b7w6aomt6uv25" path="res://Sprites/UI/HealthbarFull.png" id="5_d3pc0"]
+[ext_resource type="FontFile" uid="uid://r5jnl80m8gja" path="res://Fonts/Sigmar-Regular.ttf" id="6_v48hc"]
 [ext_resource type="PackedScene" uid="uid://bv6c1imgxkb5i" path="res://Scenes/BattleScene.tscn" id="7_sycas"]
 
 [sub_resource type="Animation" id="Animation_s8vtl"]
@@ -141,6 +144,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.45, 0.45, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../EnemySprite:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_gtrau"]
@@ -285,6 +300,59 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ovu16"]
+resource_name = "enemy_heal"
+length = 2.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../EnemySprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 0.8, 1, 1.2, 1.4, 1.55, 1.7, 1.75, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.15, -0.5), Vector3(0, 2.01946, -0.5), Vector3(0, 1.83303, -0.5), Vector3(0, 2.7986, -0.5), Vector3(0, 3.37937, -0.5), Vector3(0, 3.61834, -0.5), Vector3(0, 3.67683, -0.5), Vector3(0, 3.17014, -0.5), Vector3(0, 2.15, -0.5), Vector3(0, 1.56942, -0.5), Vector3(0, 2.15, -0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../EnemySprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../EnemySprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 0.8, 1.2, 1.4, 1.65, 1.75, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.45, 0.45, 1), Vector3(0.48, 0.42, 1), Vector3(0.538707, 0.386388, 1), Vector3(0.410882, 0.500767, 1), Vector3(0.45, 0.45, 1), Vector3(0.45, 0.45, 1), Vector3(0.420409, 0.491543, 1), Vector3(0.54001, 0.383328, 1), Vector3(0.45, 0.45, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../EnemySprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 0.9, 1.1, 1.3, 1.5, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_uhaas"]
@@ -556,6 +624,7 @@ _data = {
 "RESET": SubResource("Animation_s8vtl"),
 "attack_tackle": SubResource("Animation_gtrau"),
 "enemy_basic_attack": SubResource("Animation_yy5d4"),
+"enemy_heal": SubResource("Animation_ovu16"),
 "fireball_throw": SubResource("Animation_uhaas"),
 "frostball_throw": SubResource("Animation_rxitq"),
 "shake": SubResource("Animation_eccle"),
@@ -577,12 +646,32 @@ z_index = -1
 texture = ExtResource("2_846er")
 centered = false
 
+[node name="EnemyHealthBar" type="TextureProgressBar" parent="TwoD_View"]
+offset_left = 735.0
+offset_top = 61.0
+offset_right = 1186.0
+offset_bottom = 107.0
+value = 100.0
+texture_under = ExtResource("4_07yyj")
+texture_progress = ExtResource("5_d3pc0")
+
+[node name="Label" type="Label" parent="TwoD_View"]
+offset_left = 736.0
+offset_top = 3.0
+offset_right = 1187.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("6_v48hc")
+theme_override_font_sizes/font_size = 40
+text = "Enemy Name"
+horizontal_alignment = 1
+
 [node name="ThreeD_View" type="CanvasLayer" parent="."]
 
 [node name="ThreeD" type="Node3D" parent="ThreeD_View"]
 
 [node name="Main_Camera" type="Camera3D" parent="ThreeD_View/ThreeD"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 10.5)
+current = true
 
 [node name="EnemySprite" type="Sprite3D" parent="ThreeD_View/ThreeD"]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 1, 0, 2.15, -0.5)

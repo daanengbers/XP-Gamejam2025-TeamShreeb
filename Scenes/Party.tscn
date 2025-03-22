@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/Party.gd" id="1_cwh2o"]
 [ext_resource type="PackedScene" uid="uid://bvswwebwiaj47" path="res://Scenes/PartyMember.tscn" id="3_5d14w"]
 [ext_resource type="PackedScene" uid="uid://1i6nhvepba7l" path="res://Scenes/Slot.tscn" id="3_obbkg"]
-[ext_resource type="Texture2D" uid="uid://dmpju0dg5vlvg" path="res://Sprites/Placeholder/CharportraitPlaceholder1.png" id="4_e4ml2"]
-[ext_resource type="Texture2D" uid="uid://c0vj4uaeyix4" path="res://Sprites/Placeholder/CharportraitPlaceholder2.png" id="5_uaywt"]
-[ext_resource type="Texture2D" uid="uid://04jd7ynvp10u" path="res://Sprites/Placeholder/CharportraitPlaceholder3.png" id="6_cq04e"]
-[ext_resource type="Texture2D" uid="uid://bvv6tl3rpf6av" path="res://Sprites/Placeholder/CharportraitPlaceholder4.png" id="7_glmmj"]
+[ext_resource type="Texture2D" uid="uid://c4t4um48yao2e" path="res://Sprites/Characters/char_Mage.png" id="4_weif0"]
+[ext_resource type="Texture2D" uid="uid://hyae1fh5v6mu" path="res://Sprites/Characters/char_Warrior.png" id="5_ynv4u"]
+[ext_resource type="Texture2D" uid="uid://bdmocbqa4aivv" path="res://Sprites/Characters/char_Onion.png" id="6_npadl"]
+[ext_resource type="Texture2D" uid="uid://dejoviynm3dl0" path="res://Sprites/Characters/char_Wizard.png" id="7_y3i0j"]
 [ext_resource type="PackedScene" uid="uid://b1kdv3hflrup" path="res://Scenes/CardSlot.tscn" id="8_21xib"]
 
 [node name="Party" type="Node2D"]
@@ -15,19 +15,20 @@ cardOffset = 260
 beginingCardsIDs = ["Card1", "Card3", "Card2", "Card1"]
 
 [node name="Slot1" parent="." instance=ExtResource("3_obbkg")]
+position = Vector2(-12, 18)
 
 [node name="Slot2" parent="." instance=ExtResource("3_obbkg")]
-position = Vector2(1520, 0)
+position = Vector2(1514, 18)
 
 [node name="Slot3" parent="." instance=ExtResource("3_obbkg")]
-position = Vector2(0, 580)
+position = Vector2(-12, 576)
 
 [node name="Slot4" parent="." instance=ExtResource("3_obbkg")]
-position = Vector2(1520, 581)
+position = Vector2(1514, 576)
 
 [node name="PartyMember1" parent="." groups=["PartyMembers"] instance=ExtResource("3_5d14w")]
-charName = "Mage"
-charSprite = ExtResource("4_e4ml2")
+charName = "Thipps"
+charSprite = ExtResource("4_weif0")
 MAX_HP = 2
 HP = 2
 ATK = 3
@@ -35,16 +36,16 @@ MG = 30
 slot = 3
 
 [node name="PartyMember2" parent="." groups=["PartyMembers"] instance=ExtResource("3_5d14w")]
-charName = "SwordFellar"
-charSprite = ExtResource("5_uaywt")
+charName = "Aak'bo"
+charSprite = ExtResource("5_ynv4u")
 MAX_HP = 3
 HP = 3
 ATK = 30
 MG = 3
 
 [node name="PartyMember3" parent="." groups=["PartyMembers"] instance=ExtResource("3_5d14w")]
-charName = "OnionFellar"
-charSprite = ExtResource("6_cq04e")
+charName = "Holmund"
+charSprite = ExtResource("6_npadl")
 MAX_HP = 3
 HP = 30
 ATK = 3
@@ -52,8 +53,8 @@ MG = 3
 slot = 3
 
 [node name="PartyMember4" parent="." groups=["PartyMembers"] instance=ExtResource("3_5d14w")]
-charName = "Shiz Doggoe"
-charSprite = ExtResource("7_glmmj")
+charName = "Clement"
+charSprite = ExtResource("7_y3i0j")
 MAX_HP = 300
 HP = 200
 ATK = 3000
