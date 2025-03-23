@@ -147,13 +147,18 @@ func doFriendlyAction(actionID, caster, target):
 			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
 		"Heal":
+			#HERE WILL BE THE ANIMATION
+			animWait = 1.2
+			await get_tree().create_timer(animWait).timeout
 			heal(target,caster)
+			animWait = 1.2
+			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
 		"Fireball":
-			animWait = 2.0
+			animWait = 1.2
 			await get_tree().create_timer(animWait).timeout
 			fireballAttack(target, caster)
-			animWait = 2.0
+			animWait = 0.4
 			await get_tree().create_timer(animWait).timeout
 			Room.attackShootFireball()
 			hasDoneAction = true
