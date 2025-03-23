@@ -1,18 +1,32 @@
-[gd_scene load_steps=31 format=3 uid="uid://dhosqviutvr2s"]
+[gd_scene load_steps=53 format=3 uid="uid://dhosqviutvr2s"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_7wc8e"]
 [ext_resource type="PackedScene" uid="uid://dlalrswgjsy8v" path="res://Scenes/fireball.tscn" id="2_6vnvk"]
 [ext_resource type="Texture2D" uid="uid://d1d35b6t5guv7" path="res://Sprites/UI/IMG_1106.png" id="2_846er"]
-[ext_resource type="PackedScene" uid="uid://c4afdydgkgkov" path="res://Models/Placeholder_Models/OOP_Level_BO.gltf" id="2_q84lf"]
 [ext_resource type="Texture2D" uid="uid://vqt1avclgbre" path="res://Sprites/UI/HealthbarEmpty.png" id="4_07yyj"]
 [ext_resource type="Texture2D" uid="uid://cxfbvqfsff2qp" path="res://Sprites/UI/HealthbarSurround.png" id="4_8jwo2"]
 [ext_resource type="PackedScene" uid="uid://bejm768vlgs7x" path="res://Scenes/frostball.tscn" id="4_sbord"]
 [ext_resource type="Texture2D" uid="uid://b7w6aomt6uv25" path="res://Sprites/UI/HealthbarFull.png" id="5_d3pc0"]
 [ext_resource type="FontFile" uid="uid://r5jnl80m8gja" path="res://Fonts/Sigmar-Regular.ttf" id="6_v48hc"]
 [ext_resource type="PackedScene" uid="uid://bv6c1imgxkb5i" path="res://Scenes/BattleScene.tscn" id="7_sycas"]
-[ext_resource type="Texture2D" uid="uid://1dtgtdhm8f3d" path="res://Sprites/Enemies/Enemy_Cat.png" id="8_fpj4p"]
+[ext_resource type="Texture2D" uid="uid://ditm7s4oucuir" path="res://Sprites/Enemies/Enemy_Bug.png" id="8_mgppx"]
 [ext_resource type="Shader" path="res://Shaders/watershader2.gdshader" id="10_mws55"]
 [ext_resource type="PackedScene" uid="uid://bw66m01jsyn17" path="res://Models/Placeholder_Models/OOP_Swamp_Level_BO.gltf" id="12_ocnnw"]
+[ext_resource type="Texture2D" uid="uid://4jioo36g8ahg" path="res://Models/Dungeon/Mine_Level_Clean_3_Rope_Mat_BaseColor.png" id="14_iowx1"]
+[ext_resource type="ArrayMesh" uid="uid://c05k38rk6r0qg" path="res://Models/Dungeon/Mine_Level.obj" id="14_sr05u"]
+[ext_resource type="Texture2D" uid="uid://be3c1olrb30b6" path="res://Models/Dungeon/Mine_Level_Clean_3_Rope_Mat_Normal.png" id="15_bavlh"]
+[ext_resource type="Texture2D" uid="uid://1gjri4u54hdi" path="res://Models/Dungeon/Mine_Level_Clean_3_Rope_Mat_Roughness.png" id="16_hv1k2"]
+[ext_resource type="Texture2D" uid="uid://c1jrberev3kbr" path="res://Models/Dungeon/Mine_Level_Clean_3_Wood_Mat_BaseColor.png" id="17_70j5e"]
+[ext_resource type="Texture2D" uid="uid://c8utw5lkh17g7" path="res://Models/Dungeon/Mine_Level_Clean_3_Wood_Mat_Normal.png" id="18_o27fj"]
+[ext_resource type="Texture2D" uid="uid://cmnbjaeqco8k" path="res://Models/Dungeon/Mine_Level_Clean_3_Wood_Mat_Roughness.png" id="19_fgcmv"]
+[ext_resource type="Texture2D" uid="uid://cmls7toycasyo" path="res://Models/Dungeon/Mine_Level_Clean_3_Iron_Mat_BaseColor.png" id="20_45f83"]
+[ext_resource type="Texture2D" uid="uid://be5trnuebdx58" path="res://Models/Dungeon/Mine_Level_Clean_3_Iron_Mat_Normal.png" id="21_4ivs1"]
+[ext_resource type="Texture2D" uid="uid://b6wh8joimgh1b" path="res://Models/Dungeon/Mine_Level_Clean_3_Iron_Mat_Roughness.png" id="22_01ple"]
+[ext_resource type="Texture2D" uid="uid://qanwsv5q5a40" path="res://Models/Dungeon/Mine_Level_Clean_3_Crystal_Mat_BaseColor.png" id="23_e01jn"]
+[ext_resource type="Texture2D" uid="uid://be4y3jrba26q1" path="res://Models/Dungeon/Mine_Level_Clean_3_Crystal_Mat_Roughness.png" id="24_36te5"]
+[ext_resource type="Texture2D" uid="uid://dirqnq3fqsnug" path="res://Models/Dungeon/Mine_Level_Clean_3_Rock_Mat_BaseColor.png" id="25_yba2p"]
+[ext_resource type="Texture2D" uid="uid://k36tqbh006dt" path="res://Models/Dungeon/Mine_Level_Clean_3_Rock_Mat_Normal.png" id="26_khyvi"]
+[ext_resource type="Texture2D" uid="uid://cmoy2dy3umg62" path="res://Models/Dungeon/Mine_Level_Clean_3_Rock_Mat_Roughness.png" id="27_q6x56"]
 
 [sub_resource type="Animation" id="Animation_s8vtl"]
 length = 0.001
@@ -625,6 +639,54 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 2.5, 14), Vector3(0, 2.5, 10.8), Vector3(0, 2.5, 10.5)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../EnemySprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.15, -0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../EnemySprite:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../EnemySprite:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.45, 0.45, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../EnemySprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_uhaas"]
 resource_name = "fireball_throw"
@@ -956,6 +1018,49 @@ shader_parameter/scroll_offset = Vector2(0.1, -0.3)
 shader_parameter/scale_offset = 0.5
 shader_parameter/normal_map_scale = Vector2(0.1, 0.1)
 
+[sub_resource type="Environment" id="Environment_1ovoc"]
+tonemap_mode = 3
+tonemap_exposure = 1.2
+fog_light_color = Color(0.580392, 0.478431, 0.835294, 1)
+fog_density = 0.003
+volumetric_fog_enabled = true
+volumetric_fog_emission = Color(0.439216, 0.309804, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bp261"]
+albedo_texture = ExtResource("14_iowx1")
+roughness_texture = ExtResource("16_hv1k2")
+normal_enabled = true
+normal_texture = ExtResource("15_bavlh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnmqb"]
+albedo_texture = ExtResource("17_70j5e")
+roughness_texture = ExtResource("19_fgcmv")
+normal_enabled = true
+normal_texture = ExtResource("18_o27fj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4lbq"]
+albedo_texture = ExtResource("20_45f83")
+roughness_texture = ExtResource("22_01ple")
+normal_enabled = true
+normal_texture = ExtResource("21_4ivs1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brplc"]
+albedo_texture = ExtResource("23_e01jn")
+roughness_texture = ExtResource("24_36te5")
+emission_enabled = true
+emission = Color(0.662745, 0, 0.129412, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrpr1"]
+albedo_texture = ExtResource("25_yba2p")
+roughness_texture = ExtResource("27_q6x56")
+normal_enabled = true
+normal_texture = ExtResource("26_khyvi")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_owwtx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x47ca"]
+albedo_color = Color(0, 0, 0, 1)
+
 [node name="Room" type="Node"]
 script = ExtResource("1_7wc8e")
 
@@ -1011,7 +1116,7 @@ current = true
 
 [node name="EnemySprite" type="Sprite3D" parent="ThreeD_View/ThreeD"]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 1, 0, 2.15, -0.5)
-texture = ExtResource("8_fpj4p")
+texture = ExtResource("8_mgppx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="ThreeD_View/ThreeD"]
 transform = Transform3D(0.959018, -0.21948, -0.179202, 0.283346, 0.742858, 0.606529, 0, -0.632448, 0.774602, 0, 0, 0)
@@ -1032,17 +1137,6 @@ root_node = NodePath("../Main_Camera")
 libraries = {
 "": SubResource("AnimationLibrary_r6ldc")
 }
-
-[node name="OOP_Level_BO" parent="." instance=ExtResource("2_q84lf")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="OOP_Level_BO"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07076, 0.877041, -3.52407)
-light_color = Color(0.85098, 0.611765, 1, 1)
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="OOP_Level_BO"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67002, 5.2878, 2.42914)
-light_color = Color(0.85098, 0.611765, 1, 1)
 
 [node name="OOP_Swamp_Level_BO" parent="." instance=ExtResource("12_ocnnw")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.418657, -1)
@@ -1066,3 +1160,43 @@ light_color = Color(0.85098, 0.611765, 1, 1)
 transform = Transform3D(1, -4.30615e-08, -3.62021e-08, 4.30615e-08, 0.171792, 0.985133, -3.62021e-08, -0.985133, 0.171792, 14.1544, 0, -6.18709e-07)
 visible = false
 light_energy = 0.4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1ovoc")
+
+[node name="MineLevel" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("14_sr05u")
+surface_material_override/0 = SubResource("StandardMaterial3D_bp261")
+surface_material_override/1 = SubResource("StandardMaterial3D_mnmqb")
+surface_material_override/2 = SubResource("StandardMaterial3D_j4lbq")
+surface_material_override/3 = SubResource("StandardMaterial3D_brplc")
+surface_material_override/4 = SubResource("StandardMaterial3D_lrpr1")
+
+[node name="Centerlight" type="OmniLight3D" parent="MineLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 4.0
+omni_range = 12.0
+
+[node name="PointL_1" type="OmniLight3D" parent="MineLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.50678, 1.49507, -3.29048)
+light_color = Color(1, 0, 0, 1)
+light_energy = 2.0
+omni_range = 7.0
+
+[node name="PointL_2" type="OmniLight3D" parent="MineLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65046, 5.32942, 2.51145)
+light_color = Color(1, 0, 0, 1)
+light_energy = 4.0
+omni_range = 7.0
+
+[node name="PointL_3" type="OmniLight3D" parent="MineLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.18584, 2.9499, -3.41375)
+light_color = Color(1, 0.47451, 0, 1)
+light_energy = 11.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MineLevel"]
+transform = Transform3D(-9.6165e-08, 1, 1.00536e-07, -2.2, -4.37114e-08, 1.00536e-07, 9.61651e-08, -4.37114e-08, 2.3, -9.97327, 1.53463, 4.35945e-07)
+mesh = SubResource("PlaneMesh_owwtx")
+surface_material_override/0 = SubResource("StandardMaterial3D_x47ca")

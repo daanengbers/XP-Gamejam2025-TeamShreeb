@@ -25,7 +25,7 @@ func goToNextScene():
 
 func reloadRoom():
 	effectanim.play("fade_in")
-	$OOP_Level_BO.visible = false
+	$MineLevel.visible = false
 	$OOP_Swamp_Level_BO.visible = false
 	if Global.global_enemiesDefeated < 10:
 		pickRandomStage()
@@ -36,11 +36,13 @@ func reloadRoom():
 	Global.global_isInBattle = true
 	Global.global_isPlayerTurn = true
 	Global.global_needsToIntNewEnemy = true
+	
+	
 
 func pickRandomStage():
 	randomroom = randi()%2 + 1
 	if randomroom == 1:
-		$OOP_Level_BO.visible = true
+		$MineLevel.visible = true
 	elif randomroom == 2:
 		$OOP_Swamp_Level_BO.visible = true
 	#$Sounds/Doorclose.play()
@@ -54,6 +56,7 @@ func updateEnemy(SpriteTex, EnemName, EnemMaxHP):
 	$TwoD_View/EnemyHealthBar.max_value = EnemMaxHP
 	$TwoD_View/EnemyHealthBar.value = EnemMaxHP
 	local_enemyHP = EnemMaxHP
+	$ThreeD_View/ThreeD/EnemySprite.modulate = Color(1,1,1,1)
 
 func updateEnemyDuringBattle(HP_left):
 	local_enemyHP = HP_left

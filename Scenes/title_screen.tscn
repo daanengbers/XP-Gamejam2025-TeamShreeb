@@ -1,27 +1,457 @@
-[gd_scene load_steps=2 format=3 uid="uid://badmt5r3ggr03"]
+[gd_scene load_steps=48 format=3 uid="uid://dcguh45wmvncp"]
 
-[ext_resource type="PackedScene" uid="uid://6tour3lhdwlw" path="res://Models/Dungeon/ASM - PBR Metallic Roughness.glb" id="1_ce3hn"]
+[ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_6k7ir"]
+[ext_resource type="ArrayMesh" uid="uid://c05k38rk6r0qg" path="res://Models/Dungeon/Mine_Level.obj" id="2_3t4ta"]
+[ext_resource type="Texture2D" uid="uid://4jioo36g8ahg" path="res://Models/Dungeon/Mine_Level_Clean_3_Rope_Mat_BaseColor.png" id="2_jnr6h"]
+[ext_resource type="Texture2D" uid="uid://be3c1olrb30b6" path="res://Models/Dungeon/Mine_Level_Clean_3_Rope_Mat_Normal.png" id="3_ofr0k"]
+[ext_resource type="Texture2D" uid="uid://1gjri4u54hdi" path="res://Models/Dungeon/Mine_Level_Clean_3_Rope_Mat_Roughness.png" id="4_6hldi"]
+[ext_resource type="Texture2D" uid="uid://c1jrberev3kbr" path="res://Models/Dungeon/Mine_Level_Clean_3_Wood_Mat_BaseColor.png" id="5_ejs23"]
+[ext_resource type="Texture2D" uid="uid://c8utw5lkh17g7" path="res://Models/Dungeon/Mine_Level_Clean_3_Wood_Mat_Normal.png" id="6_5twww"]
+[ext_resource type="Texture2D" uid="uid://cmnbjaeqco8k" path="res://Models/Dungeon/Mine_Level_Clean_3_Wood_Mat_Roughness.png" id="7_oanty"]
+[ext_resource type="Texture2D" uid="uid://cmls7toycasyo" path="res://Models/Dungeon/Mine_Level_Clean_3_Iron_Mat_BaseColor.png" id="8_oxww6"]
+[ext_resource type="Texture2D" uid="uid://be5trnuebdx58" path="res://Models/Dungeon/Mine_Level_Clean_3_Iron_Mat_Normal.png" id="9_4arct"]
+[ext_resource type="Texture2D" uid="uid://b6wh8joimgh1b" path="res://Models/Dungeon/Mine_Level_Clean_3_Iron_Mat_Roughness.png" id="10_crufi"]
+[ext_resource type="Texture2D" uid="uid://qanwsv5q5a40" path="res://Models/Dungeon/Mine_Level_Clean_3_Crystal_Mat_BaseColor.png" id="11_oion1"]
+[ext_resource type="Texture2D" uid="uid://be4y3jrba26q1" path="res://Models/Dungeon/Mine_Level_Clean_3_Crystal_Mat_Roughness.png" id="12_wpxk7"]
+[ext_resource type="Texture2D" uid="uid://dirqnq3fqsnug" path="res://Models/Dungeon/Mine_Level_Clean_3_Rock_Mat_BaseColor.png" id="13_qdsdc"]
+[ext_resource type="Texture2D" uid="uid://k36tqbh006dt" path="res://Models/Dungeon/Mine_Level_Clean_3_Rock_Mat_Normal.png" id="14_kqtq6"]
+[ext_resource type="Texture2D" uid="uid://cmoy2dy3umg62" path="res://Models/Dungeon/Mine_Level_Clean_3_Rock_Mat_Roughness.png" id="15_3munx"]
+[ext_resource type="Texture2D" uid="uid://imbu83njf8v8" path="res://Sprites/UI/textforweirdgame_start.png" id="16_cjish"]
+[ext_resource type="Texture2D" uid="uid://dilcnn18ljja2" path="res://Sprites/UI/textforweirdgame_startclick.png" id="17_k784o"]
+[ext_resource type="Texture2D" uid="uid://cj0cn1r3jetnh" path="res://Sprites/UI/textforweirdgame_starthover.png" id="18_kyvtq"]
+[ext_resource type="Texture2D" uid="uid://clsknrslx253p" path="res://Sprites/UI/textforweirdgame_options.png" id="19_p2qjb"]
+[ext_resource type="Texture2D" uid="uid://dhy7tr7wdulll" path="res://Sprites/UI/textforweirdgame_optionsclick.png" id="20_3g5qo"]
+[ext_resource type="Texture2D" uid="uid://bnne1k5c1c1pa" path="res://Sprites/UI/textforweirdgame_optionshover.png" id="21_yvv6o"]
+[ext_resource type="FontFile" uid="uid://r5jnl80m8gja" path="res://Fonts/Sigmar-Regular.ttf" id="23_acnup"]
+[ext_resource type="Shader" path="res://Shaders/2dgrayscale.gdshader" id="23_gl7u3"]
+[ext_resource type="Texture2D" uid="uid://c4t4um48yao2e" path="res://Sprites/Characters/char_Mage.png" id="25_8i3af"]
+[ext_resource type="Texture2D" uid="uid://bdmocbqa4aivv" path="res://Sprites/Characters/char_Onion.png" id="26_lnnyh"]
+[ext_resource type="Texture2D" uid="uid://hyae1fh5v6mu" path="res://Sprites/Characters/char_Warrior.png" id="27_32bm4"]
+[ext_resource type="Texture2D" uid="uid://dejoviynm3dl0" path="res://Sprites/Characters/char_Wizard.png" id="28_8akgt"]
+[ext_resource type="Texture2D" uid="uid://dxg8157bkb4qq" path="res://Sprites/UI/hearticon.png" id="29_8ucrn"]
+[ext_resource type="Texture2D" uid="uid://cvalm3ag175ux" path="res://Sprites/UI/magicicon.png" id="30_nqoo2"]
+[ext_resource type="Texture2D" uid="uid://syvibehapjl3" path="res://Sprites/UI/swordicon.png" id="31_ufaf4"]
+[ext_resource type="Texture2D" uid="uid://dmcrova6vpqsr" path="res://Sprites/UI/ButtonBackground.png" id="32_vk4qf"]
 
-[node name="Title_Screen" type="Node"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pkyr4"]
+albedo_texture = ExtResource("2_jnr6h")
+roughness_texture = ExtResource("4_6hldi")
+normal_enabled = true
+normal_texture = ExtResource("3_ofr0k")
 
-[node name="Node3D" type="Node3D" parent="."]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27rq8"]
+albedo_texture = ExtResource("5_ejs23")
+roughness_texture = ExtResource("7_oanty")
+normal_enabled = true
+normal_texture = ExtResource("6_5twww")
 
-[node name="ASM - PBR Metallic Roughness" parent="Node3D" instance=ExtResource("1_ce3hn")]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.0175101, 0, 0.141111)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02oyh"]
+albedo_texture = ExtResource("8_oxww6")
+roughness_texture = ExtResource("10_crufi")
+normal_enabled = true
+normal_texture = ExtResource("9_4arct")
 
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(0.265994, 0, 0.963975, 0, 1, 0, -0.963975, 0, 0.265994, 9.95886, 2.66019, 0)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrtt4"]
+albedo_texture = ExtResource("11_oion1")
+roughness_texture = ExtResource("12_wpxk7")
+emission_enabled = true
+emission = Color(0.662745, 0, 0.129412, 1)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25526, 1.51126, -3.26329)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptsba"]
+albedo_texture = ExtResource("13_qdsdc")
+roughness_texture = ExtResource("15_3munx")
+normal_enabled = true
+normal_texture = ExtResource("14_kqtq6")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_82x3q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmbgy"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Environment" id="Environment_j7a4s"]
+tonemap_mode = 3
+tonemap_exposure = 1.2
+fog_light_color = Color(0.580392, 0.478431, 0.835294, 1)
+fog_density = 0.003
+volumetric_fog_enabled = true
+volumetric_fog_emission = Color(0.439216, 0.309804, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2006f"]
+shader = ExtResource("23_gl7u3")
+
+[sub_resource type="Animation" id="Animation_kp4qk"]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cuqy6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mq82c"]
+_data = {
+"RESET": SubResource("Animation_cuqy6"),
+"fade": SubResource("Animation_kp4qk")
+}
+
+[sub_resource type="Animation" id="Animation_ks134"]
+resource_name = "fadeblack"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"goToNextScene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_e4cka"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jq66j"]
+_data = {
+"RESET": SubResource("Animation_e4cka"),
+"fadeblack": SubResource("Animation_ks134")
+}
+
+[node name="TitleScreen" type="Node"]
+script = ExtResource("1_6k7ir")
+
+[node name="MineLevel" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("2_3t4ta")
+surface_material_override/0 = SubResource("StandardMaterial3D_pkyr4")
+surface_material_override/1 = SubResource("StandardMaterial3D_27rq8")
+surface_material_override/2 = SubResource("StandardMaterial3D_02oyh")
+surface_material_override/3 = SubResource("StandardMaterial3D_jrtt4")
+surface_material_override/4 = SubResource("StandardMaterial3D_ptsba")
+
+[node name="Centerlight" type="OmniLight3D" parent="MineLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 light_color = Color(1, 0, 0, 1)
-light_energy = 16.0
+light_energy = 4.0
+omni_range = 12.0
+
+[node name="PointL_1" type="OmniLight3D" parent="MineLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.50678, 1.49507, -3.29048)
+light_color = Color(1, 0, 0, 1)
+light_energy = 2.0
+shadow_enabled = true
 omni_range = 7.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.983127, 5.67885, 3.34702)
+[node name="PointL_2" type="OmniLight3D" parent="MineLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65046, 5.32942, 2.51145)
 light_color = Color(1, 0, 0, 1)
-light_energy = 16.0
+light_energy = 4.0
+shadow_enabled = true
 omni_range = 7.0
+
+[node name="PointL_3" type="OmniLight3D" parent="MineLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.18584, 2.9499, -3.41375)
+light_color = Color(1, 0.47451, 0, 1)
+light_energy = 11.0
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MineLevel"]
+transform = Transform3D(-9.6165e-08, 1, 1.00536e-07, -2.2, -4.37114e-08, 1.00536e-07, 9.61651e-08, -4.37114e-08, 2.3, -9.97327, 1.53463, 4.35945e-07)
+mesh = SubResource("PlaneMesh_82x3q")
+surface_material_override/0 = SubResource("StandardMaterial3D_vmbgy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MineLevel"]
+transform = Transform3D(-9.61651e-08, 7.10543e-15, -2.3, -2.2, -4.37114e-08, 1.00536e-07, -9.61651e-08, 1, 1.42109e-14, -0.861079, 1.53463, -10.1436)
+mesh = SubResource("PlaneMesh_82x3q")
+surface_material_override/0 = SubResource("StandardMaterial3D_vmbgy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_j7a4s")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.959018, -0.219481, -0.179202, 0.283346, 0.742858, 0.606529, 0, -0.632448, 0.774603, 0, 0, 0)
+light_energy = 0.2
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.738691, -0.132083, -0.660976, -0.0237475, 0.974904, -0.221355, 0.673626, 0.17921, 0.717016, -3.73389, 1.08389, -0.424315)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="StartGame" type="TextureButton" parent="UI"]
+offset_left = 1210.0
+offset_top = 407.0
+offset_right = 1810.0
+offset_bottom = 547.0
+texture_normal = ExtResource("16_cjish")
+texture_pressed = ExtResource("17_k784o")
+texture_hover = ExtResource("18_kyvtq")
+metadata/_edit_lock_ = true
+
+[node name="Options" type="TextureButton" parent="UI"]
+offset_left = 1210.0
+offset_top = 563.0
+offset_right = 1810.0
+offset_bottom = 703.0
+texture_normal = ExtResource("19_p2qjb")
+texture_pressed = ExtResource("20_3g5qo")
+texture_hover = ExtResource("21_yvv6o")
+metadata/_edit_lock_ = true
+
+[node name="TutorialLayer" type="Node2D" parent="UI"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="UI/TutorialLayer"]
+z_index = 5
+offset_left = 799.0
+offset_top = 114.0
+offset_right = 1864.0
+offset_bottom = 324.0
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("23_acnup")
+theme_override_font_sizes/font_size = 32
+text = "4 Adventurers have wandered into the caverns, looking to slay monsters and collect spells. On their path they will meet dangerous foes, which need to be defeated to progress."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="UI/TutorialLayer"]
+modulate = Color(1, 0.498039, 0.482353, 1)
+z_index = 5
+offset_left = 55.0
+offset_top = 511.0
+offset_right = 664.0
+offset_bottom = 693.0
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("23_acnup")
+theme_override_font_sizes/font_size = 28
+text = "This Icon represents Health.
+Keep a close eye on it, becuase once your heroes run out of it, there's no more saving them."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="UI/TutorialLayer"]
+modulate = Color(0.890196, 0.921569, 0.537255, 1)
+z_index = 5
+offset_left = 656.0
+offset_top = 510.0
+offset_right = 1265.0
+offset_bottom = 692.0
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("23_acnup")
+theme_override_font_sizes/font_size = 28
+text = "This Icon represents Attack.
+Some adventurers have a high attack stat, meaning that they deal massive damage."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="UI/TutorialLayer"]
+modulate = Color(0.788235, 0.654902, 0.913725, 1)
+z_index = 5
+offset_left = 1255.0
+offset_top = 492.0
+offset_right = 1864.0
+offset_bottom = 674.0
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("23_acnup")
+theme_override_font_sizes/font_size = 28
+text = "This Icon represents Magic.
+A high magic stat strengthens abilities such as fireballs, or healing spells.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="UI/TutorialLayer"]
+z_index = 5
+offset_left = 86.0
+offset_top = 769.0
+offset_right = 1266.0
+offset_bottom = 994.0
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("23_acnup")
+theme_override_font_sizes/font_size = 32
+text = "You can attack enemies by clicking on spells on your Spell Card. Defeating enemies rewards you with cards. Try to match your spells with the best user, but keep in mind - using an attack means you cannot use it again, so be careful how you spend your spells...
+"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/TutorialLayer"]
+material = SubResource("ShaderMaterial_2006f")
+offset_right = 1920.0
+offset_bottom = 1079.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="UI/TutorialLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.6, 0.6, 0.6, 0.254902)
+metadata/_edit_lock_ = true
+
+[node name="Tutorialfade" type="AnimationPlayer" parent="UI/TutorialLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_mq82c")
+}
+
+[node name="CharMage" type="Sprite2D" parent="UI/TutorialLayer"]
+position = Vector2(121, 230)
+texture = ExtResource("25_8i3af")
+
+[node name="CharOnion" type="Sprite2D" parent="UI/TutorialLayer"]
+position = Vector2(296, 230)
+texture = ExtResource("26_lnnyh")
+
+[node name="CharWarrior" type="Sprite2D" parent="UI/TutorialLayer"]
+position = Vector2(464, 230)
+texture = ExtResource("27_32bm4")
+
+[node name="CharWizard" type="Sprite2D" parent="UI/TutorialLayer"]
+position = Vector2(644, 230)
+texture = ExtResource("28_8akgt")
+
+[node name="Hearticon" type="Sprite2D" parent="UI/TutorialLayer"]
+position = Vector2(360, 467)
+texture = ExtResource("29_8ucrn")
+
+[node name="Swordicon" type="Sprite2D" parent="UI/TutorialLayer"]
+position = Vector2(960, 467)
+texture = ExtResource("31_ufaf4")
+
+[node name="Magicicon" type="Sprite2D" parent="UI/TutorialLayer"]
+position = Vector2(1560, 473)
+texture = ExtResource("30_nqoo2")
+
+[node name="ButtonBackground" type="Sprite2D" parent="UI/TutorialLayer"]
+visible = false
+position = Vector2(1179, 837)
+rotation = -0.180505
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("32_vk4qf")
+
+[node name="ActualStartGame" type="TextureButton" parent="UI/TutorialLayer"]
+offset_left = 1265.0
+offset_top = 811.0
+offset_right = 1865.0
+offset_bottom = 951.0
+texture_normal = ExtResource("16_cjish")
+texture_pressed = ExtResource("17_k784o")
+texture_hover = ExtResource("18_kyvtq")
+
+[node name="FadeBlack" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="FadeBlack"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="FadeBlackAnim" type="AnimationPlayer" parent="FadeBlack/ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_jq66j")
+}
+
+[connection signal="pressed" from="UI/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="UI/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="UI/TutorialLayer/ActualStartGame" to="." method="_on_actual_start_game_pressed"]
