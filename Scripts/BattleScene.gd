@@ -137,6 +137,7 @@ func doFriendlyAction(actionID, caster, target):
 			tackleAttack(target, caster)
 			animWait = 1.1
 			await get_tree().create_timer(animWait).timeout
+			friendlyTargetForAction.checkDeath()
 			hasDoneAction = true
 		"Big Slam Attack":
 			Room.attackLargeSlam()
@@ -145,6 +146,7 @@ func doFriendlyAction(actionID, caster, target):
 			bigSlamAttack(target, caster)
 			animWait = 1.4
 			await get_tree().create_timer(animWait).timeout
+			friendlyTargetForAction.checkDeath()
 			hasDoneAction = true
 		"Heal":
 			#HERE WILL BE THE ANIMATION
@@ -155,12 +157,13 @@ func doFriendlyAction(actionID, caster, target):
 			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
 		"Fireball":
+			Room.attackShootFireball()
 			animWait = 1.2
 			await get_tree().create_timer(animWait).timeout
 			fireballAttack(target, caster)
 			animWait = 0.4
 			await get_tree().create_timer(animWait).timeout
-			Room.attackShootFireball()
+			friendlyTargetForAction.checkDeath()
 			hasDoneAction = true
 	Global.global_isPlayerTurn = false
 	if hasDoneAction:
@@ -175,7 +178,7 @@ func tackleAttack(target, caster):
 	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " hit " + str(friendlyTargetForAction.EnemyName) + " for " + str(damageDealt) + " damage!")
 	friendlyTargetForAction.HP -= damageDealt
 	friendlyTargetForAction.updateUI() 
-	friendlyTargetForAction.checkDeath()
+	#friendlyTargetForAction.checkDeath()
 	
 func bigSlamAttack(target, caster):
 	friendlyGetCaster(caster)
@@ -184,7 +187,7 @@ func bigSlamAttack(target, caster):
 	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " slammed " + str(friendlyTargetForAction.EnemyName) + " for " + str(damageDealt) + " damage!")
 	friendlyTargetForAction.HP -= damageDealt
 	friendlyTargetForAction.updateUI() 
-	friendlyTargetForAction.checkDeath()
+	#friendlyTargetForAction.checkDeath()
 
 func fireballAttack(target, caster):
 	friendlyGetCaster(caster)
@@ -192,7 +195,7 @@ func fireballAttack(target, caster):
 	var damageDealt = friendlyCasterOfAction.MG * 1
 	friendlyTargetForAction.HP -= damageDealt
 	friendlyTargetForAction.updateUI() 
-	friendlyTargetForAction.checkDeath()
+	#friendlyTargetForAction.checkDeath()
 
 
 

@@ -83,7 +83,6 @@ func attackShootFrostball():
 	effectanim.play("RESET")
 	effectanim.play("frostball_throw")
 
-
 func enemyBasicAttack():
 	effectanim.play("RESET")
 	effectanim.play("enemy_basic_attack")
@@ -99,6 +98,10 @@ func enemyEarthquake():
 func enemyHeal():
 	effectanim.play("RESET")
 	effectanim.play("enemy_heal")
+	
+func enemyDeath():
+	effectanim.play("RESET")
+	effectanim.play("enemy_death")
 
 
 

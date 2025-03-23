@@ -30,7 +30,10 @@ func updateUI():
 	
 func checkDeath():
 	if HP <= 0:
-		queue_free()
 		Global.global_isInBattle = false
 		Global.global_enemiesDefeated += 1
+		get_parent().get_parent().get_parent().get_parent().enemyDeath()
+		var waitTime = 1.4
+		await get_tree().create_timer(waitTime).timeout
 		party.triggerVicory()
+		queue_free()
