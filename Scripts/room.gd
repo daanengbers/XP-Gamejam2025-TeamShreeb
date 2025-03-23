@@ -10,11 +10,13 @@ var roomnumber = 0
 
 var room_finished = false
 
+var current_enemy = ""
 var local_enemyHP = 0
 
 var randomroom = 1
 
 func _ready():
+	$WorldEnvironment/Fog_anim.play("brown")
 	randomize()
 
 func _process(_delta):
@@ -26,7 +28,7 @@ func goToNextScene():
 func reloadRoom():
 	effectanim.play("fade_in")
 	$MineLevel.visible = false
-	$OOP_Swamp_Level_BO.visible = false
+	$SwampLevel.visible = false
 	if Global.global_enemiesDefeated < 10:
 		pickRandomStage()
 	elif Global.global_enemiesDefeated == 10:
@@ -43,8 +45,10 @@ func pickRandomStage():
 	randomroom = randi()%2 + 1
 	if randomroom == 1:
 		$MineLevel.visible = true
+		$WorldEnvironment/Fog_anim.play("brown")
 	elif randomroom == 2:
-		$OOP_Swamp_Level_BO.visible = true
+		$SwampLevel.visible = true
+		$WorldEnvironment/Fog_anim.play("blue")
 	#$Sounds/Doorclose.play()
 
 func pickBossRoom():
@@ -53,6 +57,7 @@ func pickBossRoom():
 func updateEnemy(SpriteTex, EnemName, EnemMaxHP):
 	$ThreeD_View/ThreeD/EnemySprite.texture = SpriteTex
 	$TwoD_View/EnemyHB_Name.set_text(str(EnemName))
+	current_enemy = EnemName
 	$TwoD_View/EnemyHealthBar.max_value = EnemMaxHP
 	$TwoD_View/EnemyHealthBar.value = EnemMaxHP
 	local_enemyHP = EnemMaxHP
@@ -107,7 +112,34 @@ func enemyDeath():
 	effectanim.play("enemy_death")
 
 
+# Animatable sound effect functions
 
+func soundHitEffect():
+	$MonsterSFXsystem/Hit.play()
+
+func soundStompEffect():
+	$MonsterSFXsystem/Stomp.play()
+
+func soundBattleCry():
+	if current_enemy == "Bungle":
+		$MonsterSFXsystem/Bug/battlecry.play()
+	if current_enemy == "Ruin Walker":
+		$MonsterSFXsystem/Ruinwalker/battlecry.play()
+	
+
+func soundAttackCry():
+	if current_enemy == "Bungle":
+		$MonsterSFXsystem/Bug/attack.play()
+	if current_enemy == "Ruin Walker":
+		$MonsterSFXsystem/Ruinwalker/attack.play()
+	
+
+func soundGetHurtEnemy():
+	if current_enemy == "Bungle":
+		$MonsterSFXsystem/Bug/hurt.play()
+	if current_enemy == "Ruin Walker":
+		$MonsterSFXsystem/Ruinwalker/hurt.play()
+	
 
 
 # Spawn effects

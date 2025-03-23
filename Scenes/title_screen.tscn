@@ -79,6 +79,33 @@ volumetric_fog_emission = Color(0.439216, 0.309804, 0, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2006f"]
 shader = ExtResource("23_gl7u3")
 
+[sub_resource type="Animation" id="Animation_cuqy6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_kp4qk"]
 resource_name = "fade"
 length = 2.0
@@ -107,37 +134,37 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_cuqy6"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mq82c"]
+_data = {
+"RESET": SubResource("Animation_cuqy6"),
+"fade": SubResource("Animation_kp4qk")
+}
+
+[sub_resource type="Animation" id="Animation_e4cka"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
+tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
+tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mq82c"]
-_data = {
-"RESET": SubResource("Animation_cuqy6"),
-"fade": SubResource("Animation_kp4qk")
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ks134"]
@@ -180,33 +207,6 @@ tracks/2/keys = {
 "args": [],
 "method": &"goToNextScene"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_e4cka"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jq66j"]
@@ -323,7 +323,7 @@ theme_override_constants/line_spacing = -10
 theme_override_fonts/font = ExtResource("23_acnup")
 theme_override_font_sizes/font_size = 28
 text = "This Icon represents Health.
-Keep a close eye on it, becuase once your heroes run out of it, there's no more saving them."
+Keep a close eye on it, because once your heroes run out of it, there's no more saving them."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
