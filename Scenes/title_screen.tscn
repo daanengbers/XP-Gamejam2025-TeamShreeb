@@ -22,8 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://clsknrslx253p" path="res://Sprites/UI/textforweirdgame_options.png" id="19_p2qjb"]
 [ext_resource type="Texture2D" uid="uid://dhy7tr7wdulll" path="res://Sprites/UI/textforweirdgame_optionsclick.png" id="20_3g5qo"]
 [ext_resource type="Texture2D" uid="uid://bnne1k5c1c1pa" path="res://Sprites/UI/textforweirdgame_optionshover.png" id="21_yvv6o"]
-[ext_resource type="FontFile" uid="uid://r5jnl80m8gja" path="res://Fonts/Sigmar-Regular.ttf" id="23_acnup"]
 [ext_resource type="Shader" path="res://Shaders/2dgrayscale.gdshader" id="23_gl7u3"]
+[ext_resource type="FontFile" uid="uid://b5v66j2mxy40b" path="res://Fonts/Aladin-Regular.ttf" id="23_ng1hk"]
 [ext_resource type="Texture2D" uid="uid://c4t4um48yao2e" path="res://Sprites/Characters/char_Mage.png" id="25_8i3af"]
 [ext_resource type="Texture2D" uid="uid://bdmocbqa4aivv" path="res://Sprites/Characters/char_Onion.png" id="26_lnnyh"]
 [ext_resource type="Texture2D" uid="uid://hyae1fh5v6mu" path="res://Sprites/Characters/char_Warrior.png" id="27_32bm4"]
@@ -306,8 +306,8 @@ offset_top = 114.0
 offset_right = 1864.0
 offset_bottom = 324.0
 theme_override_constants/line_spacing = -10
-theme_override_fonts/font = ExtResource("23_acnup")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("23_ng1hk")
+theme_override_font_sizes/font_size = 44
 text = "4 Adventurers have wandered into the caverns, looking to slay monsters and collect spells. On their path they will meet dangerous foes, which need to be defeated to progress."
 vertical_alignment = 1
 autowrap_mode = 2
@@ -316,13 +316,13 @@ autowrap_mode = 2
 modulate = Color(1, 0.498039, 0.482353, 1)
 z_index = 5
 offset_left = 55.0
-offset_top = 511.0
+offset_top = 497.0
 offset_right = 664.0
-offset_bottom = 693.0
+offset_bottom = 687.0
 theme_override_constants/line_spacing = -10
-theme_override_fonts/font = ExtResource("23_acnup")
-theme_override_font_sizes/font_size = 28
-text = "This Icon represents Health.
+theme_override_fonts/font = ExtResource("23_ng1hk")
+theme_override_font_sizes/font_size = 44
+text = "This icon represents Health.
 Keep a close eye on it, because once your heroes run out of it, there's no more saving them."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -332,13 +332,13 @@ autowrap_mode = 2
 modulate = Color(0.890196, 0.921569, 0.537255, 1)
 z_index = 5
 offset_left = 656.0
-offset_top = 510.0
+offset_top = 496.0
 offset_right = 1265.0
-offset_bottom = 692.0
+offset_bottom = 686.0
 theme_override_constants/line_spacing = -10
-theme_override_fonts/font = ExtResource("23_acnup")
-theme_override_font_sizes/font_size = 28
-text = "This Icon represents Attack.
+theme_override_fonts/font = ExtResource("23_ng1hk")
+theme_override_font_sizes/font_size = 44
+text = "This icon represents Attack.
 Some adventurers have a high attack stat, meaning that they deal massive damage."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -348,13 +348,13 @@ autowrap_mode = 2
 modulate = Color(0.788235, 0.654902, 0.913725, 1)
 z_index = 5
 offset_left = 1255.0
-offset_top = 492.0
+offset_top = 478.0
 offset_right = 1864.0
-offset_bottom = 674.0
+offset_bottom = 660.0
 theme_override_constants/line_spacing = -10
-theme_override_fonts/font = ExtResource("23_acnup")
-theme_override_font_sizes/font_size = 28
-text = "This Icon represents Magic.
+theme_override_fonts/font = ExtResource("23_ng1hk")
+theme_override_font_sizes/font_size = 44
+text = "This icon represents Magic.
 A high magic stat strengthens abilities such as fireballs, or healing spells.
 "
 horizontal_alignment = 1
@@ -368,8 +368,8 @@ offset_top = 769.0
 offset_right = 1266.0
 offset_bottom = 994.0
 theme_override_constants/line_spacing = -10
-theme_override_fonts/font = ExtResource("23_acnup")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("23_ng1hk")
+theme_override_font_sizes/font_size = 44
 text = "You can attack enemies by clicking on spells on your Spell Card. Defeating enemies rewards you with cards. Try to match your spells with the best user, but keep in mind - using an attack means you cannot use it again, so be careful how you spend your spells...
 "
 vertical_alignment = 1
@@ -410,15 +410,15 @@ position = Vector2(644, 230)
 texture = ExtResource("28_8akgt")
 
 [node name="Hearticon" type="Sprite2D" parent="UI/TutorialLayer"]
-position = Vector2(360, 467)
+position = Vector2(360, 453)
 texture = ExtResource("29_8ucrn")
 
 [node name="Swordicon" type="Sprite2D" parent="UI/TutorialLayer"]
-position = Vector2(960, 467)
+position = Vector2(960, 453)
 texture = ExtResource("31_ufaf4")
 
 [node name="Magicicon" type="Sprite2D" parent="UI/TutorialLayer"]
-position = Vector2(1560, 473)
+position = Vector2(1560, 459)
 texture = ExtResource("30_nqoo2")
 
 [node name="ButtonBackground" type="Sprite2D" parent="UI/TutorialLayer"]
