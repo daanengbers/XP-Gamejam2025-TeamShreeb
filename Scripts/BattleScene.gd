@@ -46,7 +46,8 @@ func doEnemyAction():
 		"Fireball":
 			print(randomAbillity)
 			hasDoneAction = true
-	await get_tree().create_timer(animWait).timeout
+	if animWait != null:
+		await get_tree().create_timer(animWait).timeout
 	if hasDoneAction:
 		endEnemyTurn()
 
@@ -115,12 +116,12 @@ func doFriendlyAction(actionID, caster, target):
 	var hasDoneAction = false
 	var animWait = 0.0
 	match actionID:
-		"smallAttack":
+		"Tackle":
 			smallAttack(target, caster)
 			animWait = 2.0
 			Room.attackSmall()
 			hasDoneAction = true
-		"Attack":
+		"Big Slam Attack":
 			print("attack")
 			hasDoneAction = true
 		"Heal":
