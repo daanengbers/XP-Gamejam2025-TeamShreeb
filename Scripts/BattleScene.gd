@@ -23,26 +23,31 @@ func doEnemyAction():
 	var randomAbillity = enemyInstance.possibleAttacks.pick_random()
 	match randomAbillity:
 		"Attack":
-			enemyAttack("Random")
-			animWait = 3.6
 			Room.enemyBasicAttack()
+			animWait = 2
+			await get_tree().create_timer(animWait).timeout
+			enemyAttack("Random")
+			animWait = 1.6
+			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
 		"BigAttack":
-			enemyBigAttack("Random")
-			animWait = 3.8
 			Room.enemyBigAttack()
+			animWait = 2.8
+			await get_tree().create_timer(animWait).timeout
+			enemyBigAttack("Random")
+			animWait = 1.0
+			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
 		"Earthquake":
-			enemyEarthquakeAttack("All")
-			animWait = 3.4
 			Room.enemyEarthquake()
+			animWait = 3.4
+			await get_tree().create_timer(animWait).timeout
+			enemyEarthquakeAttack("All")
 			hasDoneAction = true
 		"Heal":
 			print(randomAbillity)
 			animWait = 3.4
 			hasDoneAction = true
-	if animWait != null:
-		await get_tree().create_timer(animWait).timeout
 	if hasDoneAction:
 		endEnemyTurn()
 
@@ -113,14 +118,14 @@ func doFriendlyAction(actionID, caster, target):
 	var animWait = 0.0
 	match actionID:
 		"Tackle":
+			Room.attackSmall()
 			tackleAttack(target, caster)
 			animWait = 2.0
-			Room.attackSmall()
 			hasDoneAction = true
 		"Big Slam Attack":
+			Room.attackLargeSlam()
 			bigSlamAttack(target, caster)
 			animWait = 2.0
-			Room.attackLargeSlam()
 			hasDoneAction = true
 		"Heal":
 			heal(target,caster)

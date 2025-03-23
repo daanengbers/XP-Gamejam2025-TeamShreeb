@@ -722,6 +722,10 @@ tracks/5/keys = {
 "values": [Vector3(2.2, 3.4, 11), Vector3(0.3, 1.7, 1.15)]
 }
 
+[sub_resource type="Animation" id="Animation_e23pe"]
+resource_name = "out_of_options"
+length = 4.0
+
 [sub_resource type="Animation" id="Animation_eccle"]
 resource_name = "shake"
 length = 0.7
@@ -844,10 +848,6 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_e23pe"]
-resource_name = "out_of_options"
-length = 4.0
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r6ldc"]
 _data = {
