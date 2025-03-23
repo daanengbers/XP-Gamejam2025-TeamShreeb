@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpxo3w4amomx8"]
+
+[ext_resource type="PackedScene" uid="uid://bhyyuyamd57aj" path="res://Scenes/CardBase.tscn" id="1_0ep67"]
+
+[node name="Card7" instance=ExtResource("1_0ep67")]
+Actions = ["Iceball", "Fireball", "Fireball"]

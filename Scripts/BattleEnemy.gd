@@ -8,6 +8,8 @@ extends Node2D
 @onready var bungle = get_node("Bungle")
 @onready var ruinwalker = get_node("RuinWalker")
 @onready var cosmeow = get_node("Cosmeow")
+@onready var krunt = get_node("Krunt")
+@onready var Thrum = get_node("Thrum")
 
 var enemyInstance = preload("res://Scenes/EnemyInstance.tscn")
 
@@ -44,14 +46,20 @@ func Init():
 			enemies.append(ruinwalker)
 		4:
 			enemies.append(cosmeow)
+		6:
+			enemies.append(Thrum)
+		10:
+			enemies.clear()
+			enemies = [krunt]
 	var chosenEnemy = enemies.pick_random()
 	var enemyinstance = enemyInstance.instantiate()
 	self.add_child(enemyinstance)
+	var GameFlowScale = Global.global_enemiesDefeated 
 	enemyinstance.EnemyName = chosenEnemy.EnemyName
 	enemyinstance.EnemySprite = chosenEnemy.EnemySprite
 	enemyinstance.possibleAttacks = chosenEnemy.possibleAttacks
-	enemyinstance.MAXHP = chosenEnemy.MAXHP
-	enemyinstance.HP = chosenEnemy.HP
+	enemyinstance.MAXHP = chosenEnemy.MAXHP + GameFlowScale
+	enemyinstance.HP = chosenEnemy.HP + GameFlowScale
 	enemyinstance.ATK = chosenEnemy.ATK
 	enemyinstance.DEF = chosenEnemy.DEF
 	enemyinstance.SPDEF = chosenEnemy.SPDEF

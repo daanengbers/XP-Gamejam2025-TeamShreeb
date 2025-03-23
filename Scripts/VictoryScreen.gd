@@ -11,6 +11,9 @@ var card3 = preload("res://Scenes/Cards/card_3.tscn")
 var card4 = preload("res://Scenes/Cards/card_4.tscn")
 var card5 = preload("res://Scenes/Cards/card_5.tscn")
 var card6 = preload("res://Scenes/Cards/card_6.tscn")
+var card7 = preload("res://Scenes/Cards/card_7.tscn")
+var card8 = preload("res://Scenes/Cards/card_8.tscn")
+var card9 = preload("res://Scenes/Cards/card_9.tscn")
 
 var availableCards = []
 
@@ -33,19 +36,16 @@ func _ready():
 		5:
 			availableCards = [card1, card2, card3, card4, card5]
 		6:
-			availableCards = [card1, card2, card3, card4, card5]
+			availableCards = [card1, card2, card3, card4, card5, card6]
 		7:
-			availableCards = [card1, card2, card3, card4, card5, card6]
+			availableCards = [card1, card2, card3, card4, card5, card6, card7]
 		8:
-			availableCards = [card1, card2, card3, card4, card5, card6]
+			availableCards = [card1, card2, card3, card4, card5, card6, card7, card8]
 		9:
-			availableCards = [card1, card2, card3, card4, card5, card6]
+			availableCards = [card1, card2, card3, card4, card5, card6, card7, card8, card9]
 		10:
-			availableCards = [card1, card2, card3, card4, card5, card6]
+			availableCards = [card1, card2, card3, card4, card5, card6, card7, card8, card9]
 	chosenCard = availableCards.pick_random()
-	print(availableCards)
-	print(chosenCard)
-	print(chosencard)
 	chosencard = chosenCard.instantiate()
 	$AwardedCardSlot.add_child(chosencard)
 	chosencard.initUI()

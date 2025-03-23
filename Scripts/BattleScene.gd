@@ -80,7 +80,7 @@ func enemyBigAttack(target):
 func enemyEarthquakeAttack(target):
 	var casterOfAction = get_node("BattleEnemy/EnemyInstance")
 	getEnemyTarget(target)
-	var damageDealt = casterOfAction.ATK * 1
+	var damageDealt = round(casterOfAction.ATK * 0.5)
 	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " caused an earthquake and hit everyone for " + str(damageDealt) + " damage!")
 	for i in range(enemyChosenTarget.size()):
 		#getEnemyTarget(target)
@@ -174,6 +174,16 @@ func doFriendlyAction(actionID, caster, target):
 			await get_tree().create_timer(animWait).timeout
 			friendlyTargetForAction.checkDeath()
 			hasDoneAction = true
+		"Ice Ball":
+			Room.attackShootFrostball()
+			animWait = 1.2
+			await get_tree().create_timer(animWait).timeout
+			iceballAttack(target, caster)
+			animWait = 0.4
+			await get_tree().create_timer(animWait).timeout
+			friendlyTargetForAction.checkDeath()
+			hasDoneAction = true
+			pass
 	Global.global_isPlayerTurn = false
 	if hasDoneAction:
 		endPlayerTurn()
@@ -203,6 +213,15 @@ func fireballAttack(target, caster):
 	friendlyGetTarget(target)
 	var damageDealt = friendlyCasterOfAction.MG * 1
 	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " summoned a ball of pure fire and dealt " + str(damageDealt) + " damage to " + str(friendlyTargetForAction.EnemyName))
+	friendlyTargetForAction.HP -= damageDealt
+	friendlyTargetForAction.updateUI() 
+	#friendlyTargetForAction.checkDeath()
+
+func iceballAttack(target, caster):
+	friendlyGetCaster(caster)
+	friendlyGetTarget(target)
+	var damageDealt = round(friendlyCasterOfAction.MG * 1.5)
+	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " summoned a ball of pure ice and dealt " + str(damageDealt) + " damage to " + str(friendlyTargetForAction.EnemyName))
 	friendlyTargetForAction.HP -= damageDealt
 	friendlyTargetForAction.updateUI() 
 	#friendlyTargetForAction.checkDeath()

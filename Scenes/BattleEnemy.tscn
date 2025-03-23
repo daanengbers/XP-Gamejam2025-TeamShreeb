@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://braf6ooyhvjym"]
+[gd_scene load_steps=8 format=3 uid="uid://braf6ooyhvjym"]
 
 [ext_resource type="PackedScene" uid="uid://b5nir8ul11jk4" path="res://Scenes/EnemyBase.tscn" id="1_g0qqh"]
 [ext_resource type="Script" path="res://Scripts/BattleEnemy.gd" id="1_ua17p"]
 [ext_resource type="Texture2D" uid="uid://ditm7s4oucuir" path="res://Sprites/Enemies/Enemy_Bug.png" id="3_gr1hv"]
 [ext_resource type="Texture2D" uid="uid://1dtgtdhm8f3d" path="res://Sprites/Enemies/Enemy_Cat.png" id="3_nbymq"]
+[ext_resource type="Texture2D" uid="uid://cvrcv6ri2qsgv" path="res://Sprites/Enemies/Enemy_Boss.png" id="4_b1p02"]
 [ext_resource type="Texture2D" uid="uid://ogo3j76xg426" path="res://Sprites/Enemies/Enemy_Ruins.png" id="4_wsl8u"]
+[ext_resource type="Texture2D" uid="uid://cayeq2dw7prqp" path="res://Sprites/Enemies/Enemy_KnifeGuy.png" id="7_8toeu"]
 
 [node name="BattleEnemy" type="Node2D"]
 script = ExtResource("1_ua17p")
@@ -18,6 +20,16 @@ HP = 7
 ATK = 2
 DEF = 5
 SPDEF = 5
+
+[node name="Krunt" parent="." groups=["Enemies"] instance=ExtResource("1_g0qqh")]
+EnemyName = "Krunt the great"
+EnemySprite = ExtResource("4_b1p02")
+possibleAttacks = ["BigAttack", "Heal", "Earthquake"]
+MAXHP = 21
+HP = 21
+ATK = 5
+DEF = 21
+SPDEF = 21
 
 [node name="RuinWalker" parent="." groups=["Enemies"] instance=ExtResource("1_g0qqh")]
 EnemyName = "Ruin Walker"
@@ -35,6 +47,16 @@ EnemySprite = ExtResource("3_nbymq")
 possibleAttacks = ["BigAttack", "Heal"]
 MAXHP = 14
 HP = 14
+ATK = 5
+DEF = 4
+SPDEF = 4
+
+[node name="Thrum" parent="." groups=["Enemies"] instance=ExtResource("1_g0qqh")]
+EnemyName = "Thrum"
+EnemySprite = ExtResource("7_8toeu")
+possibleAttacks = ["BigAttack", "Attack"]
+MAXHP = 2
+HP = 2
 ATK = 5
 DEF = 4
 SPDEF = 4

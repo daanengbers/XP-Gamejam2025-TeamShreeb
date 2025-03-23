@@ -5,6 +5,7 @@ var BigSlamAttack = preload("res://Scenes/Actions/BigSlamAttack.tscn")
 var Heal = preload("res://Scenes/Actions/heal_action.tscn")
 var HealAll = preload("res://Scenes/Actions/heall_all.tscn")
 var Fireball = preload("res://Scenes/Actions/Fireball_action.tscn")
+var Iceball = preload("res://Scenes/Actions/iceball_action.tscn")
 
 @export var Actions = ["","",""]
 var action1
@@ -48,6 +49,10 @@ func initUI():
 				var fireball = Fireball.instantiate()
 				self.add_child(fireball)
 				actionsInCard.append(fireball)
+			"Iceball":
+				var iceball = Iceball.instantiate()
+				self.add_child(iceball)
+				actionsInCard.append(iceball)
 			
 	for l in range(3):
 		actionsInCard[l].position = ActionsUILocations[l]
