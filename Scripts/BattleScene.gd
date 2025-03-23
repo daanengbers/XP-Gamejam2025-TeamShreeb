@@ -80,7 +80,7 @@ func enemyBigAttack(target):
 func enemyEarthquakeAttack(target):
 	var casterOfAction = get_node("BattleEnemy/EnemyInstance")
 	getEnemyTarget(target)
-	var damageDealt = casterOfAction.ATK * 1
+	var damageDealt = round(casterOfAction.ATK * 0.5)
 	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " caused an earthquake and hit everyone for " + str(damageDealt) + " damage!")
 	for i in range(enemyChosenTarget.size()):
 		#getEnemyTarget(target)

@@ -43,9 +43,6 @@ func _ready():
 		10:
 			availableCards = [card1, card2, card3, card4, card5, card6]
 	chosenCard = availableCards.pick_random()
-	print(availableCards)
-	print(chosenCard)
-	print(chosencard)
 	chosencard = chosenCard.instantiate()
 	$AwardedCardSlot.add_child(chosencard)
 	chosencard.initUI()
