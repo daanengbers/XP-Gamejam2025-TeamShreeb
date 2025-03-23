@@ -150,18 +150,19 @@ func doFriendlyAction(actionID, caster, target):
 			friendlyTargetForAction.checkDeath()
 			hasDoneAction = true
 		"Heal self":
-			#HERE WILL BE THE ANIMATION
-			animWait = 1.2
+			Room.friendlyHeal()
+			animWait = 1.0
 			await get_tree().create_timer(animWait).timeout
 			healSelf(target,caster)
-			animWait = 1.2
+			animWait = 1.6
 			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
 		"Heal all":
-			animWait = 1.2
+			Room.friendlyHeal()
+			animWait = 1.0
 			await get_tree().create_timer(animWait).timeout
 			healAll(target,caster)
-			animWait = 1.2
+			animWait = 1.6
 			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
 		"Fireball":
@@ -201,11 +202,10 @@ func fireballAttack(target, caster):
 	friendlyGetCaster(caster)
 	friendlyGetTarget(target)
 	var damageDealt = friendlyCasterOfAction.MG * 1
+	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " summoned a ball of pure fire and dealt " + str(damageDealt) + " damage to " + str(friendlyTargetForAction.EnemyName))
 	friendlyTargetForAction.HP -= damageDealt
 	friendlyTargetForAction.updateUI() 
 	#friendlyTargetForAction.checkDeath()
-
-
 
 func friendlyGetCaster(caster):
 	match caster:
@@ -225,9 +225,9 @@ func friendlyGetTarget(target):
 		"self":
 			friendlyTargetForAction = friendlyCasterOfAction
 		"All":
-			var caster1 = get_node("Party/Slot4")
-			var caster2 = get_node("Party/Slot4")
-			var caster3 = get_node("Party/Slot4")
+			var caster1 = get_node("Party/Slot1")
+			var caster2 = get_node("Party/Slot2")
+			var caster3 = get_node("Party/Slot3")
 			var caster4 = get_node("Party/Slot4")
 			friendlyTargetForAction = [caster1, caster2 , caster3, caster4]
 			if Global.global_Char1Dead:
@@ -257,6 +257,7 @@ func healSelf(target, caster):
 		"self":
 			targetForAction = casterOfAction
 	var healthHealed = casterOfAction.MG * 1
+	GlobalTextBox.activateTextbox(str(casterOfAction.charName) + " recentered itself and healed " + str(healthHealed) + " health!")
 	targetForAction.HP += healthHealed
 	if targetForAction.HP > targetForAction.maxHP:
 		targetForAction.HP = targetForAction.maxHP
@@ -266,7 +267,9 @@ func healSelf(target, caster):
 func healAll(target, caster):
 	friendlyGetCaster(caster)
 	friendlyGetTarget(target)
+	print(friendlyTargetForAction)
 	var healthHealed = friendlyCasterOfAction.MG * 1
+	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " thinked very hard itself and healed everyone for  " + str(healthHealed) + " health!")
 	for i in range(friendlyTargetForAction.size()):
 		friendlyTargetForAction[i].HP += healthHealed
 		if friendlyTargetForAction[i].HP > friendlyTargetForAction[i].maxHP:

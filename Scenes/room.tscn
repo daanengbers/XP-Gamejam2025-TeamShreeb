@@ -937,6 +937,46 @@ tracks/5/keys = {
 "values": [Vector3(2.2, 3.4, 11), Vector3(0.3, 1.7, 1.15)]
 }
 
+[sub_resource type="Animation" id="Animation_0342k"]
+resource_name = "heal_self"
+length = 2.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.3, 1.5, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.5, 10.5), Vector3(0, 2.40054, 10.5), Vector3(0, 2.40054, 10.5), Vector3(0, 2.48155, 10.5), Vector3(0, 2.76379, 10.5), Vector3(0, 2.816, 10.5), Vector3(0, 2.5, 10.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.8, 1, 1.3, 1.5, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.0845612, 0, 0), Vector3(-0.117548, 0, 0), Vector3(-0.0845612, 0, 0), Vector3(-0.117548, 0, 0), Vector3(-0.147236, 0, 0), Vector3(0.175249, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../TwoD_View/Color_Over:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.8, 1, 1.3, 1.5, 1.7, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 1, 0, 0), Color(0, 1, 0, 0.196078), Color(0, 1, 0, 0), Color(0, 1, 0, 0.184314), Color(0, 1, 0, 0), Color(0.560784, 1, 0, 0.439216), Color(0, 1, 0, 0.278431), Color(0, 1, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_e23pe"]
 resource_name = "out_of_options"
 length = 4.0
@@ -1070,46 +1110,6 @@ tracks/6/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_0342k"]
-resource_name = "heal_self"
-length = 2.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 1, 1.3, 1.5, 1.8, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 2.5, 10.5), Vector3(0, 2.40054, 10.5), Vector3(0, 2.40054, 10.5), Vector3(0, 2.48155, 10.5), Vector3(0, 2.76379, 10.5), Vector3(0, 2.816, 10.5), Vector3(0, 2.5, 10.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.8, 1, 1.3, 1.5, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.0845612, 0, 0), Vector3(-0.117548, 0, 0), Vector3(-0.0845612, 0, 0), Vector3(-0.117548, 0, 0), Vector3(-0.147236, 0, 0), Vector3(0.175249, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../../TwoD_View/Color_Over:color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.8, 1, 1.3, 1.5, 1.7, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 1, 0, 0), Color(0, 1, 0, 0.196078), Color(0, 1, 0, 0), Color(0, 1, 0, 0.184314), Color(0, 1, 0, 0), Color(0.560784, 1, 0, 0.439216), Color(0, 1, 0, 0.278431), Color(0, 1, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r6ldc"]
 _data = {
 "RESET": SubResource("Animation_s8vtl"),
@@ -1136,22 +1136,6 @@ fog_light_color = Color(0.580392, 0.478431, 0.835294, 1)
 fog_density = 0.003
 volumetric_fog_enabled = true
 volumetric_fog_emission = Color(0.458824, 0.294118, 0.0980392, 1)
-
-[sub_resource type="Animation" id="Animation_qcntr"]
-resource_name = "brown"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:environment:volumetric_fog_emission")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.458824, 0.294118, 0.0980392, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_o1pq5"]
 length = 0.001
@@ -1182,6 +1166,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.423529, 0.00392157, 0.780392, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qcntr"]
+resource_name = "brown"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:environment:volumetric_fog_emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.458824, 0.294118, 0.0980392, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dahkp"]

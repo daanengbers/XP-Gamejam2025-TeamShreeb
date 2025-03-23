@@ -110,6 +110,10 @@ func enemyHeal():
 func enemyDeath():
 	effectanim.play("RESET")
 	effectanim.play("enemy_death")
+	
+func friendlyHeal():
+	effectanim.play("RESET")
+	effectanim.play("heal_self")
 
 
 # Animatable sound effect functions
