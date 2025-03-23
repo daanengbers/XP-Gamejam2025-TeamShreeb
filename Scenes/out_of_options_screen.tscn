@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctt27alc7m127"]
+
+[ext_resource type="PackedScene" uid="uid://t2l7bev4pmg6" path="res://Scenes/GameOverScene.tscn" id="1_uhg5x"]
+
+[node name="GameOverScene" instance=ExtResource("1_uhg5x")]
+
+[node name="Subtext" parent="." index="1"]
+text = "You are out of options"

@@ -28,12 +28,15 @@ func CheckGameover():
 		await get_tree().create_timer(2.0).timeout
 		get_tree().change_scene_to_file("res://Scenes/GameOverScene.tscn")
 
-
 func checkOptionsLeftGameOver():
 	if global_Char1IsOutOfOptions && global_Char2IsOutOfOptions && global_Char3IsOutOfOptions && global_Char4IsOutOfOptions:
 		globalIsOutOfOptions = true
 		await get_tree().create_timer(2.0).timeout
-		get_tree().change_scene_to_file("res://Scenes/GameOverScene.tscn")
+		get_tree().change_scene_to_file("res://Scenes/out_of_options_screen.tscn")
+
+func TriggerVictoryScreen():
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file("res://Scenes/VictoryScreen.tscn")
 
 func resetGame():
 	global_isPlayerTurn = true

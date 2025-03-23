@@ -80,9 +80,12 @@ func InitCards():
 				card4.initUI()
 
 func triggerVicory():
-	var triggervictory = victoryScreen.instantiate()
-	self.add_child(triggervictory)
-	pass
+	if Global.global_enemiesDefeated <= 10:
+		var triggervictory = victoryScreen.instantiate()
+		self.add_child(triggervictory)
+	if Global.global_enemiesDefeated == 11:
+		Global.TriggerVictoryScreen()
+
 	
 func handlePlayerDeath(slotToKill):
 	match slotToKill:
@@ -90,19 +93,23 @@ func handlePlayerDeath(slotToKill):
 			for action in cardSlot1.get_child(0).get_children():
 				action.queue_free()
 			Global.global_Char1Dead = true
+			Global.global_Char1IsOutOfOptions = true
 			Global.CheckGameover()
 		2:
 			for action in cardSlot2.get_child(0).get_children():
 				action.queue_free()
 			Global.global_Char2Dead = true
+			Global.global_Char2IsOutOfOptions = true
 			Global.CheckGameover()
 		3:
 			for action in cardSlot3.get_child(0).get_children():
 				action.queue_free()
 			Global.global_Char3Dead = true
+			Global.global_Char3IsOutOfOptions = true
 			Global.CheckGameover()
 		4:
 			for action in cardSlot4.get_child(0).get_children():
 				action.queue_free()
 			Global.global_Char4Dead = true
+			Global.global_Char4IsOutOfOptions = true
 			Global.CheckGameover()

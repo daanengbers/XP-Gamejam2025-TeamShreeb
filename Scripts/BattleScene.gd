@@ -130,6 +130,7 @@ func getEnemyTarget(whoToTarget):
 func doFriendlyAction(actionID, caster, target):
 	var hasDoneAction = false
 	var animWait = 0.0
+	Global.global_isPlayerTurn = false
 	match actionID:
 		"Tackle":
 			Room.attackSmall()
@@ -211,7 +212,7 @@ func bigSlamAttack(target, caster):
 func fireballAttack(target, caster):
 	friendlyGetCaster(caster)
 	friendlyGetTarget(target)
-	var damageDealt = friendlyCasterOfAction.MG * 1
+	var damageDealt = friendlyCasterOfAction.MG * 2
 	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " summoned a ball of pure fire and dealt " + str(damageDealt) + " damage to " + str(friendlyTargetForAction.EnemyName))
 	friendlyTargetForAction.HP -= damageDealt
 	friendlyTargetForAction.updateUI() 
@@ -220,7 +221,7 @@ func fireballAttack(target, caster):
 func iceballAttack(target, caster):
 	friendlyGetCaster(caster)
 	friendlyGetTarget(target)
-	var damageDealt = round(friendlyCasterOfAction.MG * 1.5)
+	var damageDealt = round(friendlyCasterOfAction.MG * 2.5)
 	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " summoned a ball of pure ice and dealt " + str(damageDealt) + " damage to " + str(friendlyTargetForAction.EnemyName))
 	friendlyTargetForAction.HP -= damageDealt
 	friendlyTargetForAction.updateUI() 
