@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://dhosqviutvr2s"]
+[gd_scene load_steps=106 format=3 uid="uid://dhosqviutvr2s"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_7wc8e"]
 [ext_resource type="PackedScene" uid="uid://dlalrswgjsy8v" path="res://Scenes/fireball.tscn" id="2_6vnvk"]
@@ -55,7 +55,16 @@
 [ext_resource type="AudioStream" uid="uid://iw3pue2l8kt1" path="res://Audio/Sounds/LL_stonemonster_hurt_1.wav" id="53_4080g"]
 [ext_resource type="AudioStream" uid="uid://n2o8pjvpy1a4" path="res://Audio/Sounds/hitMid.wav" id="54_xpv7r"]
 [ext_resource type="AudioStream" uid="uid://bc0dddnwk34q7" path="res://Audio/Sounds/stomp.wav" id="55_iasih"]
+[ext_resource type="AudioStream" uid="uid://b0xuqekthf27v" path="res://Audio/Sounds/LL_catmonster_cry_1.wav" id="55_x1jj5"]
 [ext_resource type="Texture2D" uid="uid://b3ask15gnfwej" path="res://GalaxyBG.png" id="56_jfl17"]
+[ext_resource type="AudioStream" uid="uid://cglb5ayrt1sns" path="res://Audio/Sounds/LL_catmonster_attack_1.wav" id="56_x6qa4"]
+[ext_resource type="AudioStream" uid="uid://cle5cra53rycw" path="res://Audio/Sounds/LL_catmonster_hurt_1.wav" id="57_ffu4d"]
+[ext_resource type="AudioStream" uid="uid://dvmfu22tbdh2o" path="res://Audio/Sounds/LL_onionmonster_cry_1.wav" id="58_ac13l"]
+[ext_resource type="AudioStream" uid="uid://cwone8o7uf8tv" path="res://Audio/Sounds/LL_onionmonster_attack_1.wav" id="59_30dak"]
+[ext_resource type="AudioStream" uid="uid://dlcwy8ljvfc4e" path="res://Audio/Sounds/LL_onionmonster_hurt_1.wav" id="60_0bd80"]
+[ext_resource type="AudioStream" uid="uid://culmvne57h4lj" path="res://Audio/Sounds/LL_bossmonster_cry_1.wav" id="61_oj16l"]
+[ext_resource type="AudioStream" uid="uid://biiaoot3ocwnd" path="res://Audio/Sounds/LL_bossmonster_attack_1.wav" id="62_lbb2t"]
+[ext_resource type="AudioStream" uid="uid://c00s6ydxwar4i" path="res://Audio/Sounds/LL_bossmonster_hurt_1.wav" id="63_is5dx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxuus"]
 albedo_texture = ExtResource("56_jfl17")
@@ -1483,6 +1492,7 @@ libraries = {
 
 [node name="MineLevel" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+visible = false
 mesh = ExtResource("14_sr05u")
 surface_material_override/0 = SubResource("StandardMaterial3D_bp261")
 surface_material_override/1 = SubResource("StandardMaterial3D_mnmqb")
@@ -1520,7 +1530,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_x47ca")
 
 [node name="SwampLevel" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
-visible = false
 mesh = ExtResource("27_08ws5")
 surface_material_override/0 = SubResource("StandardMaterial3D_i0xjj")
 surface_material_override/1 = SubResource("StandardMaterial3D_rhmim")
@@ -1547,6 +1556,12 @@ light_color = Color(0.705882, 0.541176, 1, 1)
 light_energy = 5.0
 omni_range = 4.0
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SwampLevel"]
+transform = Transform3D(-9.6165e-08, 1, 1.00536e-07, -2.2, -4.37114e-08, 1.00536e-07, 9.61651e-08, -4.37114e-08, 2.3, -10.7142, 2.12794, 4.68334e-07)
+mesh = SubResource("PlaneMesh_owwtx")
+skeleton = NodePath("../../MineLevel")
+surface_material_override/0 = SubResource("StandardMaterial3D_x47ca")
+
 [node name="MonsterSFXsystem" type="Node" parent="."]
 
 [node name="Bug" type="Node" parent="MonsterSFXsystem"]
@@ -1570,6 +1585,39 @@ stream = ExtResource("52_blfpe")
 
 [node name="hurt" type="AudioStreamPlayer" parent="MonsterSFXsystem/Ruinwalker"]
 stream = ExtResource("53_4080g")
+
+[node name="Meow" type="Node" parent="MonsterSFXsystem"]
+
+[node name="battlecry" type="AudioStreamPlayer" parent="MonsterSFXsystem/Meow"]
+stream = ExtResource("55_x1jj5")
+
+[node name="attack" type="AudioStreamPlayer" parent="MonsterSFXsystem/Meow"]
+stream = ExtResource("56_x6qa4")
+
+[node name="hurt" type="AudioStreamPlayer" parent="MonsterSFXsystem/Meow"]
+stream = ExtResource("57_ffu4d")
+
+[node name="StabGuy" type="Node" parent="MonsterSFXsystem"]
+
+[node name="battlecry" type="AudioStreamPlayer" parent="MonsterSFXsystem/StabGuy"]
+stream = ExtResource("58_ac13l")
+
+[node name="attack" type="AudioStreamPlayer" parent="MonsterSFXsystem/StabGuy"]
+stream = ExtResource("59_30dak")
+
+[node name="hurt" type="AudioStreamPlayer" parent="MonsterSFXsystem/StabGuy"]
+stream = ExtResource("60_0bd80")
+
+[node name="Boss" type="Node" parent="MonsterSFXsystem"]
+
+[node name="battlecry" type="AudioStreamPlayer" parent="MonsterSFXsystem/Boss"]
+stream = ExtResource("61_oj16l")
+
+[node name="attack" type="AudioStreamPlayer" parent="MonsterSFXsystem/Boss"]
+stream = ExtResource("62_lbb2t")
+
+[node name="hurt" type="AudioStreamPlayer" parent="MonsterSFXsystem/Boss"]
+stream = ExtResource("63_is5dx")
 
 [node name="Hit" type="AudioStreamPlayer" parent="MonsterSFXsystem"]
 stream = ExtResource("54_xpv7r")

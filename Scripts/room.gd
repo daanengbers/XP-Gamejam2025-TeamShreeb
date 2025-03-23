@@ -133,21 +133,36 @@ func soundBattleCry():
 		$MonsterSFXsystem/Bug/battlecry.play()
 	if current_enemy == "Ruin Walker":
 		$MonsterSFXsystem/Ruinwalker/battlecry.play()
-	
+	if current_enemy == "Cosmeow":
+		$MonsterSFXsystem/Meow/battlecry.play()
+	if current_enemy == "Thrum":
+		$MonsterSFXsystem/StabGuy/battlecry.play()
+	if current_enemy == "Krunt the great":
+		$MonsterSFXsystem/Boss/battlecry.play()
 
 func soundAttackCry():
 	if current_enemy == "Bungle":
 		$MonsterSFXsystem/Bug/attack.play()
 	if current_enemy == "Ruin Walker":
 		$MonsterSFXsystem/Ruinwalker/attack.play()
-	
+	if current_enemy == "Cosmeow":
+		$MonsterSFXsystem/Meow/attack.play()
+	if current_enemy == "Thrum":
+		$MonsterSFXsystem/StabGuy/attack.play()
+	if current_enemy == "Krunt the great":
+		$MonsterSFXsystem/Boss/attack.play()
 
 func soundGetHurtEnemy():
 	if current_enemy == "Bungle":
 		$MonsterSFXsystem/Bug/hurt.play()
 	if current_enemy == "Ruin Walker":
 		$MonsterSFXsystem/Ruinwalker/hurt.play()
-	
+	if current_enemy == "Cosmeow":
+		$MonsterSFXsystem/Meow/hurt.play()
+	if current_enemy == "Thrum":
+		$MonsterSFXsystem/StabGuy/hurt.play()
+	if current_enemy == "Krunt the great":
+		$MonsterSFXsystem/Boss/hurt.play()
 
 
 # Spawn effects
