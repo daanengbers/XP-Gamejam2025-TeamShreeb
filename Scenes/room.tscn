@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://dhosqviutvr2s"]
+[gd_scene load_steps=97 format=3 uid="uid://dhosqviutvr2s"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_7wc8e"]
 [ext_resource type="PackedScene" uid="uid://dlalrswgjsy8v" path="res://Scenes/fireball.tscn" id="2_6vnvk"]
@@ -55,6 +55,12 @@
 [ext_resource type="AudioStream" uid="uid://iw3pue2l8kt1" path="res://Audio/Sounds/LL_stonemonster_hurt_1.wav" id="53_4080g"]
 [ext_resource type="AudioStream" uid="uid://n2o8pjvpy1a4" path="res://Audio/Sounds/hitMid.wav" id="54_xpv7r"]
 [ext_resource type="AudioStream" uid="uid://bc0dddnwk34q7" path="res://Audio/Sounds/stomp.wav" id="55_iasih"]
+[ext_resource type="Texture2D" uid="uid://b3ask15gnfwej" path="res://GalaxyBG.png" id="56_jfl17"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxuus"]
+albedo_texture = ExtResource("56_jfl17")
+
+[sub_resource type="QuadMesh" id="QuadMesh_v5xaw"]
 
 [sub_resource type="Animation" id="Animation_s8vtl"]
 length = 0.001
@@ -1151,6 +1157,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0.458824, 0.294118, 0.0980392, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:environment:volumetric_fog_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_baefb"]
 resource_name = "blue"
@@ -1166,6 +1184,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.423529, 0.00392157, 0.780392, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:environment:volumetric_fog_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_qcntr"]
@@ -1183,12 +1213,40 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0.458824, 0.294118, 0.0980392, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:environment:volumetric_fog_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qb6sp"]
+resource_name = "galaxy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:environment:volumetric_fog_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dahkp"]
 _data = {
 "RESET": SubResource("Animation_o1pq5"),
 "blue": SubResource("Animation_baefb"),
-"brown": SubResource("Animation_qcntr")
+"brown": SubResource("Animation_qcntr"),
+"galaxy": SubResource("Animation_qb6sp")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bp261"]
@@ -1365,6 +1423,11 @@ horizontal_alignment = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 10.5)
 current = true
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ThreeD_View/ThreeD/Main_Camera"]
+transform = Transform3D(150, 0, 0, 0, 108, 0, 0, 0, 150, 0, 0, -50)
+material_override = SubResource("StandardMaterial3D_xxuus")
+mesh = SubResource("QuadMesh_v5xaw")
+
 [node name="EnemySprite" type="Sprite3D" parent="ThreeD_View/ThreeD"]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 1, 0, 2.15, -0.5)
 texture = ExtResource("8_mgppx")
@@ -1388,6 +1451,10 @@ root_node = NodePath("../Main_Camera")
 libraries = {
 "": SubResource("AnimationLibrary_r6ldc")
 }
+
+[node name="Galaxylight" type="DirectionalLight3D" parent="ThreeD_View"]
+transform = Transform3D(1, 0, 0, 0, 0.999317, -0.0369402, 0, 0.0369402, 0.999317, 0, 0, 0)
+visible = false
 
 [node name="OOP_Swamp_Level_BO" parent="." instance=ExtResource("12_ocnnw")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.418657, -1)
@@ -1511,3 +1578,12 @@ volume_db = 8.0
 [node name="Stomp" type="AudioStreamPlayer" parent="MonsterSFXsystem"]
 stream = ExtResource("55_iasih")
 volume_db = 8.0
+
+[node name="GalaxyBG" type="CanvasLayer" parent="."]
+layer = -100
+visible = false
+
+[node name="FarBG" type="Sprite2D" parent="GalaxyBG"]
+visible = false
+texture = ExtResource("56_jfl17")
+centered = false

@@ -29,9 +29,9 @@ func reloadRoom():
 	effectanim.play("fade_in")
 	$MineLevel.visible = false
 	$SwampLevel.visible = false
-	if Global.global_enemiesDefeated < 10:
+	if Global.global_enemiesDefeated < 1:
 		pickRandomStage()
-	elif Global.global_enemiesDefeated == 10:
+	elif Global.global_enemiesDefeated == 1:
 		pickBossRoom()
 	elif Global.global_enemiesDefeated > 10:
 		pass # fuction to end game
@@ -52,7 +52,11 @@ func pickRandomStage():
 	#$Sounds/Doorclose.play()
 
 func pickBossRoom():
-	pass # for now because there is no boss room yet
+	$MineLevel.visible = false
+	$SwampLevel.visible = false
+	$WorldEnvironment/Fog_anim.play("galaxy")
+	$ThreeD_View/Galaxylight.visible = true
+	
 
 func updateEnemy(SpriteTex, EnemName, EnemMaxHP):
 	$ThreeD_View/ThreeD/EnemySprite.texture = SpriteTex
