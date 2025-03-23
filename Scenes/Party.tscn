@@ -19,12 +19,15 @@ position = Vector2(-12, 18)
 
 [node name="Slot2" parent="." instance=ExtResource("3_obbkg")]
 position = Vector2(1514, 18)
+slotNumber = 2
 
 [node name="Slot3" parent="." instance=ExtResource("3_obbkg")]
 position = Vector2(-12, 576)
+slotNumber = 3
 
 [node name="Slot4" parent="." instance=ExtResource("3_obbkg")]
 position = Vector2(1514, 576)
+slotNumber = 4
 
 [node name="PartyMember1" parent="." groups=["PartyMembers"] instance=ExtResource("3_5d14w")]
 charName = "Thipps"
