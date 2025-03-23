@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://gs8v3exbxeol"]
+
+[ext_resource type="Texture2D" uid="uid://b03h7y56lpej1" path="res://Sprites/UI/Textbar.png" id="1_2bfrj"]
+[ext_resource type="Script" path="res://Scripts/global_text_box.gd" id="1_bfe43"]
+[ext_resource type="FontFile" uid="uid://r5jnl80m8gja" path="res://Fonts/Sigmar-Regular.ttf" id="3_o6pn0"]
+
+[sub_resource type="Animation" id="Animation_w5jok"]
+resource_name = "appear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textbar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ap0my"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textbar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c41fn"]
+resource_name = "disappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textbar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gpoj0"]
+_data = {
+"RESET": SubResource("Animation_ap0my"),
+"appear": SubResource("Animation_w5jok"),
+"disappear": SubResource("Animation_c41fn")
+}
+
+[node name="GlobalTextBox" type="CanvasLayer"]
+script = ExtResource("1_bfe43")
+
+[node name="Textbar" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.54902)
+texture = ExtResource("1_2bfrj")
+centered = false
+
+[node name="Text" type="Label" parent="Textbar"]
+offset_left = 471.0
+offset_top = 920.0
+offset_right = 1449.0
+offset_bottom = 1046.0
+theme_override_constants/line_spacing = -8
+theme_override_fonts/font = ExtResource("3_o6pn0")
+theme_override_font_sizes/font_size = 38
+text = "Text
+Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gpoj0")
+}
+
+[node name="ClearTimer" type="Timer" parent="."]
+wait_time = 3.5
+one_shot = true
+
+[connection signal="timeout" from="ClearTimer" to="." method="_on_clear_timer_timeout"]

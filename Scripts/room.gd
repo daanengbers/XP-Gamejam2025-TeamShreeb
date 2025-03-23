@@ -31,7 +31,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("test6"):
 		enemyBasicAttack()
 	if Input.is_action_just_pressed("test7"):
-		enemyEarthquake()
+		GlobalTextBox.activateTextbox("HALLLOOOOOO")
 
 func goToNextScene():
 	effectanim.play("continue_to_next_room")

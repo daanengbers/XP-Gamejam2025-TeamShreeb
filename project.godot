@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Scripts/Global.gd"
+GlobalTextBox="*res://Scenes/global_text_box.tscn"
 
 [display]
 
