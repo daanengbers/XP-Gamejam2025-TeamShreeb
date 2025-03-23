@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt88tbqlosrl4"]
+
+[ext_resource type="PackedScene" uid="uid://bhyyuyamd57aj" path="res://Scenes/CardBase.tscn" id="1_bvilx"]
+
+[node name="Card6" instance=ExtResource("1_bvilx")]
+Actions = ["Heal self", "Heal all", "Heal all"]

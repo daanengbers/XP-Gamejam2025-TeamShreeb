@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dux2l3va2t08v"]
-
-[ext_resource type="PackedScene" uid="uid://cstsdc7tcx8yu" path="res://Scenes/ActionBase.tscn" id="1_rff7h"]
-
-[node name="SmalAttackAction" instance=ExtResource("1_rff7h")]
-ActionID = "Tackle"
-Target = "Enemy"

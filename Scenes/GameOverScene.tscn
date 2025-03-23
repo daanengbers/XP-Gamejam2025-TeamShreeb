@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://t2l7bev4pmg6"]
 
-[ext_resource type="Script" path="res://Scenes/GameOverScene.gd" id="1_omppe"]
+[ext_resource type="Script" path="res://Scripts/GameOverScene.gd" id="1_omppe"]
 [ext_resource type="FontFile" uid="uid://r5jnl80m8gja" path="res://Fonts/Sigmar-Regular.ttf" id="2_mlqho"]
 [ext_resource type="Texture2D" uid="uid://7mcv7h8tohby" path="res://Sprites/UI/StandardActionBar.png" id="3_ntyge"]
 

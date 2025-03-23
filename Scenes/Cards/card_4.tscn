@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bebptrp2ldug3"]
+[gd_scene load_steps=2 format=3 uid="uid://dmog530cxwh6n"]
 
 [ext_resource type="PackedScene" uid="uid://bhyyuyamd57aj" path="res://Scenes/CardBase.tscn" id="1_vsgro"]
 
 [node name="CardBase" instance=ExtResource("1_vsgro")]
-Actions = ["Attack", "Fireball", "Heal"]
+Actions = ["Tackle", "Fireball", "Heal self"]

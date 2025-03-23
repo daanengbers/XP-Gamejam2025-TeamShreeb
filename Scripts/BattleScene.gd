@@ -148,11 +148,18 @@ func doFriendlyAction(actionID, caster, target):
 			await get_tree().create_timer(animWait).timeout
 			friendlyTargetForAction.checkDeath()
 			hasDoneAction = true
-		"Heal":
+		"Heal self":
 			#HERE WILL BE THE ANIMATION
 			animWait = 1.2
 			await get_tree().create_timer(animWait).timeout
-			heal(target,caster)
+			healSelf(target,caster)
+			animWait = 1.2
+			await get_tree().create_timer(animWait).timeout
+			hasDoneAction = true
+		"Heal all":
+			animWait = 1.2
+			await get_tree().create_timer(animWait).timeout
+			healAll(target,caster)
 			animWait = 1.2
 			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
@@ -216,8 +223,22 @@ func friendlyGetTarget(target):
 			friendlyTargetForAction = get_node("BattleEnemy/EnemyInstance")
 		"self":
 			friendlyTargetForAction = friendlyCasterOfAction
+		"All":
+			var caster1 = get_node("Party/Slot4")
+			var caster2 = get_node("Party/Slot4")
+			var caster3 = get_node("Party/Slot4")
+			var caster4 = get_node("Party/Slot4")
+			friendlyTargetForAction = [caster1, caster2 , caster3, caster4]
+			if Global.global_Char1Dead:
+				friendlyTargetForAction.erase(caster1)
+			if Global.global_Char2Dead:
+				friendlyTargetForAction.erase(caster2)
+			if Global.global_Char3Dead:
+				friendlyTargetForAction.erase(caster3)
+			if Global.global_Char4Dead:
+				friendlyTargetForAction.erase(caster4)
 
-func heal(target, caster):
+func healSelf(target, caster):
 	var targetForAction
 	var casterOfAction
 	match caster:
@@ -241,6 +262,16 @@ func heal(target, caster):
 	targetForAction.updateUI() 
 	pass
 
+func healAll(target, caster):
+	friendlyGetCaster(caster)
+	friendlyGetTarget(target)
+	var healthHealed = friendlyCasterOfAction.MG * 1
+	for i in range(friendlyTargetForAction.size()):
+		friendlyTargetForAction[i].HP += healthHealed
+		if friendlyTargetForAction[i].HP > friendlyTargetForAction[i].maxHP:
+			friendlyTargetForAction[i].HP = friendlyTargetForAction[i].maxHP
+		friendlyTargetForAction[i].updateUI() 
+	
 func endPlayerTurn():
 	if Global.global_isInBattle == true:
 		Global.global_isPlayerTurn = false

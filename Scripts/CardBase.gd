@@ -1,8 +1,9 @@
 extends Node2D
 
-var smallAttack = preload("res://Scenes/Actions/smal_attack_action.tscn")
-var Attack = preload("res://Scenes/Actions/AttackAction.tscn")
+var Tackle = preload("res://Scenes/Actions/Tackle.tscn")
+var BigSlamAttack = preload("res://Scenes/Actions/BigSlamAttack.tscn")
 var Heal = preload("res://Scenes/Actions/heal_action.tscn")
+var HealAll = preload("res://Scenes/Actions/heall_all.tscn")
 var Fireball = preload("res://Scenes/Actions/Fireball_action.tscn")
 
 @export var Actions = ["","",""]
@@ -18,7 +19,6 @@ var slotAssigned = 0
 @export var ActionsUILocations = [Vector2(0,0), Vector2(0,0), Vector2(0,0)]
 
 func _ready():
-	print(get_parent())
 	pass # Replace with function body.
 
 
@@ -28,18 +28,22 @@ func _process(delta):
 func initUI():
 	for i in range(3):
 		match Actions[i]:
-			"Attack":
-				var attack = Attack.instantiate()
-				self.add_child(attack)
-				actionsInCard.append(attack)
-			"smallAttack":
-				var smallattack = smallAttack.instantiate()
-				self.add_child(smallattack)
-				actionsInCard.append(smallattack)
-			"Heal":
+			"Big Slam Attack":
+				var bigslamattack = BigSlamAttack.instantiate()
+				self.add_child(bigslamattack)
+				actionsInCard.append(bigslamattack)
+			"Tackle":
+				var tackle = Tackle.instantiate()
+				self.add_child(tackle)
+				actionsInCard.append(tackle)
+			"Heal self":
 				var heal = Heal.instantiate()
 				self.add_child(heal)
 				actionsInCard.append(heal)
+			"Heal all":
+				var healall = HealAll.instantiate()
+				self.add_child(healall)
+				actionsInCard.append(healall)
 			"Fireball":
 				var fireball = Fireball.instantiate()
 				self.add_child(fireball)

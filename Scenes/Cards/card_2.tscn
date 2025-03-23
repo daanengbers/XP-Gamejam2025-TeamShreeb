@@ -3,4 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://bhyyuyamd57aj" path="res://Scenes/CardBase.tscn" id="1_5n6dn"]
 
 [node name="Card2" instance=ExtResource("1_5n6dn")]
-Actions = ["smallAttack", "smallAttack", "Attack"]
+Actions = ["Tackle", "Tackle", "Big Slam Attack"]

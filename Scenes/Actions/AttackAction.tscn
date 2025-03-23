@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0ik7o0uvasr0"]
-
-[ext_resource type="PackedScene" uid="uid://cstsdc7tcx8yu" path="res://Scenes/ActionBase.tscn" id="1_324sl"]
-
-[node name="Attack" instance=ExtResource("1_324sl")]
-ActionID = "Big Slam Attack"
-Target = "Enemy"

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfk3pe0pqy73r"]
+
+[ext_resource type="PackedScene" uid="uid://cstsdc7tcx8yu" path="res://Scenes/ActionBase.tscn" id="1_23arh"]
+
+[node name="HeallAll" instance=ExtResource("1_23arh")]
+ActionID = "Heal all"
+Target = "All"
