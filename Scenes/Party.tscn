@@ -51,7 +51,7 @@ charName = "Holmund"
 charSprite = ExtResource("6_npadl")
 MAX_HP = 11
 HP = 11
-ATK = 2
+ATK = 4
 MG = 2
 slot = 3
 
