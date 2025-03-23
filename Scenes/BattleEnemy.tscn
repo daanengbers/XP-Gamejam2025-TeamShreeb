@@ -12,7 +12,7 @@ script = ExtResource("1_ua17p")
 [node name="Bungle" parent="." groups=["Enemies"] instance=ExtResource("1_g0qqh")]
 EnemyName = "Bungle"
 EnemySprite = ExtResource("3_gr1hv")
-possibleAttacks = ["Attack"]
+possibleAttacks = ["Attack", "Heal"]
 MAXHP = 7
 HP = 7
 ATK = 1

@@ -69,6 +69,7 @@ func updateEnemy(SpriteTex, EnemName, EnemMaxHP):
 
 func updateEnemyDuringBattle(HP_left):
 	local_enemyHP = HP_left
+	updateEnemyHealthbar()
 	#$TwoD_View/EnemyHealthBar.value = HP_left
 
 func updateEnemyHealthbar():

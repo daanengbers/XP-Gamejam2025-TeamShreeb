@@ -40,13 +40,19 @@ func doEnemyAction():
 			hasDoneAction = true
 		"Earthquake":
 			Room.enemyEarthquake()
-			animWait = 3.4
+			animWait = 1.2
 			await get_tree().create_timer(animWait).timeout
 			enemyEarthquakeAttack("All")
+			animWait = 2.2
+			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
 		"Heal":
-			print(randomAbillity)
-			animWait = 3.4
+			Room.enemyHeal()
+			animWait = 1.4
+			await get_tree().create_timer(animWait).timeout
+			enemyHealAttack()
+			animWait = 0.8
+			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
 	if hasDoneAction:
 		endEnemyTurn()
@@ -67,6 +73,7 @@ func enemyBigAttack(target):
 	var damageDealt = casterOfAction.ATK * 3
 	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " tackled " + str(enemyChosenTarget.charName) + " for " + str(damageDealt) + " damage!")
 	enemyChosenTarget.HP -= damageDealt
+	enemyChosenTarget.checkDeath()
 	enemyChosenTarget.updateUI()
 	pass
 
@@ -77,8 +84,19 @@ func enemyEarthquakeAttack(target):
 	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " caused an earthquake and hit everyone for " + str(damageDealt) + " damage!")
 	for i in range(enemyChosenTarget.size()):
 		enemyChosenTarget[i].HP -= damageDealt
+		enemyChosenTarget[i].checkDeath()
 		enemyChosenTarget[i].updateUI()
 	pass
+	
+func enemyHealAttack():
+	var casterOfAction = get_node("BattleEnemy/EnemyInstance")
+	var targetOfAction = casterOfAction
+	var HealthHealed = casterOfAction.ATK * 4
+	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " recentered itself and healed " + str(HealthHealed) + " health!")
+	targetOfAction.HP += HealthHealed
+	if targetOfAction.HP >= targetOfAction.MAXHP:
+		targetOfAction.HP = targetOfAction.MAXHP
+	get_parent().get_parent().updateEnemyDuringBattle(targetOfAction.HP)
 
 func getEnemyTarget(whoToTarget):
 	var slot1 = get_node("Party/Slot1")
@@ -107,11 +125,6 @@ func getEnemyTarget(whoToTarget):
 			print(enemyChosenTarget)
 	pass
 
-func enemyFireball():
-	pass
-
-func enemyHeal():
-	pass
 
 func doFriendlyAction(actionID, caster, target):
 	var hasDoneAction = false
@@ -119,24 +132,32 @@ func doFriendlyAction(actionID, caster, target):
 	match actionID:
 		"Tackle":
 			Room.attackSmall()
+			animWait = 0.9
+			await get_tree().create_timer(animWait).timeout
 			tackleAttack(target, caster)
-			animWait = 2.0
+			animWait = 1.1
+			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
 		"Big Slam Attack":
 			Room.attackLargeSlam()
+			animWait = 1.6
+			await get_tree().create_timer(animWait).timeout
 			bigSlamAttack(target, caster)
-			animWait = 2.0
+			animWait = 1.4
+			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
 		"Heal":
 			heal(target,caster)
 			hasDoneAction = true
 		"Fireball":
+			animWait = 2.0
+			await get_tree().create_timer(animWait).timeout
 			fireballAttack(target, caster)
 			animWait = 2.0
+			await get_tree().create_timer(animWait).timeout
 			Room.attackShootFireball()
 			hasDoneAction = true
 	Global.global_isPlayerTurn = false
-	await get_tree().create_timer(animWait).timeout
 	if hasDoneAction:
 		endPlayerTurn()
 	else:
