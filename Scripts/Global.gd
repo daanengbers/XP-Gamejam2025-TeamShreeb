@@ -18,6 +18,7 @@ var global_Char3IsOutOfOptions = false
 var global_Char4IsOutOfOptions = false
 
 var globalIsOutOfOptions = false
+var globalSomeoneIsOutOfOptions = false
 
 func _ready():
 	randomize()

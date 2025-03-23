@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dhosqviutvr2s"]
+[gd_scene load_steps=30 format=3 uid="uid://dhosqviutvr2s"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_7wc8e"]
 [ext_resource type="PackedScene" uid="uid://dlalrswgjsy8v" path="res://Scenes/fireball.tscn" id="2_6vnvk"]
@@ -845,6 +845,10 @@ tracks/6/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_e23pe"]
+resource_name = "out_of_options"
+length = 4.0
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r6ldc"]
 _data = {
 "RESET": SubResource("Animation_s8vtl"),
@@ -857,6 +861,7 @@ _data = {
 "fade_in": SubResource("Animation_syqyx"),
 "fireball_throw": SubResource("Animation_uhaas"),
 "frostball_throw": SubResource("Animation_rxitq"),
+"out_of_options": SubResource("Animation_e23pe"),
 "shake": SubResource("Animation_eccle"),
 "ultra_physical_attack": SubResource("Animation_d6pf6")
 }

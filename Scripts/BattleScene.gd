@@ -41,12 +41,6 @@ func doEnemyAction():
 			print(randomAbillity)
 			animWait = 3.4
 			hasDoneAction = true
-		"smallAttack(":
-			print(randomAbillity)
-			hasDoneAction = true
-		"Fireball":
-			print(randomAbillity)
-			hasDoneAction = true
 	if animWait != null:
 		await get_tree().create_timer(animWait).timeout
 	if hasDoneAction:
@@ -57,6 +51,7 @@ func enemyAttack(target):
 	getEnemyTarget(target)
 	var damageDealt = casterOfAction.ATK * 2
 	enemyChosenTarget.HP -= damageDealt
+	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " tackled " + str(enemyChosenTarget.charName) + " for " + str(damageDealt) + " damage!")
 	enemyChosenTarget.checkDeath()
 	enemyChosenTarget.updateUI()
 	pass
@@ -65,6 +60,7 @@ func enemyBigAttack(target):
 	var casterOfAction = get_node("BattleEnemy/EnemyInstance")
 	getEnemyTarget(target)
 	var damageDealt = casterOfAction.ATK * 3
+	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " tackled " + str(enemyChosenTarget.charName) + " for " + str(damageDealt) + " damage!")
 	enemyChosenTarget.HP -= damageDealt
 	enemyChosenTarget.updateUI()
 	pass
@@ -73,9 +69,8 @@ func enemyEarthquakeAttack(target):
 	var casterOfAction = get_node("BattleEnemy/EnemyInstance")
 	getEnemyTarget(target)
 	var damageDealt = casterOfAction.ATK * 1
-	print(enemyChosenTarget)
+	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " caused an earthquake and hit everyone for " + str(damageDealt) + " damage!")
 	for i in range(enemyChosenTarget.size()):
-		#print(enemyChosenTarget[i])
 		enemyChosenTarget[i].HP -= damageDealt
 		enemyChosenTarget[i].updateUI()
 	pass
@@ -118,12 +113,14 @@ func doFriendlyAction(actionID, caster, target):
 	var animWait = 0.0
 	match actionID:
 		"Tackle":
-			smallAttack(target, caster)
+			tackleAttack(target, caster)
 			animWait = 2.0
 			Room.attackSmall()
 			hasDoneAction = true
 		"Big Slam Attack":
-			print("attack")
+			bigSlamAttack(target, caster)
+			animWait = 2.0
+			Room.attackLargeSlam()
 			hasDoneAction = true
 		"Heal":
 			heal(target,caster)
@@ -140,10 +137,20 @@ func doFriendlyAction(actionID, caster, target):
 	else:
 		print("something went very wrong")
 
-func smallAttack(target, caster):
+func tackleAttack(target, caster):
 	friendlyGetCaster(caster)
 	friendlyGetTarget(target)
 	var damageDealt = friendlyCasterOfAction.ATK * 1
+	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " hit " + str(friendlyTargetForAction.EnemyName) + " for " + str(damageDealt) + " damage!")
+	friendlyTargetForAction.HP -= damageDealt
+	friendlyTargetForAction.updateUI() 
+	friendlyTargetForAction.checkDeath()
+	
+func bigSlamAttack(target, caster):
+	friendlyGetCaster(caster)
+	friendlyGetTarget(target)
+	var damageDealt = friendlyCasterOfAction.ATK * 2
+	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " slammed " + str(friendlyTargetForAction.EnemyName) + " for " + str(damageDealt) + " damage!")
 	friendlyTargetForAction.HP -= damageDealt
 	friendlyTargetForAction.updateUI() 
 	friendlyTargetForAction.checkDeath()
@@ -205,7 +212,12 @@ func endPlayerTurn():
 		Global.global_isPlayerTurn = false
 		Global.checkOptionsLeftGameOver()
 		if !Global.globalIsOutOfOptions:
-			doEnemyAction()
+			if Global.globalSomeoneIsOutOfOptions:
+				await get_tree().create_timer(4.0).timeout
+				Global.globalSomeoneIsOutOfOptions = false
+				doEnemyAction()
+			else:
+				doEnemyAction()
 
 func endEnemyTurn():
 	if Global.global_isInBattle == true:

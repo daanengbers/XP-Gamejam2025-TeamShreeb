@@ -54,11 +54,19 @@ func checkOptionsLeft():
 		match slot:
 			"CardSlot1":
 				Global.global_Char1IsOutOfOptions = true
+				GlobalTextBox.activateTextbox("Thipps is out of options!")
+				Global.globalSomeoneIsOutOfOptions = true
 			"CardSlot2":
 				Global.global_Char2IsOutOfOptions = true
+				GlobalTextBox.activateTextbox("Aak'bo is out of options!")
+				Global.globalSomeoneIsOutOfOptions = true
 			"CardSlot3":
 				Global.global_Char3IsOutOfOptions = true
+				GlobalTextBox.activateTextbox("Holmund is out of options!")
+				Global.globalSomeoneIsOutOfOptions = true
 			"CardSlot4":
 				Global.global_Char4IsOutOfOptions = true
+				GlobalTextBox.activateTextbox("Clement is out of options!")
+				Global.globalSomeoneIsOutOfOptions = true
 				
 		#get_parent()

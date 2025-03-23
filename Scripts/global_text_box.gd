@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var vischars = 0
+var waitTime = 5.0
 
 func activateTextbox(textboxtext):
 	$Anim.play("RESET")
