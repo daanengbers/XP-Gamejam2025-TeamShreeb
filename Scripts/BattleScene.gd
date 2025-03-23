@@ -39,6 +39,7 @@ func doEnemyAction():
 			hasDoneAction = true
 		"Heal":
 			print(randomAbillity)
+			animWait = 3.4
 			hasDoneAction = true
 		"smallAttack(":
 			print(randomAbillity)
@@ -202,7 +203,9 @@ func heal(target, caster):
 func endPlayerTurn():
 	if Global.global_isInBattle == true:
 		Global.global_isPlayerTurn = false
-		doEnemyAction()
+		Global.checkOptionsLeftGameOver()
+		if !Global.globalIsOutOfOptions:
+			doEnemyAction()
 
 func endEnemyTurn():
 	if Global.global_isInBattle == true:

@@ -11,11 +11,14 @@ var action2
 var action3
 var actionsInCard = []
 
+var optionsLeft = 3
+
 var slotAssigned = 0
 
 @export var ActionsUILocations = [Vector2(0,0), Vector2(0,0), Vector2(0,0)]
 
 func _ready():
+	print(get_parent())
 	pass # Replace with function body.
 
 
@@ -45,5 +48,17 @@ func initUI():
 	for l in range(3):
 		actionsInCard[l].position = ActionsUILocations[l]
 
-func cleanup():
-	pass
+func checkOptionsLeft():
+	if optionsLeft == 0:
+		var slot = get_parent().name
+		match slot:
+			"CardSlot1":
+				Global.global_Char1IsOutOfOptions = true
+			"CardSlot2":
+				Global.global_Char2IsOutOfOptions = true
+			"CardSlot3":
+				Global.global_Char3IsOutOfOptions = true
+			"CardSlot4":
+				Global.global_Char4IsOutOfOptions = true
+				
+		#get_parent()

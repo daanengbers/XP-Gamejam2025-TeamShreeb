@@ -25,6 +25,7 @@ func _on_slot_1_button_pressed():
 		chosenCard.slotAssigned = 1
 		chosenCard.position = Vector2(0,260)
 		playFinishAnimationInRoom()
+		Global.global_Char1IsOutOfOptions = false
 		$".".queue_free()
 
 func _on_slot_2_button_pressed():
@@ -34,6 +35,7 @@ func _on_slot_2_button_pressed():
 		chosenCard.slotAssigned = 2
 		chosenCard.position = Vector2(0,260)
 		playFinishAnimationInRoom()
+		Global.global_Char2IsOutOfOptions = false
 		$".".queue_free()
 
 func _on_slot_3_button_pressed():
@@ -43,6 +45,7 @@ func _on_slot_3_button_pressed():
 		chosenCard.slotAssigned = 4
 		chosenCard.position = Vector2(0,260)
 		playFinishAnimationInRoom()
+		Global.global_Char3IsOutOfOptions = false
 		$".".queue_free()
 
 func _on_slot_4_button_pressed():
@@ -52,6 +55,7 @@ func _on_slot_4_button_pressed():
 		chosenCard.slotAssigned = 3
 		chosenCard.position = Vector2(0,260)
 		playFinishAnimationInRoom()
+		Global.global_Char4IsOutOfOptions = false
 		$".".queue_free()
 
 func playFinishAnimationInRoom():
