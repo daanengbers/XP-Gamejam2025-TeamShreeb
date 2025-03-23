@@ -1,19 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://t2l7bev4pmg6"]
+[gd_scene load_steps=10 format=3 uid="uid://t2l7bev4pmg6"]
 
 [ext_resource type="Script" path="res://Scripts/GameOverScene.gd" id="1_omppe"]
 [ext_resource type="FontFile" uid="uid://r5jnl80m8gja" path="res://Fonts/Sigmar-Regular.ttf" id="2_mlqho"]
-[ext_resource type="Texture2D" uid="uid://7mcv7h8tohby" path="res://Sprites/UI/StandardActionBar.png" id="3_ntyge"]
+[ext_resource type="Texture2D" uid="uid://cvrcv6ri2qsgv" path="res://Sprites/Enemies/Enemy_Boss.png" id="4_a82he"]
+[ext_resource type="Texture2D" uid="uid://c2adefngy3b44" path="res://Sprites/UI/textforweirdgame_menu.png" id="4_styyg"]
+[ext_resource type="FontFile" uid="uid://b5v66j2mxy40b" path="res://Fonts/Aladin-Regular.ttf" id="5_g2knd"]
+[ext_resource type="Texture2D" uid="uid://b342bvtlhnrue" path="res://Sprites/UI/textforweirdgame_menu_click.png" id="5_pglgl"]
+[ext_resource type="Texture2D" uid="uid://b35jlv3dbx8oi" path="res://Sprites/UI/textforweirdgame_menu_hover.png" id="6_8w7dv"]
+
+[sub_resource type="Gradient" id="Gradient_rheiv"]
+offsets = PackedFloat32Array(0, 0.181818, 0.688312, 0.863636, 1)
+colors = PackedColorArray(0.659467, 0.178208, 0.184172, 1, 0.310648, 0.0976833, 0.13745, 1, 0.110034, 0.0695741, 0.0614188, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fd8nt"]
+gradient = SubResource("Gradient_rheiv")
 
 [node name="GameOverScene" type="Node2D"]
 script = ExtResource("1_omppe")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
-offset_right = 1920.0
-offset_bottom = 1081.0
-color = Color(0.2, 0.2, 0.2, 1)
+[node name="GAMEOVER" type="Label" parent="."]
+modulate = Color(0.886275, 0.737255, 0.701961, 1)
+offset_left = 340.0
+offset_top = 96.0
+offset_right = 1624.0
+offset_bottom = 391.0
+theme_override_fonts/font = ExtResource("2_mlqho")
+theme_override_font_sizes/font_size = 155
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Subtext" type="Label" parent="."]
+modulate = Color(0.635294, 0.235294, 0.270588, 1)
+offset_left = 120.0
+offset_top = 284.0
+offset_right = 1848.0
+offset_bottom = 428.0
+theme_override_fonts/font = ExtResource("5_g2knd")
+theme_override_font_sizes/font_size = 90
+text = "Your Party has been wiped out"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GameOver" type="Label" parent="."]
+visible = false
 offset_left = 535.0
 offset_top = 44.0
 offset_right = 1384.0
@@ -24,6 +53,7 @@ theme_override_font_sizes/font_size = 140
 text = "Game over!"
 
 [node name="Score" type="Label" parent="."]
+modulate = Color(0.784314, 0.639216, 0.611765, 1)
 texture_filter = 1
 offset_left = 602.0
 offset_top = 446.0
@@ -34,10 +64,26 @@ theme_override_font_sizes/font_size = 40
 text = "You managed to defeat 10 enemies!"
 
 [node name="StartAgain" type="TextureButton" parent="."]
-offset_left = 587.0
+offset_left = 660.0
 offset_top = 713.0
-offset_right = 1347.0
-offset_bottom = 803.0
-texture_normal = ExtResource("3_ntyge")
+offset_right = 1260.0
+offset_bottom = 853.0
+texture_normal = ExtResource("4_styyg")
+texture_pressed = ExtResource("5_pglgl")
+texture_hover = ExtResource("6_8w7dv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(960.006, 540.011)
+rotation = -1.5708
+scale = Vector2(4.219, 1920.06)
+texture = SubResource("GradientTexture1D_fd8nt")
+metadata/_edit_lock_ = true
+
+[node name="EnemyBoss" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -2
+position = Vector2(959, 626)
+texture = ExtResource("4_a82he")
 
 [connection signal="pressed" from="StartAgain" to="." method="_on_start_again_pressed"]

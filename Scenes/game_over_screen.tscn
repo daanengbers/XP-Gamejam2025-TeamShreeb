@@ -5,12 +5,12 @@
 [ext_resource type="FontFile" uid="uid://b5v66j2mxy40b" path="res://Fonts/Aladin-Regular.ttf" id="2_n3eix"]
 [ext_resource type="Texture2D" uid="uid://cvrcv6ri2qsgv" path="res://Sprites/Enemies/Enemy_Boss.png" id="3_2lbnt"]
 
-[sub_resource type="Gradient" id="Gradient_rheiv"]
+[sub_resource type="Gradient" id="Gradient_lb4lg"]
 offsets = PackedFloat32Array(0, 0.181818, 0.688312, 0.863636, 1)
 colors = PackedColorArray(0.659467, 0.178208, 0.184172, 1, 0.310648, 0.0976833, 0.13745, 1, 0.110034, 0.0695741, 0.0614188, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_uq0lw"]
-gradient = SubResource("Gradient_rheiv")
+gradient = SubResource("Gradient_lb4lg")
 
 [node name="GameOverScreen" type="Node2D"]
 script = ExtResource("1_3vqgj")
