@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dmcrova6vpqsr" path="res://Sprites/UI/ButtonBackground.png" id="2_t4g3g"]
 [ext_resource type="Texture2D" uid="uid://jyyljqwt1xvd" path="res://Sprites/UI/BlackedOutActionBar.png" id="3_eumh1"]
 
-[node name="CardBase" type="Node2D" groups=["Cards"]]
+[node name="Card8" type="Node2D" groups=["Cards"]]
 script = ExtResource("1_41qti")
-Actions = ["Attack", "smallAttack", "Heal"]
+Actions = ["Big Slam Attack", "Big Slam Attack", "Heal self"]
 ActionsUILocations = [Vector2(10, 60), Vector2(10, 116), Vector2(10, 172)]
 
 [node name="Base" type="Sprite2D" parent="."]

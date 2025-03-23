@@ -32,36 +32,36 @@ slotNumber = 4
 [node name="PartyMember1" parent="." groups=["PartyMembers"] instance=ExtResource("3_5d14w")]
 charName = "Thipps"
 charSprite = ExtResource("4_weif0")
-MAX_HP = 3
-HP = 1
-ATK = 3
-MG = 30
+MAX_HP = 7
+HP = 7
+ATK = 1
+MG = 3
 slot = 3
 
 [node name="PartyMember2" parent="." groups=["PartyMembers"] instance=ExtResource("3_5d14w")]
 charName = "Aak'bo"
 charSprite = ExtResource("5_ynv4u")
-MAX_HP = 3
-HP = 1
-ATK = 30
-MG = 3
+MAX_HP = 4
+HP = 4
+ATK = 8
+MG = 1
 
 [node name="PartyMember3" parent="." groups=["PartyMembers"] instance=ExtResource("3_5d14w")]
 charName = "Holmund"
 charSprite = ExtResource("6_npadl")
-MAX_HP = 3
-HP = 1
-ATK = 3
-MG = 3
+MAX_HP = 11
+HP = 11
+ATK = 2
+MG = 2
 slot = 3
 
 [node name="PartyMember4" parent="." groups=["PartyMembers"] instance=ExtResource("3_5d14w")]
 charName = "Clement"
 charSprite = ExtResource("7_y3i0j")
-MAX_HP = 3
-HP = 1
-ATK = 3000
-MG = 69
+MAX_HP = 6
+HP = 6
+ATK = 2
+MG = 4
 slot = 3
 
 [node name="CardSlot1" parent="." instance=ExtResource("8_21xib")]
