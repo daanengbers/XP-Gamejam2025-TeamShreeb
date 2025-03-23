@@ -20,8 +20,9 @@ extends Node2D
 var Card1 = preload("res://Scenes/Cards/card_1.tscn")
 var Card2 = preload("res://Scenes/Cards/card_2.tscn")
 var Card3 = preload("res://Scenes/Cards/card_3.tscn")
+var Card4 = preload("res://Scenes/Cards/card_4.tscn")
 
-var cards2 = [Card1, Card2, Card3, Card1]
+# var cards2 = [Card1, Card2, Card3, Card4]
 
 @export var cardOffset = 0
 @export var beginingCardsIDs = ["","","",""]
@@ -71,9 +72,37 @@ func InitCards():
 				cardSlots[i].add_child(card3)
 				card3.position = Vector2(0,cardOffset)
 				card3.initUI()
+			"Card4":
+				var card4 = Card4.instantiate()
+				card4.slotAssigned = i + 1
+				cardSlots[i].add_child(card4)
+				card4.position = Vector2(0,cardOffset)
+				card4.initUI()
 
 func triggerVicory():
 	var triggervictory = victoryScreen.instantiate()
 	self.add_child(triggervictory)
 	pass
 	
+func handlePlayerDeath(slotToKill):
+	match slotToKill:
+		1:
+			for action in cardSlot1.get_child(0).get_children():
+				action.queue_free()
+			Global.global_Char1Dead = true
+			Global.CheckGameover()
+		2:
+			for action in cardSlot2.get_child(0).get_children():
+				action.queue_free()
+			Global.global_Char2Dead = true
+			Global.CheckGameover()
+		3:
+			for action in cardSlot3.get_child(0).get_children():
+				action.queue_free()
+			Global.global_Char3Dead = true
+			Global.CheckGameover()
+		4:
+			for action in cardSlot4.get_child(0).get_children():
+				action.queue_free()
+			Global.global_Char4Dead = true
+			Global.CheckGameover()

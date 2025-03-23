@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/Slot.gd" id="1_aua1d"]
 [ext_resource type="Texture2D" uid="uid://dmpju0dg5vlvg" path="res://Sprites/Placeholder/CharportraitPlaceholder1.png" id="2_kqxwf"]
 [ext_resource type="FontFile" uid="uid://r5jnl80m8gja" path="res://Fonts/Sigmar-Regular.ttf" id="3_yfu8b"]
-[ext_resource type="Texture2D" uid="uid://boftkiemx80jl" path="res://Sprites/Placeholder/UIElement_Placeholders_Attack.png" id="4_t54hl"]
-[ext_resource type="Texture2D" uid="uid://cgmp2h2cn8axf" path="res://Sprites/Placeholder/UIElement_Placeholders_Health.png" id="5_on5wk"]
-[ext_resource type="Texture2D" uid="uid://1det1o435cmq" path="res://Sprites/Placeholder/UIElement_Placeholders_Magic.png" id="6_rbeet"]
+[ext_resource type="Texture2D" uid="uid://dxg8157bkb4qq" path="res://Sprites/UI/hearticon.png" id="4_t4jym"]
+[ext_resource type="Texture2D" uid="uid://syvibehapjl3" path="res://Sprites/UI/swordicon.png" id="5_63c4y"]
+[ext_resource type="Texture2D" uid="uid://cvalm3ag175ux" path="res://Sprites/UI/magicicon.png" id="6_ct3wa"]
 
 [node name="Slot" type="Node2D"]
 script = ExtResource("1_aua1d")
@@ -27,9 +27,9 @@ horizontal_alignment = 2
 [node name="HPLabel" type="Label" parent="."]
 texture_filter = 1
 offset_left = 313.0
-offset_top = 63.0
+offset_top = 53.0
 offset_right = 359.0
-offset_bottom = 119.0
+offset_bottom = 109.0
 theme_override_fonts/font = ExtResource("3_yfu8b")
 theme_override_font_sizes/font_size = 34
 text = "00"
@@ -38,9 +38,9 @@ horizontal_alignment = 1
 [node name="ATKLabel" type="Label" parent="."]
 texture_filter = 1
 offset_left = 313.0
-offset_top = 111.0
+offset_top = 110.0
 offset_right = 359.0
-offset_bottom = 167.0
+offset_bottom = 166.0
 theme_override_fonts/font = ExtResource("3_yfu8b")
 theme_override_font_sizes/font_size = 34
 text = "00"
@@ -49,9 +49,9 @@ horizontal_alignment = 1
 [node name="MGLabel" type="Label" parent="."]
 texture_filter = 1
 offset_left = 313.0
-offset_top = 160.0
+offset_top = 165.0
 offset_right = 359.0
-offset_bottom = 216.0
+offset_bottom = 221.0
 theme_override_fonts/font = ExtResource("3_yfu8b")
 theme_override_font_sizes/font_size = 34
 text = "00"
@@ -65,17 +65,17 @@ offset_bottom = 500.0
 color = Color(0, 0, 0, 0.27451)
 metadata/_edit_lock_ = true
 
-[node name="UiElementPlaceholdersAttack" type="Sprite2D" parent="."]
-position = Vector2(274, 139)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("4_t54hl")
+[node name="Hearticon" type="Sprite2D" parent="."]
+position = Vector2(273, 83)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_t4jym")
 
-[node name="UiElementPlaceholdersHealth" type="Sprite2D" parent="."]
-position = Vector2(274, 93)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("5_on5wk")
+[node name="Swordicon" type="Sprite2D" parent="."]
+position = Vector2(273, 137)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_63c4y")
 
-[node name="UiElementPlaceholdersMagic" type="Sprite2D" parent="."]
-position = Vector2(274.2, 185.2)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_rbeet")
+[node name="Magicicon" type="Sprite2D" parent="."]
+position = Vector2(272, 192)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_ct3wa")

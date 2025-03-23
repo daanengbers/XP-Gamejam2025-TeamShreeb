@@ -3,6 +3,7 @@ extends Node2D
 var smallAttack = preload("res://Scenes/Actions/smal_attack_action.tscn")
 var Attack = preload("res://Scenes/Actions/AttackAction.tscn")
 var Heal = preload("res://Scenes/Actions/heal_action.tscn")
+var Fireball = preload("res://Scenes/Actions/Fireball_action.tscn")
 
 @export var Actions = ["","",""]
 var action1
@@ -36,6 +37,11 @@ func initUI():
 				var heal = Heal.instantiate()
 				self.add_child(heal)
 				actionsInCard.append(heal)
+			"Fireball":
+				var fireball = Fireball.instantiate()
+				self.add_child(fireball)
+				actionsInCard.append(fireball)
+			
 	for l in range(3):
 		actionsInCard[l].position = ActionsUILocations[l]
 

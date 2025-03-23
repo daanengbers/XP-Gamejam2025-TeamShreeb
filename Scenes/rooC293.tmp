@@ -433,14 +433,11 @@ tracks/3/path = NodePath("../../..")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.3, 1.3001),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"spawnImpactEffect1"
-}, {
-"args": [],
-"method": &"updateEnemyHealthbar"
 }]
 }
 tracks/4/type = "value"
@@ -905,6 +902,7 @@ script = ExtResource("1_7wc8e")
 [node name="TwoD_View" type="CanvasLayer" parent="."]
 
 [node name="Color_Over" type="ColorRect" parent="TwoD_View"]
+visible = false
 z_index = 10
 offset_right = 1920.0
 offset_bottom = 1080.0

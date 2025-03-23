@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0osb5rrdj2hd"]
+
+[ext_resource type="PackedScene" uid="uid://cstsdc7tcx8yu" path="res://Scenes/ActionBase.tscn" id="1_nm1cd"]
+
+[node name="ActionBase" instance=ExtResource("1_nm1cd")]
+ActionID = "Fireball"
+Target = "Enemy"

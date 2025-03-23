@@ -5,6 +5,8 @@ extends Node2D
 @onready var Room = get_parent().get_parent()
 
 var enemyChosenTarget
+var friendlyCasterOfAction
+var friendlyTargetForAction
 
 func _ready():
 	randomize()
@@ -25,6 +27,16 @@ func doEnemyAction():
 			animWait = 3.6
 			Room.enemyBasicAttack()
 			hasDoneAction = true
+		"BigAttack":
+			enemyBigAttack("Random")
+			animWait = 3.8
+			Room.enemyBigAttack()
+			hasDoneAction = true
+		"Earthquake":
+			enemyEarthquakeAttack("All")
+			animWait = 3.4
+			Room.enemyEarthquake()
+			hasDoneAction = true
 		"Heal":
 			print(randomAbillity)
 			hasDoneAction = true
@@ -43,7 +55,27 @@ func enemyAttack(target):
 	getEnemyTarget(target)
 	var damageDealt = casterOfAction.ATK * 2
 	enemyChosenTarget.HP -= damageDealt
+	enemyChosenTarget.checkDeath()
 	enemyChosenTarget.updateUI()
+	pass
+
+func enemyBigAttack(target):
+	var casterOfAction = get_node("BattleEnemy/EnemyInstance")
+	getEnemyTarget(target)
+	var damageDealt = casterOfAction.ATK * 3
+	enemyChosenTarget.HP -= damageDealt
+	enemyChosenTarget.updateUI()
+	pass
+
+func enemyEarthquakeAttack(target):
+	var casterOfAction = get_node("BattleEnemy/EnemyInstance")
+	getEnemyTarget(target)
+	var damageDealt = casterOfAction.ATK * 1
+	print(enemyChosenTarget)
+	for i in range(enemyChosenTarget.size()):
+		#print(enemyChosenTarget[i])
+		enemyChosenTarget[i].HP -= damageDealt
+		enemyChosenTarget[i].updateUI()
 	pass
 
 func getEnemyTarget(whoToTarget):
@@ -51,13 +83,26 @@ func getEnemyTarget(whoToTarget):
 	var slot2 = get_node("Party/Slot2")
 	var slot3 = get_node("Party/Slot3")
 	var slot4 = get_node("Party/Slot4")
+	
 	var allSlots = [slot1,slot2,slot3,slot4]
+	
+	if Global.global_Char1Dead:
+		allSlots.erase(slot1)
+	if Global.global_Char2Dead:
+		allSlots.erase(slot2)
+	if Global.global_Char3Dead:
+		allSlots.erase(slot3)
+	if Global.global_Char4Dead:
+		allSlots.erase(slot4)
 	
 	var OwnTarget##change later
 	match whoToTarget:
 		"Random":
 			randomize()
 			enemyChosenTarget = allSlots.pick_random()
+		"All":
+			enemyChosenTarget = allSlots
+			print(enemyChosenTarget)
 	pass
 
 func enemyFireball():
@@ -81,6 +126,11 @@ func doFriendlyAction(actionID, caster, target):
 		"Heal":
 			heal(target,caster)
 			hasDoneAction = true
+		"Fireball":
+			fireballAttack(target, caster)
+			animWait = 2.0
+			Room.attackShootFireball()
+			hasDoneAction = true
 	Global.global_isPlayerTurn = false
 	await get_tree().create_timer(animWait).timeout
 	if hasDoneAction:
@@ -89,27 +139,41 @@ func doFriendlyAction(actionID, caster, target):
 		print("something went very wrong")
 
 func smallAttack(target, caster):
-	var targetForAction
-	var casterOfAction
+	friendlyGetCaster(caster)
+	friendlyGetTarget(target)
+	var damageDealt = friendlyCasterOfAction.ATK * 1
+	friendlyTargetForAction.HP -= damageDealt
+	friendlyTargetForAction.updateUI() 
+	friendlyTargetForAction.checkDeath()
+
+func fireballAttack(target, caster):
+	friendlyGetCaster(caster)
+	friendlyGetTarget(target)
+	var damageDealt = friendlyCasterOfAction.MG * 1
+	friendlyTargetForAction.HP -= damageDealt
+	friendlyTargetForAction.updateUI() 
+	friendlyTargetForAction.checkDeath()
+
+
+
+func friendlyGetCaster(caster):
 	match caster:
 		1:
-			casterOfAction = get_node("Party/Slot1")
+			friendlyCasterOfAction = get_node("Party/Slot1")
 		2:
-			casterOfAction = get_node("Party/Slot2")
+			friendlyCasterOfAction = get_node("Party/Slot2")
 		3:
-			casterOfAction = get_node("Party/Slot3")
+			friendlyCasterOfAction = get_node("Party/Slot3")
 		4: 
-			casterOfAction = get_node("Party/Slot4")
+			friendlyCasterOfAction = get_node("Party/Slot4")
+
+func friendlyGetTarget(target):
 	match target:
 		"Enemy":
-			targetForAction = get_node("BattleEnemy/EnemyInstance")
+			friendlyTargetForAction = get_node("BattleEnemy/EnemyInstance")
 		"self":
-			targetForAction = casterOfAction
-	var damageDealt = casterOfAction.ATK * 1
-	targetForAction.HP -= damageDealt
-	targetForAction.updateUI() 
-	targetForAction.checkDeath()
-	
+			friendlyTargetForAction = friendlyCasterOfAction
+
 func heal(target, caster):
 	var targetForAction
 	var casterOfAction

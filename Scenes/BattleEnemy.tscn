@@ -22,19 +22,19 @@ SPDEF = 5
 [node name="RuinWalker" parent="." groups=["Enemies"] instance=ExtResource("1_g0qqh")]
 EnemyName = "Ruin Walker"
 EnemySprite = ExtResource("4_wsl8u")
-possibleAttacks = ["SmallAttack", "Fireball"]
+possibleAttacks = ["Attack", "Earthquake"]
 MAXHP = 10
-HP = 2
+HP = 10
 ATK = 2
-DEF = 2
-SPDEF = 2
+DEF = 4
+SPDEF = 20
 
 [node name="Cosmeow" parent="." groups=["Enemies"] instance=ExtResource("1_g0qqh")]
 EnemyName = "Cosmeow"
 EnemySprite = ExtResource("3_nbymq")
-possibleAttacks = ["SmallAttack", "Fireball"]
-MAXHP = 10
-HP = 2
-ATK = 2
-DEF = 2
-SPDEF = 2
+possibleAttacks = ["BigAttack", "Heal"]
+MAXHP = 14
+HP = 14
+ATK = 5
+DEF = 4
+SPDEF = 4
