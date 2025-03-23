@@ -280,6 +280,7 @@ func endPlayerTurn():
 		if !Global.globalIsOutOfOptions:
 			if Global.globalSomeoneIsOutOfOptions:
 				await get_tree().create_timer(4.0).timeout
+				Global.checkOptionsLeftGameOver()
 				Global.globalSomeoneIsOutOfOptions = false
 				doEnemyAction()
 			else:

@@ -25,12 +25,14 @@ func _ready():
 
 func CheckGameover():
 	if global_Char1Dead && global_Char2Dead && global_Char3Dead && global_Char4Dead:
+		await get_tree().create_timer(2.0).timeout
 		get_tree().change_scene_to_file("res://Scenes/GameOverScene.tscn")
 
 
 func checkOptionsLeftGameOver():
 	if global_Char1IsOutOfOptions && global_Char2IsOutOfOptions && global_Char3IsOutOfOptions && global_Char4IsOutOfOptions:
 		globalIsOutOfOptions = true
+		await get_tree().create_timer(2.0).timeout
 		get_tree().change_scene_to_file("res://Scenes/GameOverScene.tscn")
 
 func resetGame():
