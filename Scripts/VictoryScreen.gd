@@ -17,6 +17,7 @@ func _ready():
 	chosenCard.initUI()
 	chosenCard.position = Vector2(0,0)
 	print(chosenCard.position)
+	$Flashbuttons.play("flashcolors")
 
 func _on_slot_1_button_pressed():
 	if !Global.global_Char1Dead:

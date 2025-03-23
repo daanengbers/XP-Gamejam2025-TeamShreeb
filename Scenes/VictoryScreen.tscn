@@ -1,36 +1,164 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwnqxbdvo47sn"]
+[gd_scene load_steps=8 format=3 uid="uid://cwnqxbdvo47sn"]
 
 [ext_resource type="Script" path="res://Scripts/VictoryScreen.gd" id="1_1vitx"]
+[ext_resource type="Texture2D" uid="uid://da5vu12wuu1kj" path="res://Sprites/UI/SurroundCardSelectUI.png" id="2_3oyuf"]
+[ext_resource type="Texture2D" uid="uid://cw4usysxd4wwf" path="res://Sprites/UI/SurroundCardSelectUI_orange.png" id="3_rapr8"]
+[ext_resource type="Texture2D" uid="uid://bmidy4y3jo333" path="res://Sprites/UI/SurroundCardSelectUI_yellow.png" id="4_ymmji"]
+
+[sub_resource type="Animation" id="Animation_laaoy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Slot1Button:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Slot2Button:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slot3Button:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Slot4Button:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_55ky5"]
+resource_name = "flashcolors"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Slot1Button:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.172549, 0.12549, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Slot2Button:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.172549, 0.12549, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slot3Button:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.172549, 0.12549, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Slot4Button:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.172549, 0.12549, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_us4lb"]
+_data = {
+"RESET": SubResource("Animation_laaoy"),
+"flashcolors": SubResource("Animation_55ky5")
+}
 
 [node name="VictoryScreen" type="Node2D"]
 script = ExtResource("1_1vitx")
 
 [node name="Slot1Button" type="TextureButton" parent="."]
 z_index = 2
-offset_right = 390.0
-offset_bottom = 347.0
-
-[node name="ColorRect" type="ColorRect" parent="Slot1Button"]
-layout_mode = 0
-offset_right = 308.0
-offset_bottom = 280.0
-color = Color(1, 1, 1, 0.278431)
+offset_left = 9.0
+offset_top = 263.0
+offset_right = 409.0
+offset_bottom = 503.0
+texture_normal = ExtResource("2_3oyuf")
+texture_pressed = ExtResource("3_rapr8")
+texture_hover = ExtResource("4_ymmji")
 
 [node name="Slot2Button" type="TextureButton" parent="."]
-offset_left = 1616.0
-offset_right = 1920.0
-offset_bottom = 294.0
+offset_left = 1510.0
+offset_top = 260.0
+offset_right = 1910.0
+offset_bottom = 500.0
+texture_normal = ExtResource("2_3oyuf")
+texture_pressed = ExtResource("3_rapr8")
+texture_hover = ExtResource("4_ymmji")
 
 [node name="Slot3Button" type="TextureButton" parent="."]
-offset_left = 1566.0
-offset_top = 730.0
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_left = 1506.0
+offset_top = 818.0
+offset_right = 1906.0
+offset_bottom = 1058.0
+texture_normal = ExtResource("2_3oyuf")
+texture_pressed = ExtResource("3_rapr8")
+texture_hover = ExtResource("4_ymmji")
 
 [node name="Slot4Button" type="TextureButton" parent="."]
-offset_top = 816.0
-offset_right = 330.0
-offset_bottom = 1080.0
+offset_left = 12.0
+offset_top = 821.0
+offset_right = 412.0
+offset_bottom = 1061.0
+texture_normal = ExtResource("2_3oyuf")
+texture_pressed = ExtResource("3_rapr8")
+texture_hover = ExtResource("4_ymmji")
+
+[node name="Flashbuttons" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_us4lb")
+}
 
 [node name="AwardedCardSlot" type="Node2D" parent="."]
 position = Vector2(920, 496)

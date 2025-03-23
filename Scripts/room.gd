@@ -18,20 +18,7 @@ func _ready():
 	randomize()
 
 func _process(_delta):
-	if Input.is_action_just_pressed("test1"):
-		getHit()
-	if Input.is_action_just_pressed("test2"):
-		attackSmall()
-	if Input.is_action_just_pressed("test3"):
-		attackLargeSlam()
-	if Input.is_action_just_pressed("test4"):
-		attackShootFireball()
-	if Input.is_action_just_pressed("test5"):
-		enemyHeal()
-	if Input.is_action_just_pressed("test6"):
-		enemyBasicAttack()
-	if Input.is_action_just_pressed("test7"):
-		GlobalTextBox.activateTextbox("HALLLOOOOOO")
+	pass
 
 func goToNextScene():
 	effectanim.play("continue_to_next_room")
@@ -56,6 +43,7 @@ func pickRandomStage():
 		$OOP_Level_BO.visible = true
 	elif randomroom == 2:
 		$OOP_Swamp_Level_BO.visible = true
+	#$Sounds/Doorclose.play()
 
 func pickBossRoom():
 	pass # for now because there is no boss room yet
@@ -129,3 +117,8 @@ func spawnImpactEffect2():
 func spawnImpactEffectFrost():
 	var eff = IMPACT_FROST.instantiate()
 	get_parent().add_child.call_deferred(eff)
+
+# Play sound effects
+
+func playDoorOpenSFX():
+	$Sounds/Dooropen.play()

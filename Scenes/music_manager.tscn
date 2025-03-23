@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuhru2eqr700l"]
+
+[ext_resource type="Script" path="res://Scripts/music_manager.gd" id="1_33wfi"]
+[ext_resource type="AudioStream" uid="uid://bkf5dmre7yayd" path="res://Audio/Music/LANTERNLIGHT 2 intro.wav" id="2_4ualw"]
+[ext_resource type="AudioStream" uid="uid://ggxnxx75c2ge" path="res://Audio/Music/LANTERNLIGHT 2 loop.wav" id="3_onkkd"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_33wfi")
+
+[node name="MainTheme" type="Node" parent="."]
+
+[node name="Intro" type="AudioStreamPlayer" parent="MainTheme"]
+stream = ExtResource("2_4ualw")
+volume_db = -4.0
+
+[node name="Main" type="AudioStreamPlayer" parent="MainTheme"]
+stream = ExtResource("3_onkkd")
+volume_db = -4.0
+
+[connection signal="finished" from="MainTheme/Intro" to="." method="_on_intro_finished"]

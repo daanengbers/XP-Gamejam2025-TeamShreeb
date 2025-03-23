@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dhosqviutvr2s"]
+[gd_scene load_steps=31 format=3 uid="uid://dhosqviutvr2s"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_7wc8e"]
 [ext_resource type="PackedScene" uid="uid://dlalrswgjsy8v" path="res://Scenes/fireball.tscn" id="2_6vnvk"]
@@ -849,6 +849,57 @@ tracks/6/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0.174533), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_mwe4o"]
+resource_name = "enemy_death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../EnemySprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.15, -0.5), Vector3(0.986575, 1.50286, -0.5), Vector3(1.01029, 0.710456, -0.490198), Vector3(1.0074, 0.199739, -0.490198)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../EnemySprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.693157), Vector3(0, 0, -1.08467), Vector3(0, 0, -1.32502)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../EnemySprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.45, 0.45, 1), Vector3(0.35, 0.35, 1), Vector3(0.2, 0.2, 1), Vector3(0.1, 0.1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../EnemySprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r6ldc"]
 _data = {
 "RESET": SubResource("Animation_s8vtl"),
@@ -856,6 +907,7 @@ _data = {
 "continue_to_next_room": SubResource("Animation_e1pwl"),
 "enemy_basic_attack": SubResource("Animation_yy5d4"),
 "enemy_big_attack": SubResource("Animation_86y8q"),
+"enemy_death": SubResource("Animation_mwe4o"),
 "enemy_earthquake": SubResource("Animation_p4yid"),
 "enemy_heal": SubResource("Animation_ovu16"),
 "fade_in": SubResource("Animation_syqyx"),

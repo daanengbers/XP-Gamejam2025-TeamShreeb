@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://badmt5r3ggr03"]
+
+[ext_resource type="PackedScene" uid="uid://6tour3lhdwlw" path="res://Models/Dungeon/ASM - PBR Metallic Roughness.glb" id="1_ce3hn"]
+
+[node name="Title_Screen" type="Node"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="ASM - PBR Metallic Roughness" parent="Node3D" instance=ExtResource("1_ce3hn")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.0175101, 0, 0.141111)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(0.265994, 0, 0.963975, 0, 1, 0, -0.963975, 0, 0.265994, 9.95886, 2.66019, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25526, 1.51126, -3.26329)
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+omni_range = 7.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.983127, 5.67885, 3.34702)
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+omni_range = 7.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]

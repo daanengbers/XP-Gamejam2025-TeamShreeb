@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/Global.gd"
 GlobalTextBox="*res://Scenes/global_text_box.tscn"
+MusicManager="*res://Scenes/music_manager.tscn"
 
 [display]
 
