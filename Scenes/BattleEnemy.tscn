@@ -15,7 +15,7 @@ EnemySprite = ExtResource("3_gr1hv")
 possibleAttacks = ["Attack", "Heal"]
 MAXHP = 7
 HP = 7
-ATK = 1
+ATK = 2
 DEF = 5
 SPDEF = 5
 

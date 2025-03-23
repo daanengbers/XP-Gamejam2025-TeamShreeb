@@ -83,6 +83,7 @@ func enemyEarthquakeAttack(target):
 	var damageDealt = casterOfAction.ATK * 1
 	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " caused an earthquake and hit everyone for " + str(damageDealt) + " damage!")
 	for i in range(enemyChosenTarget.size()):
+		#getEnemyTarget(target)
 		enemyChosenTarget[i].HP -= damageDealt
 		enemyChosenTarget[i].checkDeath()
 		enemyChosenTarget[i].updateUI()
