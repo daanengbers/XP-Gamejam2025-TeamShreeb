@@ -29,11 +29,11 @@ func reloadRoom():
 	effectanim.play("fade_in")
 	$MineLevel.visible = false
 	$SwampLevel.visible = false
-	if Global.global_enemiesDefeated < 11:
+	if Global.global_enemiesDefeated < 10:
 		pickRandomStage()
-	elif Global.global_enemiesDefeated == 11:
+	elif Global.global_enemiesDefeated == 10:
 		pickBossRoom()
-	elif Global.global_enemiesDefeated > 11:
+	elif Global.global_enemiesDefeated > 10:
 		pass # fuction to end game
 	Global.global_isInBattle = true
 	Global.global_isPlayerTurn = true
