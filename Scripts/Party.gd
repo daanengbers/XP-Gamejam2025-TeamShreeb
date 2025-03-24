@@ -95,21 +95,25 @@ func handlePlayerDeath(slotToKill):
 			Global.global_Char1Dead = true
 			Global.global_Char1IsOutOfOptions = true
 			Global.CheckGameover()
+			Global.checkOptionsLeftGameOver()
 		2:
 			for action in cardSlot2.get_child(0).get_children():
 				action.queue_free()
 			Global.global_Char2Dead = true
 			Global.global_Char2IsOutOfOptions = true
 			Global.CheckGameover()
+			Global.checkOptionsLeftGameOver()
 		3:
 			for action in cardSlot3.get_child(0).get_children():
 				action.queue_free()
 			Global.global_Char3Dead = true
 			Global.global_Char3IsOutOfOptions = true
 			Global.CheckGameover()
+			Global.checkOptionsLeftGameOver()
 		4:
 			for action in cardSlot4.get_child(0).get_children():
 				action.queue_free()
 			Global.global_Char4Dead = true
 			Global.global_Char4IsOutOfOptions = true
 			Global.CheckGameover()
+			Global.checkOptionsLeftGameOver()

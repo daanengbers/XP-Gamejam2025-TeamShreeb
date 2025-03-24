@@ -54,7 +54,7 @@ func Init():
 	var chosenEnemy = enemies.pick_random()
 	var enemyinstance = enemyInstance.instantiate()
 	self.add_child(enemyinstance)
-	var GameFlowScale = Global.global_enemiesDefeated 
+	var GameFlowScale = round(Global.global_enemiesDefeated / 4)
 	enemyinstance.EnemyName = chosenEnemy.EnemyName
 	enemyinstance.EnemySprite = chosenEnemy.EnemySprite
 	enemyinstance.possibleAttacks = chosenEnemy.possibleAttacks

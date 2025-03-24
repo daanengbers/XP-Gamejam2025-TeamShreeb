@@ -79,3 +79,24 @@ texture = ExtResource("5_63c4y")
 position = Vector2(272, 192)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_ct3wa")
+
+[node name="Damage_Health_Incidator_Text" type="Label" parent="."]
+texture_filter = 1
+offset_left = 37.0
+offset_top = 1.0
+offset_right = 412.0
+offset_bottom = 264.0
+theme_override_colors/font_color = Color(0.490196, 0.552941, 0.533333, 1)
+theme_override_fonts/font = ExtResource("3_yfu8b")
+theme_override_font_sizes/font_size = 130
+text = "- 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Damage_Health_Incidator_Text"]
+visible = false
+layout_mode = 0
+offset_left = 17.0
+offset_right = 381.0
+offset_bottom = 263.0
+color = Color(1, 0, 0, 0.188235)

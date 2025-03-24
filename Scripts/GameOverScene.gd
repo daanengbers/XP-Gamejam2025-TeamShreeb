@@ -7,4 +7,5 @@ func _ready():
 
 func _on_start_again_pressed():
 	Global.resetGame()
+	MusicManager.setSongNumber(0)
 	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")

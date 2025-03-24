@@ -5,16 +5,21 @@ extends Node2D
 @onready var Room = get_parent().get_parent()
 
 var enemyChosenTarget
+
 var friendlyCasterOfAction
 var friendlyTargetForAction
+
+############################################################################################################################
 
 func _ready():
 	randomize()
 	pass # Replace with function body.
 
-func _process(delta):
-	pass
+##############################################################
 
+###Enemy combat functions###
+
+##Enemy action handler##
 func doEnemyAction():
 	var hasDoneAction = false
 	var animWait = 0.0
@@ -57,48 +62,89 @@ func doEnemyAction():
 	if hasDoneAction:
 		endEnemyTurn()
 
+################################
+
+##Enemy abilities functions##
 func enemyAttack(target):
+	##Get the target and the caster
 	var casterOfAction = get_node("BattleEnemy/EnemyInstance")
 	getEnemyTarget(target)
+	
+	##Calculate damage dealt or health healed
 	var damageDealt = casterOfAction.ATK * 2
-	enemyChosenTarget.HP -= damageDealt
+	
+	##Display information on the textbox
 	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " tackled " + str(enemyChosenTarget.charName) + " for " + str(damageDealt) + " damage!")
+	
+	##Handle the in game results of the ability
+	enemyChosenTarget.HP -= damageDealt
+	
+	##Update UI and check death were applicable
+	enemyChosenTarget.displayDamageHeal(damageDealt, "damage")
 	enemyChosenTarget.checkDeath()
 	enemyChosenTarget.updateUI()
-	pass
 
 func enemyBigAttack(target):
+	##Get the target and the caster
 	var casterOfAction = get_node("BattleEnemy/EnemyInstance")
 	getEnemyTarget(target)
+	
+	##Calculate damage dealt or health healed
 	var damageDealt = casterOfAction.ATK * 3
+	
+	##Display information on the textbox
 	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " tackled " + str(enemyChosenTarget.charName) + " for " + str(damageDealt) + " damage!")
+	
+	##Handle the in game results of the ability
 	enemyChosenTarget.HP -= damageDealt
+	
+	##Update UI and check death were applicable
+	enemyChosenTarget.displayDamageHeal(damageDealt, "damage")
 	enemyChosenTarget.checkDeath()
 	enemyChosenTarget.updateUI()
-	pass
 
 func enemyEarthquakeAttack(target):
+	##Get the target and the caster
 	var casterOfAction = get_node("BattleEnemy/EnemyInstance")
 	getEnemyTarget(target)
+	
+	##Calculate damage dealt or health healed
 	var damageDealt = round(casterOfAction.ATK * 0.5)
+	
+	##Display information on the textbox
 	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " caused an earthquake and hit everyone for " + str(damageDealt) + " damage!")
+	
+	##Handle the in game results of the ability
 	for i in range(enemyChosenTarget.size()):
-		#getEnemyTarget(target)
 		enemyChosenTarget[i].HP -= damageDealt
+		
+		##Update UI and check death were applicable
+		enemyChosenTarget[i].displayDamageHeal(damageDealt, "damage")
 		enemyChosenTarget[i].checkDeath()
 		enemyChosenTarget[i].updateUI()
-	pass
-	
+
 func enemyHealAttack():
+	##Get the target and the caster
 	var casterOfAction = get_node("BattleEnemy/EnemyInstance")
 	var targetOfAction = casterOfAction
-	var HealthHealed = casterOfAction.ATK * 4
+	
+	##Calculate damage dealt or health healed
+	var HealthHealed = round(casterOfAction.ATK * 1.5)
+	
+	##Display information on the textbox
 	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " recentered itself and healed " + str(HealthHealed) + " health!")
+	
+	##Handle the in game results of the ability
 	targetOfAction.HP += HealthHealed
 	if targetOfAction.HP >= targetOfAction.MAXHP:
 		targetOfAction.HP = targetOfAction.MAXHP
+	
+	##Update UI and check death were applicable
 	get_parent().get_parent().updateEnemyDuringBattle(targetOfAction.HP)
 
+################################
+
+##Enemy combat helpers##
 func getEnemyTarget(whoToTarget):
 	var slot1 = get_node("Party/Slot1")
 	var slot2 = get_node("Party/Slot2")
@@ -126,17 +172,25 @@ func getEnemyTarget(whoToTarget):
 			print(enemyChosenTarget)
 	pass
 
+##############################################################
 
+###Friendly combat functions###
+
+##Friendly action handler##
 func doFriendlyAction(actionID, caster, target):
+	
+	##Init the action by creating variables needed and turning global var player turn off
 	var hasDoneAction = false
 	var animWait = 0.0
 	Global.global_isPlayerTurn = false
+	
+	##Read the actionID to decide which ability needs to be cast
 	match actionID:
 		"Tackle":
 			Room.attackSmall()
 			animWait = 0.9
 			await get_tree().create_timer(animWait).timeout
-			tackleAttack(target, caster)
+			friendlyTackleAttack(target, caster)
 			animWait = 1.1
 			await get_tree().create_timer(animWait).timeout
 			friendlyTargetForAction.checkDeath()
@@ -145,7 +199,7 @@ func doFriendlyAction(actionID, caster, target):
 			Room.attackLargeSlam()
 			animWait = 1.6
 			await get_tree().create_timer(animWait).timeout
-			bigSlamAttack(target, caster)
+			friendlyBigSlamAttack(target, caster)
 			animWait = 1.4
 			await get_tree().create_timer(animWait).timeout
 			friendlyTargetForAction.checkDeath()
@@ -154,7 +208,7 @@ func doFriendlyAction(actionID, caster, target):
 			Room.friendlyHeal()
 			animWait = 1.0
 			await get_tree().create_timer(animWait).timeout
-			healSelf(target,caster)
+			friendlyHealSelf(target,caster)
 			animWait = 1.6
 			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
@@ -162,7 +216,7 @@ func doFriendlyAction(actionID, caster, target):
 			Room.friendlyHeal()
 			animWait = 1.0
 			await get_tree().create_timer(animWait).timeout
-			healAll(target,caster)
+			friendlyHealAll(target,caster)
 			animWait = 1.6
 			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
@@ -170,7 +224,7 @@ func doFriendlyAction(actionID, caster, target):
 			Room.attackShootFireball()
 			animWait = 1.2
 			await get_tree().create_timer(animWait).timeout
-			fireballAttack(target, caster)
+			friendlyFireballAttack(target, caster)
 			animWait = 0.4
 			await get_tree().create_timer(animWait).timeout
 			friendlyTargetForAction.checkDeath()
@@ -179,54 +233,132 @@ func doFriendlyAction(actionID, caster, target):
 			Room.attackShootFrostball()
 			animWait = 1.2
 			await get_tree().create_timer(animWait).timeout
-			iceballAttack(target, caster)
+			friendlyIceballAttack(target, caster)
 			animWait = 0.4
 			await get_tree().create_timer(animWait).timeout
 			friendlyTargetForAction.checkDeath()
 			hasDoneAction = true
-			pass
 	Global.global_isPlayerTurn = false
 	if hasDoneAction:
 		endPlayerTurn()
 	else:
 		print("something went very wrong")
 
-func tackleAttack(target, caster):
+################################
+
+##Friendly abilities functions##
+func friendlyTackleAttack(target, caster):
+	##Get target(s) and caster of ability
 	friendlyGetCaster(caster)
 	friendlyGetTarget(target)
-	var damageDealt = friendlyCasterOfAction.ATK * 1
-	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " hit " + str(friendlyTargetForAction.EnemyName) + " for " + str(damageDealt) + " damage!")
-	friendlyTargetForAction.HP -= damageDealt
-	friendlyTargetForAction.updateUI() 
-	#friendlyTargetForAction.checkDeath()
 	
-func bigSlamAttack(target, caster):
+	##Calculate damage dealt or health healed
+	var damageDealt = friendlyCasterOfAction.ATK * 1
+	
+	##Display information on the textbox
+	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " hit " + str(friendlyTargetForAction.EnemyName) + " for " + str(damageDealt) + " damage!")
+	
+	##Handle the in game results of the ability
+	friendlyTargetForAction.HP -= damageDealt
+	
+	##Update UI and check death were applicable
+	friendlyTargetForAction.updateUI() 
+
+func friendlyBigSlamAttack(target, caster):
+	##Get target(s) and caster of ability
 	friendlyGetCaster(caster)
 	friendlyGetTarget(target)
+	
+	##Calculate damage dealt or health healed
 	var damageDealt = friendlyCasterOfAction.ATK * 2
+	
+	##Display information on the textbox
 	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " slammed " + str(friendlyTargetForAction.EnemyName) + " for " + str(damageDealt) + " damage!")
+	
+	##Handle the in game results of the ability
 	friendlyTargetForAction.HP -= damageDealt
+	
+	##Update UI and check death were applicable
 	friendlyTargetForAction.updateUI() 
-	#friendlyTargetForAction.checkDeath()
 
-func fireballAttack(target, caster):
+func friendlyFireballAttack(target, caster):
+	##Get target(s) and caster of ability
 	friendlyGetCaster(caster)
 	friendlyGetTarget(target)
+	
+	##Calculate damage dealt or health healed
 	var damageDealt = friendlyCasterOfAction.MG * 2
+	
+	##Display information on the textbox
 	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " summoned a ball of pure fire and dealt " + str(damageDealt) + " damage to " + str(friendlyTargetForAction.EnemyName))
+	
+	##Handle the in game results of the ability
 	friendlyTargetForAction.HP -= damageDealt
+	
+	##Update UI and check death were applicable
 	friendlyTargetForAction.updateUI() 
-	#friendlyTargetForAction.checkDeath()
 
-func iceballAttack(target, caster):
+func friendlyIceballAttack(target, caster):
+	##Get target(s) and caster of ability
 	friendlyGetCaster(caster)
 	friendlyGetTarget(target)
+	
+	##Calculate damage dealt or health healed
 	var damageDealt = round(friendlyCasterOfAction.MG * 2.5)
+	
+	##Display information on the textbox
 	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " summoned a ball of pure ice and dealt " + str(damageDealt) + " damage to " + str(friendlyTargetForAction.EnemyName))
+	
+	##Handle the in game results of the ability
 	friendlyTargetForAction.HP -= damageDealt
+	
+	##Update UI and check death were applicable
 	friendlyTargetForAction.updateUI() 
-	#friendlyTargetForAction.checkDeath()
 
+func friendlyHealSelf(target, caster):
+	##Get target(s) and caster of ability
+	friendlyGetCaster(caster)
+	friendlyGetTarget(target)
+	
+	##Calculate damage dealt or health healed
+	var healthHealed = friendlyCasterOfAction.MG * 1
+	
+	##Display information on the textbox
+	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " recentered itself and healed " + str(healthHealed) + " health!")
+	
+	##Handle the in game results of the ability
+	friendlyTargetForAction.HP += healthHealed
+	if friendlyTargetForAction.HP > friendlyTargetForAction.maxHP:
+		friendlyTargetForAction.HP = friendlyTargetForAction.maxHP
+	
+	##Update UI and check death were applicable
+	friendlyTargetForAction.displayDamageHeal(healthHealed, "heal")
+	friendlyTargetForAction.updateUI() 
+
+func friendlyHealAll(target, caster):
+	##Get target(s) and caster of ability
+	friendlyGetCaster(caster)
+	friendlyGetTarget(target)
+	
+	##Calculate damage dealt or health healed
+	var healthHealed = friendlyCasterOfAction.MG * 1
+	
+	##Display information on the textbox
+	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " thinked very hard itself and healed everyone for  " + str(healthHealed) + " health!")
+	
+	##Handle the in game results of the ability
+	for i in range(friendlyTargetForAction.size()):
+		friendlyTargetForAction[i].HP += healthHealed
+		if friendlyTargetForAction[i].HP > friendlyTargetForAction[i].maxHP:
+			friendlyTargetForAction[i].HP = friendlyTargetForAction[i].maxHP
+		
+		##Update UI and check death were applicable
+		friendlyTargetForAction[i].displayDamageHeal(healthHealed, "heal")
+		friendlyTargetForAction[i].updateUI() 
+
+################################
+
+##Friendly combat helpers##
 func friendlyGetCaster(caster):
 	match caster:
 		1:
@@ -259,43 +391,10 @@ func friendlyGetTarget(target):
 			if Global.global_Char4Dead:
 				friendlyTargetForAction.erase(caster4)
 
-func healSelf(target, caster):
-	var targetForAction
-	var casterOfAction
-	match caster:
-		1:
-			casterOfAction = get_node("Party/Slot1")
-		2:
-			casterOfAction = get_node("Party/Slot2")
-		3:
-			casterOfAction = get_node("Party/Slot3")
-		4: 
-			casterOfAction = get_node("Party/Slot4")
-	match target:
-		"Enemy":
-			targetForAction = get_node("BattleEnemy/EnemyInstance")
-		"self":
-			targetForAction = casterOfAction
-	var healthHealed = casterOfAction.MG * 1
-	GlobalTextBox.activateTextbox(str(casterOfAction.charName) + " recentered itself and healed " + str(healthHealed) + " health!")
-	targetForAction.HP += healthHealed
-	if targetForAction.HP > targetForAction.maxHP:
-		targetForAction.HP = targetForAction.maxHP
-	targetForAction.updateUI() 
-	pass
+##############################################################
 
-func healAll(target, caster):
-	friendlyGetCaster(caster)
-	friendlyGetTarget(target)
-	print(friendlyTargetForAction)
-	var healthHealed = friendlyCasterOfAction.MG * 1
-	GlobalTextBox.activateTextbox(str(friendlyCasterOfAction.charName) + " thinked very hard itself and healed everyone for  " + str(healthHealed) + " health!")
-	for i in range(friendlyTargetForAction.size()):
-		friendlyTargetForAction[i].HP += healthHealed
-		if friendlyTargetForAction[i].HP > friendlyTargetForAction[i].maxHP:
-			friendlyTargetForAction[i].HP = friendlyTargetForAction[i].maxHP
-		friendlyTargetForAction[i].updateUI() 
-	
+###Turn handlers###
+
 func endPlayerTurn():
 	if Global.global_isInBattle == true:
 		Global.global_isPlayerTurn = false
