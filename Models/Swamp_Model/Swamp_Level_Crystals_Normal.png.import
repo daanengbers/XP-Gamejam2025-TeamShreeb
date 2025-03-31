@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccnj7g3srdnoj"
 path.s3tc="res://.godot/imported/Swamp_Level_Crystals_Normal.png-46dabe4176d7469c2d3a977018588cf0.s3tc.ctex"
+path.etc2="res://.godot/imported/Swamp_Level_Crystals_Normal.png-46dabe4176d7469c2d3a977018588cf0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Swamp_Model/Swamp_Level_Crystals_Normal.png"
-dest_files=["res://.godot/imported/Swamp_Level_Crystals_Normal.png-46dabe4176d7469c2d3a977018588cf0.s3tc.ctex"]
+dest_files=["res://.godot/imported/Swamp_Level_Crystals_Normal.png-46dabe4176d7469c2d3a977018588cf0.s3tc.ctex", "res://.godot/imported/Swamp_Level_Crystals_Normal.png-46dabe4176d7469c2d3a977018588cf0.etc2.ctex"]
 
 [params]
 

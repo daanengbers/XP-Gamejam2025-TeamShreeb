@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dirqnq3fqsnug"
 path.s3tc="res://.godot/imported/Mine_Level_Clean_3_Rock_Mat_BaseColor.png-7e9837a55cdf09147cf66a41b80afaaa.s3tc.ctex"
+path.etc2="res://.godot/imported/Mine_Level_Clean_3_Rock_Mat_BaseColor.png-7e9837a55cdf09147cf66a41b80afaaa.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Dungeon/Mine_Level_Clean_3_Rock_Mat_BaseColor.png"
-dest_files=["res://.godot/imported/Mine_Level_Clean_3_Rock_Mat_BaseColor.png-7e9837a55cdf09147cf66a41b80afaaa.s3tc.ctex"]
+dest_files=["res://.godot/imported/Mine_Level_Clean_3_Rock_Mat_BaseColor.png-7e9837a55cdf09147cf66a41b80afaaa.s3tc.ctex", "res://.godot/imported/Mine_Level_Clean_3_Rock_Mat_BaseColor.png-7e9837a55cdf09147cf66a41b80afaaa.etc2.ctex"]
 
 [params]
 

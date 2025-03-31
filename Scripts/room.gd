@@ -107,6 +107,10 @@ func enemyEarthquake():
 	effectanim.play("RESET")
 	effectanim.play("enemy_earthquake")
 
+func enemyMeteor():
+	effectanim.play("RESET")
+	effectanim.play("EnemyMeteor")
+
 func enemyHeal():
 	effectanim.play("RESET")
 	effectanim.play("enemy_heal")

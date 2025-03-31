@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://hav0ot8mmxr7"
 path.s3tc="res://.godot/imported/Swamp_Level_Walls_Roughness.png-08072a96ca624a1a11d3b5831b0831c1.s3tc.ctex"
+path.etc2="res://.godot/imported/Swamp_Level_Walls_Roughness.png-08072a96ca624a1a11d3b5831b0831c1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Swamp_Model/Swamp_Level_Walls_Roughness.png"
-dest_files=["res://.godot/imported/Swamp_Level_Walls_Roughness.png-08072a96ca624a1a11d3b5831b0831c1.s3tc.ctex"]
+dest_files=["res://.godot/imported/Swamp_Level_Walls_Roughness.png-08072a96ca624a1a11d3b5831b0831c1.s3tc.ctex", "res://.godot/imported/Swamp_Level_Walls_Roughness.png-08072a96ca624a1a11d3b5831b0831c1.etc2.ctex"]
 
 [params]
 

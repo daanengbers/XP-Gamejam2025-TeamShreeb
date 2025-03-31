@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://4jioo36g8ahg"
 path.s3tc="res://.godot/imported/Mine_Level_Clean_3_Rope_Mat_BaseColor.png-8385e405be010daae5e437f76c03c1a9.s3tc.ctex"
+path.etc2="res://.godot/imported/Mine_Level_Clean_3_Rope_Mat_BaseColor.png-8385e405be010daae5e437f76c03c1a9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Dungeon/Mine_Level_Clean_3_Rope_Mat_BaseColor.png"
-dest_files=["res://.godot/imported/Mine_Level_Clean_3_Rope_Mat_BaseColor.png-8385e405be010daae5e437f76c03c1a9.s3tc.ctex"]
+dest_files=["res://.godot/imported/Mine_Level_Clean_3_Rope_Mat_BaseColor.png-8385e405be010daae5e437f76c03c1a9.s3tc.ctex", "res://.godot/imported/Mine_Level_Clean_3_Rope_Mat_BaseColor.png-8385e405be010daae5e437f76c03c1a9.etc2.ctex"]
 
 [params]
 

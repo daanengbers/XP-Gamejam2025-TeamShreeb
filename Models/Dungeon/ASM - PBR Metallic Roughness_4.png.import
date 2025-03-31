@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cagnxou0cm4nd"
 path.s3tc="res://.godot/imported/ASM - PBR Metallic Roughness_4.png-baab09d778f383d3d2de54bd6d37d2df.s3tc.ctex"
+path.etc2="res://.godot/imported/ASM - PBR Metallic Roughness_4.png-baab09d778f383d3d2de54bd6d37d2df.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Dungeon/ASM - PBR Metallic Roughness_4.png"
-dest_files=["res://.godot/imported/ASM - PBR Metallic Roughness_4.png-baab09d778f383d3d2de54bd6d37d2df.s3tc.ctex"]
+dest_files=["res://.godot/imported/ASM - PBR Metallic Roughness_4.png-baab09d778f383d3d2de54bd6d37d2df.s3tc.ctex", "res://.godot/imported/ASM - PBR Metallic Roughness_4.png-baab09d778f383d3d2de54bd6d37d2df.etc2.ctex"]
 
 [params]
 

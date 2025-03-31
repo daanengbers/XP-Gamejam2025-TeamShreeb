@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://s76l7xjuif4t"
 path.s3tc="res://.godot/imported/Swamp_Level_Walls_BaseColor.png-f6840779488faa1ae41f6101e74b4496.s3tc.ctex"
+path.etc2="res://.godot/imported/Swamp_Level_Walls_BaseColor.png-f6840779488faa1ae41f6101e74b4496.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Swamp_Model/Swamp_Level_Walls_BaseColor.png"
-dest_files=["res://.godot/imported/Swamp_Level_Walls_BaseColor.png-f6840779488faa1ae41f6101e74b4496.s3tc.ctex"]
+dest_files=["res://.godot/imported/Swamp_Level_Walls_BaseColor.png-f6840779488faa1ae41f6101e74b4496.s3tc.ctex", "res://.godot/imported/Swamp_Level_Walls_BaseColor.png-f6840779488faa1ae41f6101e74b4496.etc2.ctex"]
 
 [params]
 

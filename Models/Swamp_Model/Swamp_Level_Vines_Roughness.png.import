@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcxutwmjqdyah"
 path.s3tc="res://.godot/imported/Swamp_Level_Vines_Roughness.png-1870f6a8cb633d67a7d0497d727ada7f.s3tc.ctex"
+path.etc2="res://.godot/imported/Swamp_Level_Vines_Roughness.png-1870f6a8cb633d67a7d0497d727ada7f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Swamp_Model/Swamp_Level_Vines_Roughness.png"
-dest_files=["res://.godot/imported/Swamp_Level_Vines_Roughness.png-1870f6a8cb633d67a7d0497d727ada7f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Swamp_Level_Vines_Roughness.png-1870f6a8cb633d67a7d0497d727ada7f.s3tc.ctex", "res://.godot/imported/Swamp_Level_Vines_Roughness.png-1870f6a8cb633d67a7d0497d727ada7f.etc2.ctex"]
 
 [params]
 

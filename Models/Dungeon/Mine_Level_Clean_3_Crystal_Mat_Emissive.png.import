@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://e053yu46yn5k"
 path.s3tc="res://.godot/imported/Mine_Level_Clean_3_Crystal_Mat_Emissive.png-978fe3ff4c3262cf3875d913da28201c.s3tc.ctex"
+path.etc2="res://.godot/imported/Mine_Level_Clean_3_Crystal_Mat_Emissive.png-978fe3ff4c3262cf3875d913da28201c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Dungeon/Mine_Level_Clean_3_Crystal_Mat_Emissive.png"
-dest_files=["res://.godot/imported/Mine_Level_Clean_3_Crystal_Mat_Emissive.png-978fe3ff4c3262cf3875d913da28201c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Mine_Level_Clean_3_Crystal_Mat_Emissive.png-978fe3ff4c3262cf3875d913da28201c.s3tc.ctex", "res://.godot/imported/Mine_Level_Clean_3_Crystal_Mat_Emissive.png-978fe3ff4c3262cf3875d913da28201c.etc2.ctex"]
 
 [params]
 

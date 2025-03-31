@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ditm7s4oucuir"
 path.s3tc="res://.godot/imported/Enemy_Bug.png-5f58aec7edd832cb2c5d7277f1d5966a.s3tc.ctex"
+path.etc2="res://.godot/imported/Enemy_Bug.png-5f58aec7edd832cb2c5d7277f1d5966a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Sprites/Enemies/Enemy_Bug.png"
-dest_files=["res://.godot/imported/Enemy_Bug.png-5f58aec7edd832cb2c5d7277f1d5966a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Enemy_Bug.png-5f58aec7edd832cb2c5d7277f1d5966a.s3tc.ctex", "res://.godot/imported/Enemy_Bug.png-5f58aec7edd832cb2c5d7277f1d5966a.etc2.ctex"]
 
 [params]
 

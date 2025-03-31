@@ -24,7 +24,7 @@ SPDEF = 5
 [node name="Krunt" parent="." groups=["Enemies"] instance=ExtResource("1_g0qqh")]
 EnemyName = "Krunt the great"
 EnemySprite = ExtResource("4_b1p02")
-possibleAttacks = ["BigAttack", "Heal", "Earthquake"]
+possibleAttacks = ["BigAttack", "Heal", "Earthquake", "Meteor", "Meteor"]
 MAXHP = 20
 HP = 20
 ATK = 5

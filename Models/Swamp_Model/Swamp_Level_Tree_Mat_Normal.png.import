@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://blxkrtdnf7oxh"
 path.s3tc="res://.godot/imported/Swamp_Level_Tree_Mat_Normal.png-2952fdf09b61997734c6154a87528f64.s3tc.ctex"
+path.etc2="res://.godot/imported/Swamp_Level_Tree_Mat_Normal.png-2952fdf09b61997734c6154a87528f64.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Swamp_Model/Swamp_Level_Tree_Mat_Normal.png"
-dest_files=["res://.godot/imported/Swamp_Level_Tree_Mat_Normal.png-2952fdf09b61997734c6154a87528f64.s3tc.ctex"]
+dest_files=["res://.godot/imported/Swamp_Level_Tree_Mat_Normal.png-2952fdf09b61997734c6154a87528f64.s3tc.ctex", "res://.godot/imported/Swamp_Level_Tree_Mat_Normal.png-2952fdf09b61997734c6154a87528f64.etc2.ctex"]
 
 [params]
 

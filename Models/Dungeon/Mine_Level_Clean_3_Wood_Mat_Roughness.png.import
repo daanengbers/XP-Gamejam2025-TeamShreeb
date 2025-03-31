@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmnbjaeqco8k"
 path.s3tc="res://.godot/imported/Mine_Level_Clean_3_Wood_Mat_Roughness.png-4e7b8706e0b08b49361c464bbc853eae.s3tc.ctex"
+path.etc2="res://.godot/imported/Mine_Level_Clean_3_Wood_Mat_Roughness.png-4e7b8706e0b08b49361c464bbc853eae.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Dungeon/Mine_Level_Clean_3_Wood_Mat_Roughness.png"
-dest_files=["res://.godot/imported/Mine_Level_Clean_3_Wood_Mat_Roughness.png-4e7b8706e0b08b49361c464bbc853eae.s3tc.ctex"]
+dest_files=["res://.godot/imported/Mine_Level_Clean_3_Wood_Mat_Roughness.png-4e7b8706e0b08b49361c464bbc853eae.s3tc.ctex", "res://.godot/imported/Mine_Level_Clean_3_Wood_Mat_Roughness.png-4e7b8706e0b08b49361c464bbc853eae.etc2.ctex"]
 
 [params]
 

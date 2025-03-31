@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://be4y3jrba26q1"
 path.s3tc="res://.godot/imported/Mine_Level_Clean_3_Crystal_Mat_Roughness.png-809eb875eb356b2788dbc9eb1c75b950.s3tc.ctex"
+path.etc2="res://.godot/imported/Mine_Level_Clean_3_Crystal_Mat_Roughness.png-809eb875eb356b2788dbc9eb1c75b950.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Dungeon/Mine_Level_Clean_3_Crystal_Mat_Roughness.png"
-dest_files=["res://.godot/imported/Mine_Level_Clean_3_Crystal_Mat_Roughness.png-809eb875eb356b2788dbc9eb1c75b950.s3tc.ctex"]
+dest_files=["res://.godot/imported/Mine_Level_Clean_3_Crystal_Mat_Roughness.png-809eb875eb356b2788dbc9eb1c75b950.s3tc.ctex", "res://.godot/imported/Mine_Level_Clean_3_Crystal_Mat_Roughness.png-809eb875eb356b2788dbc9eb1c75b950.etc2.ctex"]
 
 [params]
 

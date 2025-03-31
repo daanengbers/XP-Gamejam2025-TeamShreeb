@@ -36,7 +36,7 @@ func checkOptionsLeftGameOver():
 
 func TriggerVictoryScreen():
 	await get_tree().create_timer(2.0).timeout
-	get_tree().change_scene_to_file("res://Scenes/VictoryScreen.tscn")
+	get_tree().change_scene_to_file("res://Scenes/victory_screen.tscn")
 
 func resetGame():
 	global_isPlayerTurn = true

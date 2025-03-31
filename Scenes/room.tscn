@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://dhosqviutvr2s"]
+[gd_scene load_steps=108 format=3 uid="uid://dhosqviutvr2s"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_7wc8e"]
 [ext_resource type="PackedScene" uid="uid://dlalrswgjsy8v" path="res://Scenes/fireball.tscn" id="2_6vnvk"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bv6c1imgxkb5i" path="res://Scenes/BattleScene.tscn" id="7_sycas"]
 [ext_resource type="Texture2D" uid="uid://ditm7s4oucuir" path="res://Sprites/Enemies/Enemy_Bug.png" id="8_mgppx"]
 [ext_resource type="Shader" path="res://Shaders/watershader2.gdshader" id="10_mws55"]
+[ext_resource type="PackedScene" uid="uid://5w71x2shewj6" path="res://Scenes/Meteor.tscn" id="11_d8y3s"]
 [ext_resource type="PackedScene" uid="uid://bw66m01jsyn17" path="res://Models/Placeholder_Models/OOP_Swamp_Level_BO.gltf" id="12_ocnnw"]
 [ext_resource type="Texture2D" uid="uid://4jioo36g8ahg" path="res://Models/Dungeon/Mine_Level_Clean_3_Rope_Mat_BaseColor.png" id="14_iowx1"]
 [ext_resource type="ArrayMesh" uid="uid://c05k38rk6r0qg" path="res://Models/Dungeon/Mine_Level.obj" id="14_sr05u"]
@@ -70,6 +71,141 @@
 albedo_texture = ExtResource("56_jfl17")
 
 [sub_resource type="QuadMesh" id="QuadMesh_v5xaw"]
+
+[sub_resource type="Animation" id="Animation_aej5x"]
+resource_name = "EnemyMeteor"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Effects_Nodes/Meteor:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2, 2.5, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Effects_Nodes/Meteor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.8, 2, 2.8, 3, 3.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.963, 5.463, 0), Vector3(0.43871, 1.86427, 10.4256), Vector3(2.37327, 4.27257, 1.68362), Vector3(0.460602, 0.452111, 12.8393), Vector3(0.217815, 4.65496, 1.56938), Vector3(0.347638, 0.759546, 11.2504)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Effects_Nodes/Meteor:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 1.8, 2, 2.8, 3, 3.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.05468, -2.69472, 3.14159), Vector3(1.05418, -2.9147, 3.14159), Vector3(1.05418, 2.96388, -3.14159), Vector3(1.05418, 2.96388, -3.14159), Vector3(1.05418, -3.05166, -3.14159), Vector3(1.05418, -3.05166, -3.14159)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.5, 1.6, 1.7, 1.8, 2, 2.4, 2.5, 2.6, 2.7, 2.9, 3.4, 3.5, 3.6, 3.7, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.347912, 0.028954, 0.0847453), Vector3(0.188708, -0.0590385, -0.249897), Vector3(0.075456, 0.00342165, 0.163513), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.347912, 0.028954, 0.0847453), Vector3(0.188708, -0.0590385, -0.249897), Vector3(0.075456, 0.00342165, 0.163513), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.347912, 0.028954, 0.0847453), Vector3(0.188708, -0.0590385, -0.249897), Vector3(0.075456, 0.00342165, 0.163513), Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../../TwoD_View/Color_Over:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 1.5, 1.6, 1.7, 2.4, 2.5, 2.6, 3.4, 3.5, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.505882, 0, 0.694118, 0.827451), Color(1, 1, 1, 0), Color(0.505882, 0, 0.694118, 0.827451), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0.658824, 0, 0, 0.827451), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0.658824, 0, 0, 0.827451), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0.658824, 0, 0, 0.827451), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../..")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.4, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"soundBattleCry"
+}, {
+"args": [],
+"method": &"soundHitEffect"
+}, {
+"args": [],
+"method": &"soundHitEffect"
+}, {
+"args": [],
+"method": &"soundHitEffect"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../EnemySprite:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.34902, 0.870588, 1), Color(1, 1, 1, 1), Color(1, 0.34902, 0.870588, 1), Color(1, 1, 1, 1), Color(1, 0.34902, 0.870588, 1), Color(1, 1, 1, 1), Color(1, 0.34902, 0.870588, 1), Color(1, 1, 1, 1), Color(1, 0.34902, 0.870588, 1), Color(1, 1, 1, 1), Color(1, 0.34902, 0.870588, 1), Color(1, 1, 1, 1), Color(1, 0.34902, 0.870588, 1), Color(1, 1, 1, 1), Color(1, 0.34902, 0.870588, 1), Color(1, 1, 1, 1), Color(1, 0.34902, 0.870588, 1), Color(1, 1, 1, 1), Color(1, 0.34902, 0.870588, 1), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../EnemySprite:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.6, 1, 1.4, 1.8, 2.2, 2.6, 3, 3.4, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.15, -0.5), Vector3(0, 3, -0.5), Vector3(0, 2.8, -0.5), Vector3(0, 3, -0.5), Vector3(0, 2.8, -0.5), Vector3(0, 3, -0.5), Vector3(0, 2.8, -0.5), Vector3(0, 3, -0.5), Vector3(0, 2.8, -0.5), Vector3(0, 2.15, -0.5)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../EnemySprite:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.45, 0.45, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_s8vtl"]
 length = 0.001
@@ -228,6 +364,42 @@ tracks/12/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../Effects_Nodes/Meteor:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../Effects_Nodes/Meteor:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.96344, 4.69315, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../Effects_Nodes/Meteor:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.05468, -2.69472, 3.14159)]
 }
 
 [sub_resource type="Animation" id="Animation_gtrau"]
@@ -1127,6 +1299,7 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r6ldc"]
 _data = {
+"EnemyMeteor": SubResource("Animation_aej5x"),
 "RESET": SubResource("Animation_s8vtl"),
 "attack_tackle": SubResource("Animation_gtrau"),
 "continue_to_next_room": SubResource("Animation_e1pwl"),
@@ -1449,6 +1622,10 @@ light_energy = 0.2
 
 [node name="Fireball" parent="ThreeD_View/ThreeD/Effects_Nodes" instance=ExtResource("2_6vnvk")]
 transform = Transform3D(0.684769, -0.144781, -0.0113818, -0.0138059, -0.119509, 0.689585, -0.14457, -0.674356, -0.119764, 3.85, 2.5, 11)
+visible = false
+
+[node name="Meteor" parent="ThreeD_View/ThreeD/Effects_Nodes" instance=ExtResource("11_d8y3s")]
+transform = Transform3D(0.901802, 0.375859, -0.213267, 1.25113e-06, -0.493506, -0.869742, -0.432149, 0.784335, -0.445045, -1.96344, 4.69315, 0)
 visible = false
 
 [node name="FrostBall" parent="ThreeD_View/ThreeD/Effects_Nodes" instance=ExtResource("4_sbord")]

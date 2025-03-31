@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy30u7t8duwox"
 path.s3tc="res://.godot/imported/Frostball_Texture.png-4600e80d2f804992eb35e506a704f7cc.s3tc.ctex"
+path.etc2="res://.godot/imported/Frostball_Texture.png-4600e80d2f804992eb35e506a704f7cc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Sprites/Hiteffects/Frostball_Texture.png"
-dest_files=["res://.godot/imported/Frostball_Texture.png-4600e80d2f804992eb35e506a704f7cc.s3tc.ctex"]
+dest_files=["res://.godot/imported/Frostball_Texture.png-4600e80d2f804992eb35e506a704f7cc.s3tc.ctex", "res://.godot/imported/Frostball_Texture.png-4600e80d2f804992eb35e506a704f7cc.etc2.ctex"]
 
 [params]
 

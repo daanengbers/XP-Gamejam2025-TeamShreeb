@@ -59,6 +59,14 @@ func doEnemyAction():
 			animWait = 0.8
 			await get_tree().create_timer(animWait).timeout
 			hasDoneAction = true
+		"Meteor":
+			Room.enemyMeteor()
+			animWait = 1.5
+			await get_tree().create_timer(animWait).timeout
+			enemyMeteorAttack("All")
+			animWait = 2.5
+			await get_tree().create_timer(animWait).timeout
+			hasDoneAction = true
 	if hasDoneAction:
 		endEnemyTurn()
 
@@ -141,6 +149,46 @@ func enemyHealAttack():
 	
 	##Update UI and check death were applicable
 	get_parent().get_parent().updateEnemyDuringBattle(targetOfAction.HP)
+
+func enemyMeteorAttack(target):
+	##Get the target and the caster
+	var casterOfAction = get_node("BattleEnemy/EnemyInstance")
+	getEnemyTarget(target)
+	
+	##Calculate damage dealt or health healed
+	var damageDealt = round(casterOfAction.ATK * 0.75)
+	
+	var targetNames = ["", "", ""]
+	
+	##Handle the in game results of the ability
+	for i in range(3):
+		var randomTarget = randi_range(1, enemyChosenTarget.size()) - 1
+		enemyChosenTarget[randomTarget].HP -= damageDealt
+		
+		##Update UI and check death were applicable
+		enemyChosenTarget[randomTarget].displayDamageHeal(damageDealt, "damage")
+		enemyChosenTarget[randomTarget].checkDeath()
+		enemyChosenTarget[randomTarget].updateUI()
+		targetNames[i] = enemyChosenTarget[randomTarget].charName
+		getEnemyTarget(target)
+		await get_tree().create_timer(1.0).timeout
+	
+	if targetNames[0] == targetNames[1]:
+		targetNames[1] = ""
+	if targetNames[0] == targetNames[2]:
+		targetNames[2] = ""
+	if targetNames[1] == targetNames[2]:
+		targetNames[2] = ""
+	if targetNames[2] == "" && targetNames[1] != "":
+		targetNames[1] = str(" and " + targetNames[1])
+	if targetNames[1] != "" && targetNames[2] != "":
+		targetNames[1] = str(", " + targetNames[1])
+		targetNames[2] = str(" and " + targetNames[2])
+	if targetNames[2] != "" && targetNames[1] == "":
+		targetNames[2] = str(" and " + targetNames[2])
+	
+	##Display information on the textbox
+	GlobalTextBox.activateTextbox(str(casterOfAction.EnemyName) + " summoned a meteor storm and hit " + targetNames[0] + targetNames[1] + targetNames[2] + " for " + str(damageDealt) + " damage!")
 
 ################################
 

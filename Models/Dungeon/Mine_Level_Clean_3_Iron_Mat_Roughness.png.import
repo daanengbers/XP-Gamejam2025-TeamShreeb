@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6wh8joimgh1b"
 path.s3tc="res://.godot/imported/Mine_Level_Clean_3_Iron_Mat_Roughness.png-cd0e0c52b417920fa87f3ccf91adcff1.s3tc.ctex"
+path.etc2="res://.godot/imported/Mine_Level_Clean_3_Iron_Mat_Roughness.png-cd0e0c52b417920fa87f3ccf91adcff1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Dungeon/Mine_Level_Clean_3_Iron_Mat_Roughness.png"
-dest_files=["res://.godot/imported/Mine_Level_Clean_3_Iron_Mat_Roughness.png-cd0e0c52b417920fa87f3ccf91adcff1.s3tc.ctex"]
+dest_files=["res://.godot/imported/Mine_Level_Clean_3_Iron_Mat_Roughness.png-cd0e0c52b417920fa87f3ccf91adcff1.s3tc.ctex", "res://.godot/imported/Mine_Level_Clean_3_Iron_Mat_Roughness.png-cd0e0c52b417920fa87f3ccf91adcff1.etc2.ctex"]
 
 [params]
 
